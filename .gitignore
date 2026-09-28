@@ -1,0 +1,11 @@
+store/golden.db
+store/golden.db-*
+*.log
+__pycache__/
+node_modules/
+app/android/
+app/ios/
+app/.expo/
+twin-profile/
+relay/.env
+*.apk
