@@ -28,6 +28,14 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 MUTATING = ("open", "newtab", "closetab")
 
+# The three locked tabs (app/src/locked.ts) carry this id prefix. They are never
+# closed, on any replica.
+LOCK_PREFIX = "lock-"
+
+
+def is_locked(tab_id):
+    return isinstance(tab_id, str) and tab_id.startswith(LOCK_PREFIX)
+
 # Divergence classes — every way P and T can disagree. Each is surfaced, none silently.
 DIVERGENCE_CLASSES = {
     "link-down": "relay<->phone websocket is down; neither side can verify the other",
@@ -109,7 +117,7 @@ class TwinModel:
             for t in tabs:
                 if t["id"] == p["tab"]:
                     t["url"] = p["url"]
-        elif op == "closetab":
+        elif op == "closetab" and not is_locked(p["tab"]):
             model["tabs"] = [t for t in tabs if t["id"] != p["tab"]]
             if model["activeTabId"] == p["tab"]:
                 model["activeTabId"] = model["tabs"][-1]["id"] if model["tabs"] else None
@@ -155,7 +163,8 @@ class TwinModel:
         src = self.phone or self.model
         return {
             "tabs": [{"id": t.get("id"), "owner": t.get("owner"), "url": redact_url(t.get("url")),
-                      "title": t.get("title"), "signedIn": bool(t.get("signedIn"))}
+                      "title": t.get("title"), "signedIn": bool(t.get("signedIn")),
+                      "locked": is_locked(t.get("id")), "ai": t.get("ai")}
                      for t in src.get("tabs", [])],
             "activeTabId": src.get("activeTabId"),
             "phoneRev": self.phone_rev,

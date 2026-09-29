@@ -8,7 +8,7 @@ import { Najwa } from './src/components/Najwa';
 import { Panel } from './src/components/Panel';
 import { loadConfig } from './src/config';
 import { cookieBridge } from './src/cookies';
-import { connect, reconnectNow } from './src/relay';
+import { connect, reconnectNow, signal } from './src/relay';
 import { hydrate, setUi, useApp } from './src/state';
 import { C, SERIF } from './src/theme';
 
@@ -26,6 +26,8 @@ export default function App() {
       connect();
     })();
     const sub = AppState.addEventListener('change', (st) => {
+      // lifecycle is a touch point on the map: background means state is being persisted
+      signal('app.lifecycle', { state: st });
       if (st === 'active') reconnectNow();
       else cookieBridge.flush().catch(() => {});
     });

@@ -1,4 +1,5 @@
 import { handleFor } from './engine';
+import { isLocked } from './locked';
 import { route } from './routing';
 import { blankTab, getState, notify, tabById, updateBrowser } from './state';
 import type { Owner } from './types';
@@ -63,6 +64,7 @@ async function processOp(m: { rev: number; op: string; params: any; id?: string 
     }
   } else if (m.op === 'closetab') {
     if (!tabById(p.tab)) rejected = 'no such tab';
+    else if (isLocked(p.tab)) rejected = 'locked tab';
     updateBrowser((b) => {
       if (!rejected) {
         b.tabs = b.tabs.filter((t) => t.id !== p.tab);

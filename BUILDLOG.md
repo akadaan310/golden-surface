@@ -71,3 +71,12 @@ Chrome Custom Tab path; its limit is in docs/DECISIONS.md.
 - TLS in front of the relay (tokens are in cleartext over plain HTTP today).
 - Hand the APK to Abed (e.g. adb install, or a private download).
 - Retune session-health's expiring heuristic once real sessions exist.
+
+## Locked tabs, the map, AI engagement
+
+- Three locked tabs (Luna, ACSP, Trial), enforced on phone, relay and twin.
+- GET /map and GET /map/tab/{id}?from=&len=: the surface as URLs; see docs/DECISIONS.md.
+- AI-surface detection (✦, llm.engaged), ?ask with the open tab's context, app.lifecycle signal.
+- Verified here: `tsc --noEmit` clean; `python3 -m unittest tests.test_locked` passes.
+  Not yet run: the live relay tests and the app on a device.
+- Open: the Trial tab's home URL waits on where the trial lives.

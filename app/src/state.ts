@@ -3,6 +3,8 @@ import { useSyncExternalStore } from 'react';
 import type {
   BrowserState, LoginRequest, Notice, Owner, SessionRow, Suggested, SyncStatus, Tab,
 } from './types';
+import { aiOf } from './ai';
+import { withLocked } from './locked';
 import { siteOf } from './routing';
 
 /** One store for the app. Browser state persists to AsyncStorage on every
@@ -33,6 +35,8 @@ export function blankTab(owner: Owner, url = 'about:blank', id = newId()): Tab {
   return { id, owner, url, title: '', signedIn: false, createdAt: nowIso(), src: { uri: url, n: 0 } };
 }
 
+const lockedTab = (d: { id: string; owner: Owner; home: string }) => blankTab(d.owner, d.home, d.id);
+
 let state: AppState = {
   browser: { rev: 0, ackTwinRev: 0, tabs: [], activeTabId: null },
   hydrated: false,
@@ -62,7 +66,8 @@ export function setUi(patch: Partial<Omit<AppState, 'browser'>>) {
 export function updateBrowser(fn: (b: BrowserState) => BrowserState | void, opts: { silent?: boolean } = {}) {
   const draft: BrowserState = JSON.parse(JSON.stringify(state.browser));
   const out = fn(draft) ?? draft;
-  out.tabs = out.tabs.map((t) => ({ ...t, signedIn: isSignedIn(t.url) }));
+  out.tabs = withLocked(out.tabs, lockedTab).map((t) => ({ ...t, signedIn: isSignedIn(t.url), ai: aiOf(t.url) }));
+  if (!out.tabs.some((t) => t.id === out.activeTabId)) out.activeTabId = out.tabs[0].id;
   if (!opts.silent) out.rev = state.browser.rev + 1;
   state = { ...state, browser: out };
   emit();
@@ -101,6 +106,9 @@ export async function hydrate() {
     const t = blankTab('abed', 'https://www.google.com/');
     state = { ...state, browser: { ...state.browser, tabs: [t], activeTabId: t.id } };
   }
+  // the locked tabs are there on every launch, whatever was saved
+  const tabs = withLocked(state.browser.tabs, lockedTab).map((t) => ({ ...t, ai: aiOf(t.url) }));
+  state = { ...state, browser: { ...state.browser, tabs } };
   state = { ...state, hydrated: true };
   emit();
 }

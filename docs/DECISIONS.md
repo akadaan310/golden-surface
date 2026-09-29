@@ -105,3 +105,40 @@ isolation, would implement the same interface; nothing else changes.
 - One live phone link. A newer connection replaces the older one with close code 4000. The replaced
   client stops auto-reconnecting and stops posting state, and says so loudly ("Take it back"), so
   Expo Go and the APK on one phone can't ping-pong.
+
+## Locked tabs
+
+Three tabs are always present and always first: **Luna** (ر), **ACSP** (ن) and
+**Trial** (Abed). They are defined in `app/src/locked.ts`. They can't be closed by
+the close button, a remote `closetab`, or the twin model: every side checks the
+`lock-` id prefix, so the rule holds without a schema change. Their pages can
+be navigated like any tab. ⌂ returns a locked tab to its home URL. Home URLs are
+overridable with `EXPO_PUBLIC_LUNA_URL`, `EXPO_PUBLIC_ACSP_URL` and
+`EXPO_PUBLIC_TRIAL_URL`. The Trial home is the ACSP protocol page until the
+trial resource exists.
+
+## The map: the surface as URLs
+
+`GET /map` is the first-approach document for an LLM. There is no sign-up: the
+seat token says who the viewer is. It lists every tab with its **LLM natures**,
+meaning what this viewer can do there, as URLs and `/cmd` bodies. It also lists
+the navigation templates and the lifecycle touch points to follow on the bus.
+`GET /map/tab/{id}?from=&len=` returns one window of a tab's text, with a `next`
+URL. An LLM scrolls by changing values in the URL instead of pulling a whole page.
+GET never changes the surface; acting stays `POST /cmd`.
+
+"LLM natures" is a working term for these per-tab options.
+
+## AI engagement and ?ask
+
+A tab knows when it is on an AI surface (`app/src/ai.ts`: Google AI Mode
+`udm=50`, Gemini, ChatGPT, Claude, Perplexity, Copilot, duck.ai). It marks the
+tab ✦ and signals `llm.engaged`. `?question` in any address bar opens an
+unsigned Google AI Mode query in a new tab, with the current tab's address,
+title and a window of its text in the URL. A tab on a shared (signed-in)
+session contributes only its address and title, never its page text.
+
+## Lifecycle touch points
+
+The app signals `app.lifecycle` (active/background/inactive) alongside
+`llm.engaged` and `llm.asked`. `/map` lists the bus stream that carries them.

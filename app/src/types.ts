@@ -13,6 +13,8 @@ export interface Tab {
   src: { uri: string; n: number }; // what the engine was told to load
   crashed?: boolean;
   loading?: boolean;
+  locked?: boolean;     // one of the three locked tabs (see locked.ts)
+  ai?: string;          // the AI surface this tab is on, if any (see ai.ts)
 }
 
 /** Full browser state — the shape the relay's /state and twin share. */

@@ -34,11 +34,19 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "store"))
 sys.path.insert(0, str(ROOT / "relay"))
 import store  # noqa: E402
-from twin import (MUTATING, DIVERGENCE_CLASSES, TwinBrowser, TwinModel,  # noqa: E402
+from twin import (MUTATING, is_locked, DIVERGENCE_CLASSES, TwinBrowser, TwinModel,  # noqa: E402
                   classify, redact_url)
 
 CONFERENCE_KINDS = ("round.opened", "turn.saved", "chair.direction", "scribe.note", "round.closed")
 SPEAKERS = {"abed": "Abed", "r": "ر", "n": "ن"}
+# What the phone may put on the bus. llm.* and app.lifecycle are the touch points an
+# LLM follows on the map (see /map): the browser saying an AI surface was entered,
+# a question was asked with a tab's context, or the app changed lifecycle state.
+PHONE_SIGNALS = ("session.signed_out", "login.custom_tab", "llm.engaged", "llm.asked", "app.lifecycle")
+LIFECYCLE_KINDS = ("app.lifecycle", "llm.engaged", "llm.asked", "cmd", "link.up", "link.down",
+                   "sync.diverged", "sync.converged", "sync.conflict", "login.done", "session.signed_out")
+MAP_WINDOW_MAX = 8000
+
 CMD_TIMEOUT = float(os.environ.get("GOLDEN_CMD_TIMEOUT", 30))
 # Sites known to challenge sessions arriving from a VM: the phone stays the driver.
 VM_CHALLENGED = ("google.com", "gmail.com", "youtube.com", "live.com", "microsoft.com",
@@ -221,7 +229,7 @@ class Relay:
         elif t == "suggested_opened":
             store.mark_suggested(self.db, m["service"], "opened")
             self.event("suggested.opened", "abed", {"service": m["service"]})
-        elif t == "signal" and m.get("kind") in ("session.signed_out", "login.custom_tab"):
+        elif t == "signal" and m.get("kind") in PHONE_SIGNALS:
             self.event(m["kind"], "abed", {k: v for k, v in m.items() if k not in ("type", "kind")})
         elif t == "probe_result":   # phone-side session check answer
             fut = self.waiting.pop(m.get("id"), None)
@@ -293,6 +301,8 @@ class Relay:
             return web.json_response({"ok": False, "error": f"unknown cmd {c}"}, status=400)
 
         # ownership: any seat may read/shot any tab; only a tab's owner drives it
+        if c == "closetab" and is_locked(params.get("tab")):
+            return web.json_response({"ok": False, "error": "locked tab: it stays open"}, status=403)
         if c == "newtab":
             params["owner"] = params.get("owner") or seat
             if params["owner"] != seat:
@@ -384,6 +394,88 @@ class Relay:
         if seat not in ("r", "n", "abed"):
             return web.json_response({"ok": False}, status=401)
         return await self._resync(seat, body.get("mode", "replay"))
+
+    # ---- the map: the surface as URLs an LLM navigates ---------------------------
+    # First approach: no sign-up. The seat token already says who the viewer is;
+    # the map answers with every tab, its LLM natures (what this viewer can do
+    # there), and the lifecycle touch points to follow. GET never changes the
+    # surface; acting is POST /cmd, listed on the map.
+    def natures(self, tab, seat):
+        own = seat in ("r", "n") and tab.get("owner") == seat
+        n = {"read": f"/map/tab/{tab['id']}?from=0&len=2000"}
+        if seat in ("r", "n"):
+            n["shot"] = {"POST": "/cmd", "body": {"cmd": "shot", "tab": tab["id"]}}
+        if own:
+            n["open"] = {"POST": "/cmd", "body": {"cmd": "open", "tab": tab["id"], "url": "{url}"}}
+            n["tap"] = {"POST": "/cmd", "body": {"cmd": "tap", "tab": tab["id"], "x": "{x}", "y": "{y}"}}
+            n["type"] = {"POST": "/cmd", "body": {"cmd": "type", "tab": tab["id"], "text": "{text}"}}
+            if not tab.get("locked"):
+                n["close"] = {"POST": "/cmd", "body": {"cmd": "closetab", "tab": tab["id"]}}
+        if tab.get("ai"):
+            n["engaged"] = tab["ai"]
+        return n
+
+    async def get_map(self, request):
+        seat = await self.seat(request)
+        tel = self.twin.telemetry()
+        return web.json_response({
+            "surface": "golden",
+            "map": "golden-map/0",
+            "viewer": seat,
+            "rev": {"phone": tel["phoneRev"], "twin": tel["twinRev"]},
+            "link": tel["link"],
+            "active": tel["activeTabId"],
+            "tabs": [{**t, "natures": self.natures(t, seat)} for t in tel["tabs"]],
+            "navigate": {
+                "map": "/map",
+                "tab": "/map/tab/{id}?from={offset}&len={chars}",
+                "ask": "https://www.google.com/search?udm=50&q={question}",
+            },
+            "act": {"POST": "/cmd", "cmds": ["open", "read", "shot", "tap", "type", "newtab", "closetab"],
+                    "newtab": {"POST": "/cmd", "body": {"cmd": "newtab"}} if seat in ("r", "n") else None},
+            "lifecycle": {"stream": "/bus/stream?kinds=" + ",".join(LIFECYCLE_KINDS),
+                          "kinds": list(LIFECYCLE_KINDS)},
+            "rules": ["GET never changes the surface.",
+                      "Locked tabs stay open.",
+                      "A tab's owner drives it; any seat reads it.",
+                      "Agents never type into password fields.",
+                      "Session values never leave the phone's jar."],
+        })
+
+    async def phone_cmd(self, c, params, timeout=CMD_TIMEOUT):
+        """A non-mutating command answered by the phone (read/shot)."""
+        if self.phone is None:
+            return {"ok": False, "error": "phone offline"}
+        cid = uuid.uuid4().hex[:10]
+        fut = asyncio.get_running_loop().create_future()
+        self.waiting[cid] = fut
+        await self.send_phone({"type": "cmd", "id": cid, "cmd": c, "params": params})
+        try:
+            return await asyncio.wait_for(fut, timeout)
+        except asyncio.TimeoutError:
+            self.waiting.pop(cid, None)
+            return {"ok": False, "error": "phone did not answer"}
+
+    async def get_map_tab(self, request):
+        """One tab's page as a window of text. Change from/len to scroll."""
+        tab_id = request.match_info["id"]
+        if not self.twin.tab(tab_id):
+            return web.json_response({"ok": False, "error": "no such tab"}, status=404)
+        try:
+            start = max(0, int(request.query.get("from", 0)))
+            size = min(MAP_WINDOW_MAX, max(1, int(request.query.get("len", 2000))))
+        except ValueError:
+            return web.json_response({"ok": False, "error": "from and len are integers"}, status=400)
+        res = await self.phone_cmd("read", {"tab": tab_id})
+        if not res.get("ok"):
+            return web.json_response({"ok": False, "tab": tab_id, "error": res.get("error")}, status=503)
+        data = res.get("data") or {}
+        text = data.get("text") or ""
+        end = min(len(text), start + size)
+        nxt = f"/map/tab/{tab_id}?from={end}&len={size}" if end < len(text) else None
+        return web.json_response({"ok": True, "tab": tab_id, "url": redact_url(data.get("url")),
+                                  "title": data.get("title"), "from": start, "len": end - start,
+                                  "total": len(text), "text": text[start:end], "next": nxt})
 
     # ---- bus -------------------------------------------------------------------
     async def bus_stream(self, request):
@@ -563,6 +655,7 @@ def make_app():
         web.get("/ws", r.ws), web.post("/cmd", r.cmd),
         web.get("/state", r.get_state), web.post("/state", r.post_state),
         web.get("/sessions", r.get_sessions),
+        web.get("/map", r.get_map), web.get("/map/tab/{id}", r.get_map_tab),
         web.get("/sync", r.get_sync), web.post("/sync/resync", r.post_resync),
         web.get("/bus/stream", r.bus_stream), web.post("/bus/event", r.bus_event),
         web.get("/events", r.get_events),

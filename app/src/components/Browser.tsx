@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { askUrl, type TabContext } from '../ai';
 import { engine, handleFor, registerHandle, type EngineEvent } from '../engine';
+import { isLocked, lockedDef } from '../locked';
 import { loginDone, signal } from '../relay';
 import { looksLikeLogin, normalizeInput, route, siteOf } from '../routing';
 import { blankTab, notify, tabById, updateBrowser, useApp } from '../state';
@@ -33,6 +35,10 @@ export function newTab(url = 'about:blank') {
 }
 
 export function closeTab(id: string) {
+  if (isLocked(id)) {
+    notify('info', 'Locked tabs stay open. ⌂ takes one back home.');
+    return;
+  }
   updateBrowser((b) => {
     const i = b.tabs.findIndex((t) => t.id === id);
     b.tabs = b.tabs.filter((t) => t.id !== id);
@@ -46,11 +52,15 @@ const onEngineEvent = (tabId: string, ev: EngineEvent) => {
   switch (ev.type) {
     case 'nav': {
       const wasSignedIn = tab.signedIn;
+      const wasAi = tab.ai;
       if (tab.url === ev.url && tab.title === ev.title && !!tab.loading === ev.loading) return;
       updateBrowser((b) => {
         const t = b.tabs.find((x) => x.id === tabId);
         if (t) Object.assign(t, { url: ev.url, title: ev.title, loading: ev.loading, crashed: false });
       });
+      // the browser knows when an LLM is engaged: say so to the relay once per entry
+      const nowAi = tabById(tabId)?.ai;
+      if (nowAi && nowAi !== wasAi) signal('llm.engaged', { ai: nowAi, tab: tabId, url: ev.url });
       // a site we hold a session for just showed its login wall: say so, loudly
       if (!ev.loading && wasSignedIn && looksLikeLogin(ev.url)) {
         const site = siteOf(ev.url);
@@ -147,11 +157,16 @@ function TabStrip({ tabs, activeId }: { tabs: Tab[]; activeId: string | null }) 
               <Text style={[s.badge, { color: SEAT_COLOR[t.owner] }]}>{SEAT_NAME[t.owner]}</Text>
               {t.signedIn ? <View style={s.signed} /> : null}
               <Text numberOfLines={1} style={[s.chipText, on && { color: C.text }]}>
-                {t.crashed ? '⚠ ' : ''}{t.title || siteOf(t.url) || 'New tab'}
+                {t.crashed ? '⚠ ' : ''}{t.locked ? lockedDef(t.id)?.label : t.title || siteOf(t.url) || 'New tab'}
               </Text>
-              <Pressable hitSlop={8} onPress={() => closeTab(t.id)}>
-                <Text style={s.x}>×</Text>
-              </Pressable>
+              {t.ai ? <Text style={s.ai}>✦</Text> : null}
+              {t.locked ? (
+                <Text style={s.lock}>🔒</Text>
+              ) : (
+                <Pressable hitSlop={8} onPress={() => closeTab(t.id)}>
+                  <Text style={s.x}>×</Text>
+                </Pressable>
+              )}
             </Pressable>
           );
         })}
@@ -161,6 +176,30 @@ function TabStrip({ tabs, activeId }: { tabs: Tab[]; activeId: string | null }) 
       </Pressable>
     </View>
   );
+}
+
+const CONTEXT_JS = `return {title: document.title,
+  text: (document.body ? document.body.innerText : '').slice(0, 4000)};`;
+
+/** ?question in any address bar: ask an unsigned Google AI Mode with this tab's
+ *  context carried in the URL. A tab on a shared session gives only its address
+ *  and title. An AI tab gives no page context of its own. */
+export async function askWithTab(tab: Tab, question: string) {
+  if (!question.trim()) return;
+  let ctx: TabContext | null = null;
+  if (!tab.ai && tab.url && tab.url !== 'about:blank') {
+    ctx = { url: tab.url, title: tab.title };
+    if (!tab.signedIn) {
+      try {
+        const r = await handleFor(tab.id)?.evaluate<{ title: string; text: string }>(CONTEXT_JS, 3000);
+        if (r) ctx = { ...ctx, title: r.title || ctx.title, text: r.text };
+      } catch {
+        // page text unavailable: ask with the address and title only
+      }
+    }
+  }
+  newTab(askUrl(question, ctx));
+  signal('llm.asked', { ai: 'google-ai-mode', fromTab: tab.id, withText: !!ctx?.text });
 }
 
 function AddressBar({ tab }: { tab: Tab }) {
@@ -196,9 +235,10 @@ function AddressBar({ tab }: { tab: Tab }) {
         onBlur={() => setEditing(false)}
         onSubmitEditing={() => {
           setEditing(false);
-          navigate(tab.id, normalizeInput(text));
+          if (text.trim().startsWith('?')) askWithTab(tab, text.trim().slice(1));
+          else navigate(tab.id, normalizeInput(text));
         }}
-        placeholder="Search or enter address"
+        placeholder="Search, address, or ?ask about this tab"
         placeholderTextColor={C.faint}
         autoCapitalize="none"
         autoCorrect={false}
@@ -206,6 +246,11 @@ function AddressBar({ tab }: { tab: Tab }) {
         returnKeyType="go"
         selectTextOnFocus
       />
+      {tab.locked ? (
+        <Pressable hitSlop={6} onPress={() => navigate(tab.id, lockedDef(tab.id)!.home)}>
+          <Text style={s.navBtn}>⌂</Text>
+        </Pressable>
+      ) : null}
       <Pressable hitSlop={6} onPress={() => handleFor(tab.id)?.reload()}>
         <Text style={s.navBtn}>{tab.loading ? '·' : '↻'}</Text>
       </Pressable>
@@ -230,6 +275,8 @@ const s = StyleSheet.create({
   signed: { width: 5, height: 5, borderRadius: 3, backgroundColor: C.green, marginRight: 5 },
   chipText: { color: C.muted, fontSize: 12, flexShrink: 1 },
   x: { color: C.faint, fontSize: 16, marginLeft: 8 },
+  lock: { color: C.faint, fontSize: 12, marginLeft: 8 },
+  ai: { color: C.gold, fontSize: 11, marginLeft: 6 },
   plus: { width: 40, alignItems: 'center' },
   plusText: { color: C.gold, fontSize: 22 },
   bar: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 8, paddingVertical: 6, backgroundColor: C.raised },
