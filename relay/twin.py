@@ -158,13 +158,15 @@ class TwinModel:
         return dropped
 
     # -- report -----------------------------------------------------------------
-    def telemetry(self):
-        """GET /state: what the phone last reported (the displayed truth), plus sync."""
+    def telemetry(self, extended=False):
+        """GET /state: what the phone last reported (the displayed truth), plus sync.
+        The spec fixes each tab as {id, owner, url, title, signedIn}; extended (for /map)
+        adds locked and ai."""
         src = self.phone or self.model
         return {
             "tabs": [{"id": t.get("id"), "owner": t.get("owner"), "url": redact_url(t.get("url")),
                       "title": t.get("title"), "signedIn": bool(t.get("signedIn")),
-                      "locked": is_locked(t.get("id")), "ai": t.get("ai")}
+                      **({"locked": is_locked(t.get("id")), "ai": t.get("ai")} if extended else {})}
                      for t in src.get("tabs", [])],
             "activeTabId": src.get("activeTabId"),
             "phoneRev": self.phone_rev,

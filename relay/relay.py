@@ -34,6 +34,11 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "store"))
 sys.path.insert(0, str(ROOT / "relay"))
 import store  # noqa: E402
+import seurl  # noqa: E402
+from shard import Shard  # noqa: E402
+import bridge  # noqa: E402
+from luna import Luna  # noqa: E402
+from domains import domain_of_url  # noqa: E402
 from twin import (MUTATING, is_locked, DIVERGENCE_CLASSES, TwinBrowser, TwinModel,  # noqa: E402
                   classify, redact_url)
 
@@ -45,6 +50,8 @@ SPEAKERS = {"abed": "Abed", "r": "ر", "n": "ن"}
 PHONE_SIGNALS = ("session.signed_out", "login.custom_tab", "llm.engaged", "llm.asked", "app.lifecycle")
 LIFECYCLE_KINDS = ("app.lifecycle", "llm.engaged", "llm.asked", "cmd", "link.up", "link.down",
                    "sync.diverged", "sync.converged", "sync.conflict", "login.done", "session.signed_out")
+CMDS = ("open", "read", "shot", "tap", "type", "structures", "act", "newtab", "closetab")
+SHARD_SIGNALS = ("llm.engaged", "llm.asked", "app.lifecycle")
 MAP_WINDOW_MAX = 8000
 
 CMD_TIMEOUT = float(os.environ.get("GOLDEN_CMD_TIMEOUT", 30))
@@ -61,7 +68,7 @@ def load_env():
             if "=" in line and not line.startswith("#"):
                 k, v = line.split("=", 1)
                 env[k.strip()] = v.strip()
-    env.update({k: v for k, v in os.environ.items() if k.startswith("GOLDEN_")})
+    env.update({k: v for k, v in os.environ.items() if k.startswith(("GOLDEN_", "LUNA_"))})
     return env
 
 
@@ -83,6 +90,9 @@ class Relay:
                               active=active)
         self.twin.ack = self.twin.rev   # ops from a previous relay life are gone; declared
         self.browser = TwinBrowser(ROOT / "twin-profile")
+        self.shard = Shard(self.db, ROOT / "relay" / "shard.log")   # the surface, always compiled
+        self.decider = bridge.Decider(ENV)                           # the bridge's decider, if configured
+        self.luna = Luna(ENV)                                        # Foundry natures, shell, Loom
         self.phone = None               # live WebSocketResponse
         self.waiting = {}               # cmd id -> Future
         self.subs = set()               # SSE queues
@@ -230,7 +240,11 @@ class Relay:
             store.mark_suggested(self.db, m["service"], "opened")
             self.event("suggested.opened", "abed", {"service": m["service"]})
         elif t == "signal" and m.get("kind") in PHONE_SIGNALS:
-            self.event(m["kind"], "abed", {k: v for k, v in m.items() if k not in ("type", "kind")})
+            body = {k: v for k, v in m.items() if k not in ("type", "kind")}
+            self.event(m["kind"], "abed", body)
+            if m["kind"] in SHARD_SIGNALS:
+                self.shard.append(m["kind"], "abed", {k: redact_url(v) if k == "url" else v
+                                                      for k, v in body.items()})
         elif t == "probe_result":   # phone-side session check answer
             fut = self.waiting.pop(m.get("id"), None)
             if fut and not fut.done():
@@ -238,6 +252,7 @@ class Relay:
 
     def apply_phone_state(self, state):
         self.twin.phone_state(state)
+        self.shard.compile(state)
         store.save_tabs(self.db, [{**t, "url": redact_url(t.get("url"))} for t in state.get("tabs", [])],
                         state.get("activeTabId"))
         self.persist_revs()
@@ -297,25 +312,33 @@ class Relay:
             self.event("sync.test_drop", seat, {"rev": rec["rev"]})
             return web.json_response({"ok": True, "dropped": rec["rev"]})
 
-        if c not in ("open", "read", "shot", "tap", "type", "newtab", "closetab"):
-            return web.json_response({"ok": False, "error": f"unknown cmd {c}"}, status=400)
+        status, out = await self.run_cmd(seat, c, params)
+        return web.json_response(out, status=status)
+
+    async def run_cmd(self, seat, c, params):
+        """One command on the surface, under the ownership rules. -> (http status, body).
+        /cmd and the bridge both go through here."""
+        J = lambda body, status=200: (status, body)  # noqa: E731
+        params = dict(params)
+        if c not in CMDS:
+            return J({"ok": False, "error": f"unknown cmd {c}"}, 400)
 
         # ownership: any seat may read/shot any tab; only a tab's owner drives it
         if c == "closetab" and is_locked(params.get("tab")):
-            return web.json_response({"ok": False, "error": "locked tab: it stays open"}, status=403)
+            return J({"ok": False, "error": "locked tab: it stays open"}, 403)
         if c == "newtab":
             params["owner"] = params.get("owner") or seat
             if params["owner"] != seat:
-                return web.json_response({"ok": False, "error": "you can only open tabs you own"}, status=403)
+                return J({"ok": False, "error": "you can only open tabs you own"}, 403)
             params["tab"] = "t" + uuid.uuid4().hex[:8]
         else:
             tab = self.twin.tab(params.get("tab"))
             if not tab:
-                return web.json_response({"ok": False, "error": "no such tab"}, status=404)
-            if c in ("open", "tap", "type", "closetab") and tab["owner"] != seat:
-                return web.json_response({"ok": False, "error": f"tab is owned by {tab['owner']}"}, status=403)
+                return J({"ok": False, "error": "no such tab"}, 404)
+            if c in ("open", "tap", "type", "act", "closetab") and tab["owner"] != seat:
+                return J({"ok": False, "error": f"tab is owned by {tab['owner']}"}, 403)
         if c == "open" and not params.get("url"):
-            return web.json_response({"ok": False, "error": "url required"}, status=400)
+            return J({"ok": False, "error": "url required"}, 400)
 
         cid = uuid.uuid4().hex[:10]
         fut = asyncio.get_running_loop().create_future()
@@ -331,7 +354,7 @@ class Relay:
         else:
             if self.phone is None:
                 self.waiting.pop(cid, None)
-                return web.json_response({"ok": False, "error": "phone offline"}, status=503)
+                return J({"ok": False, "error": "phone offline"}, 503)
             await self.send_phone({"type": "cmd", "id": cid, "cmd": c, "params": params})
         self.event("cmd", seat, {"cmd": c, "tab": params.get("tab"),
                                  "url": params.get("url") if c == "open" else None})
@@ -340,16 +363,20 @@ class Relay:
         except asyncio.TimeoutError:
             self.waiting.pop(cid, None)
             if rec:
-                return web.json_response({"ok": False, "queued": True, "rev": rec["rev"],
+                return J({"ok": False, "queued": True, "rev": rec["rev"],
                                           "tab": params.get("tab"),
-                                          "error": "phone did not answer; op stays queued"}, status=202)
-            return web.json_response({"ok": False, "error": "phone did not answer"}, status=504)
+                                          "error": "phone did not answer; op stays queued"}, 202)
+            return J({"ok": False, "error": "phone did not answer"}, 504)
         out = {"ok": bool(res.get("ok")), "cmd": c, "tab": params.get("tab")}
+        if c == "open" and out["ok"] and seat == "r":
+            live = next((t for t in self.twin.telemetry(extended=True)["tabs"] if t["id"] == params.get("tab")), {})
+            if not live.get("signedIn"):
+                asyncio.create_task(self.luna.mirror_to_loom(params.get("url"), (res.get("data") or {}).get("title")))
         if res.get("data") is not None:
             out["data"] = res["data"]
         if res.get("error"):
             out["error"] = res["error"]
-        return web.json_response(out, status=200 if out["ok"] else 422)
+        return J(out, 200 if out["ok"] else 422)
 
     async def _resync(self, seat, mode):
         if mode == "adopt-phone":
@@ -405,10 +432,13 @@ class Relay:
         n = {"read": f"/map/tab/{tab['id']}?from=0&len=2000"}
         if seat in ("r", "n"):
             n["shot"] = {"POST": "/cmd", "body": {"cmd": "shot", "tab": tab["id"]}}
+            n["structures"] = {"POST": "/cmd", "body": {"cmd": "structures", "tab": tab["id"]}}
         if own:
             n["open"] = {"POST": "/cmd", "body": {"cmd": "open", "tab": tab["id"], "url": "{url}"}}
             n["tap"] = {"POST": "/cmd", "body": {"cmd": "tap", "tab": tab["id"], "x": "{x}", "y": "{y}"}}
             n["type"] = {"POST": "/cmd", "body": {"cmd": "type", "tab": tab["id"], "text": "{text}"}}
+            n["act"] = {"POST": "/cmd", "body": {"cmd": "act", "tab": tab["id"], "index": "{i}",
+                                                  "kind": "tap|fill|submit", "text": "{text}"}}
             if not tab.get("locked"):
                 n["close"] = {"POST": "/cmd", "body": {"cmd": "closetab", "tab": tab["id"]}}
         if tab.get("ai"):
@@ -417,7 +447,8 @@ class Relay:
 
     async def get_map(self, request):
         seat = await self.seat(request)
-        tel = self.twin.telemetry()
+        tel = self.twin.telemetry(extended=True)
+        lunar = {} if request.query.get("lunar") == "0" else await self.luna.natures_for(tel["tabs"])
         return web.json_response({
             "surface": "golden",
             "map": "golden-map/0",
@@ -425,14 +456,22 @@ class Relay:
             "rev": {"phone": tel["phoneRev"], "twin": tel["twinRev"]},
             "link": tel["link"],
             "active": tel["activeTabId"],
-            "tabs": [{**t, "natures": self.natures(t, seat)} for t in tel["tabs"]],
+            "tabs": [{**t, "seurl": seurl.address(t["id"]), "domain": domain_of_url(t.get("url")),
+                      "natures": self.natures(t, seat),
+                      "lunar": lunar.get(t["id"], {"withheld": "shared session"} if t.get("signedIn") else None)}
+                     for t in tel["tabs"]],
             "navigate": {
+                "seurl": "/seurl?u=seurl://golden/{map|tab/{id}|tab/{id}/scroll?from=&len=|tab/{id}/open?url=}",
                 "map": "/map",
                 "tab": "/map/tab/{id}?from={offset}&len={chars}",
                 "ask": "https://www.google.com/search?udm=50&q={question}",
             },
-            "act": {"POST": "/cmd", "cmds": ["open", "read", "shot", "tap", "type", "newtab", "closetab"],
+            "act": {"POST": "/cmd", "cmds": list(CMDS),
                     "newtab": {"POST": "/cmd", "body": {"cmd": "newtab"}} if seat in ("r", "n") else None},
+            "bridge": {"POST": "/bridge", "body": {"tab": "{id}", "goal": "{goal}", "steps": 8},
+                       "decider": self.decider.configured},
+            "lunar": {"foundry": self.luna.foundry or None, "note": "tabs on a shared session are never sent"},
+            "shard": {"window": "/shard?cursor={seq}&len={n}", "verify": "/shard/verify"},
             "lifecycle": {"stream": "/bus/stream?kinds=" + ",".join(LIFECYCLE_KINDS),
                           "kinds": list(LIFECYCLE_KINDS)},
             "rules": ["GET never changes the surface.",
@@ -441,6 +480,72 @@ class Relay:
                       "Agents never type into password fields.",
                       "Session values never leave the phone's jar."],
         })
+
+    async def get_seurl(self, request):
+        """Resolve a seurl://golden address. Reads answer here; acts answer with the /cmd to POST."""
+        try:
+            a = seurl.parse(request.query.get("u", ""))
+        except ValueError as e:
+            return web.json_response({"ok": False, "error": str(e)}, status=400)
+        if a["verb"] == "map":
+            return await self.get_map(request)
+        tab = self.twin.tab(a["tab"])
+        if not tab:
+            return web.json_response({"ok": False, "error": "no such tab"}, status=404)
+        if a["verb"] == "scroll":
+            return await self.get_map_tab(request, a["params"], a["tab"])
+        seat = await self.seat(request)
+        entry = next((t for t in self.twin.telemetry(extended=True)["tabs"] if t["id"] == a["tab"]), None)
+        if a["verb"] == "open":
+            return web.json_response({"ok": True, "seurl": request.query["u"], "act": {
+                "POST": "/cmd", "body": {"cmd": "open", "tab": a["tab"], "url": a["params"]["url"]}},
+                "allowed": seat in ("r", "n") and tab.get("owner") == seat})
+        return web.json_response({"ok": True, "seurl": seurl.address(a["tab"]),
+                                  "tab": {**entry, "domain": domain_of_url(entry.get("url")),
+                                          "natures": self.natures(entry, seat)}})
+
+    async def post_bridge(self, request):
+        """POST /bridge {tab, goal, steps?}: an AI session drives one tab, one trace."""
+        try:
+            body = await request.json()
+        except Exception:
+            return web.json_response({"ok": False, "error": "bad json"}, status=400)
+        seat = await self.seat(request, body)
+        if seat not in ("r", "n"):
+            return web.json_response({"ok": False, "error": "r or n token required"}, status=401)
+        if not self.decider.configured:
+            return web.json_response({"ok": False, "error": "no decider configured (GOLDEN_AI_URL)"}, status=503)
+        tab_id, goal = body.get("tab"), (body.get("goal") or "").strip()
+        tab = self.twin.tab(tab_id)
+        if not tab:
+            return web.json_response({"ok": False, "error": "no such tab"}, status=404)
+        if not goal:
+            return web.json_response({"ok": False, "error": "goal required"}, status=400)
+        if is_locked(tab_id):
+            return web.json_response({"ok": False, "error": "locked tab: the bridge drives tabs you open"}, status=403)
+        if tab.get("owner") != seat:
+            return web.json_response({"ok": False, "error": f"tab is owned by {tab.get('owner')}"}, status=403)
+        live = next((t for t in self.twin.telemetry(extended=True)["tabs"] if t["id"] == tab_id), {})
+        if live.get("signedIn"):
+            return web.json_response({"ok": False, "error": "shared session: its page is never sent to a decider"},
+                                     status=403)
+        self.event("bridge.started", seat, {"tab": tab_id, "goal": goal})
+        out = await bridge.run(self, seat, tab_id, goal, body.get("steps", bridge.MAX_STEPS),
+                               domain_of=domain_of_url)
+        self.event("bridge.finished", seat, {"tab": tab_id, "ok": out["ok"], "steps": out["steps"]})
+        return web.json_response(out)
+
+    async def get_shard(self, request):
+        """The compiled surface, in windows: /shard?cursor=<seq>&len=<n>."""
+        try:
+            cursor = max(0, int(request.query.get("cursor", 0)))
+            size = min(500, max(1, int(request.query.get("len", 50))))
+        except ValueError:
+            return web.json_response({"ok": False, "error": "cursor and len are integers"}, status=400)
+        return web.json_response(self.shard.window(cursor, size))
+
+    async def get_shard_verify(self, request):
+        return web.json_response(self.shard.verify())
 
     async def phone_cmd(self, c, params, timeout=CMD_TIMEOUT):
         """A non-mutating command answered by the phone (read/shot)."""
@@ -456,14 +561,15 @@ class Relay:
             self.waiting.pop(cid, None)
             return {"ok": False, "error": "phone did not answer"}
 
-    async def get_map_tab(self, request):
+    async def get_map_tab(self, request, q=None, tab_id=None):
         """One tab's page as a window of text. Change from/len to scroll."""
-        tab_id = request.match_info["id"]
+        tab_id = tab_id or request.match_info["id"]
+        q = q if q is not None else request.query
         if not self.twin.tab(tab_id):
             return web.json_response({"ok": False, "error": "no such tab"}, status=404)
         try:
-            start = max(0, int(request.query.get("from", 0)))
-            size = min(MAP_WINDOW_MAX, max(1, int(request.query.get("len", 2000))))
+            start = max(0, int(q.get("from", 0)))
+            size = min(MAP_WINDOW_MAX, max(1, int(q.get("len", 2000))))
         except ValueError:
             return web.json_response({"ok": False, "error": "from and len are integers"}, status=400)
         res = await self.phone_cmd("read", {"tab": tab_id})
@@ -656,6 +762,9 @@ def make_app():
         web.get("/state", r.get_state), web.post("/state", r.post_state),
         web.get("/sessions", r.get_sessions),
         web.get("/map", r.get_map), web.get("/map/tab/{id}", r.get_map_tab),
+        web.get("/seurl", r.get_seurl),
+        web.post("/bridge", r.post_bridge),
+        web.get("/shard", r.get_shard), web.get("/shard/verify", r.get_shard_verify),
         web.get("/sync", r.get_sync), web.post("/sync/resync", r.post_resync),
         web.get("/bus/stream", r.bus_stream), web.post("/bus/event", r.bus_event),
         web.get("/events", r.get_events),
@@ -668,6 +777,10 @@ def make_app():
 
     async def start_bg(app):
         app["bus"] = asyncio.create_task(r.bus_loop())
+        port = int(ENV.get("GOLDEN_PORT", 8490))
+        joined = await r.luna.join_shell("golden-surface", f"http://127.0.0.1:{port}/map")
+        if joined:
+            r.shard.append("luna.partnered", "system", {"shell": r.luna.shell})
 
     async def stop_bg(app):
         app["bus"].cancel()

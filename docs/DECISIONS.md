@@ -142,3 +142,42 @@ session contributes only its address and title, never its page text.
 
 The app signals `app.lifecycle` (active/background/inactive) alongside
 `llm.engaged` and `llm.asked`. `/map` lists the bus stream that carries them.
+
+## The engine
+
+Every move an LLM makes on the Surface is a URL, and the Surface is always compiled.
+
+- **Addresses: `seurl://golden/…`.** `map`, `tab/{id}`, `tab/{id}/scroll?from=&len=`,
+  `tab/{id}/open?url=`. The same grammar lives in `app/src/seurl.ts` and `relay/seurl.py`.
+  - On the phone, an address resolves from the address bar only.
+  - A page that navigates to `seurl://` is refused by the engine, so no website can drive the Surface.
+  - On the relay, `GET /seurl?u=` answers reads directly. `open` answers with the `/cmd` body to
+    POST: GET never changes the Surface.
+- **The shard.** Every structural change the phone reports (tabs opened or closed, URLs
+  changed, the active tab) is compiled into one entry, as are `llm.*`, `app.lifecycle` and
+  every bridge step.
+  - Entries use Luna's record format (`{seq, ts, kind, from, text, id}`) and are hash-chained (`prev`,
+    `hash`), append-only with triggers refusing update and delete (migration 004).
+  - `GET /shard?cursor=&len=` scrolls it. `GET /shard/verify` recomputes the chain.
+  - `relay/shard.log` mirrors it for Luna.
+- **Structures and act.** `structures` returns a tab's affordances, indexed: links, fields,
+  buttons, selects. Values are never read, and password fields are `fingersOnly`. `act {index,
+  kind: tap|fill|submit}` works by index. Both go through `/cmd` under the usual ownership rules.
+- **The bridge.** `POST /bridge {tab, goal, steps≤8}` runs Luna's loop on a real tab: observe
+  (structures + a text window + domain class), decide (one action), execute (through
+  `run_cmd`, the same path as `/cmd`), record (a `bridge.step` shard entry).
+  - The decider is an OpenAI-compatible chat endpoint set by `GOLDEN_AI_URL` / `GOLDEN_AI_KEY` / `GOLDEN_AI_MODEL`.
+    There is no default. Without one, `/bridge` answers 503.
+  - It refuses locked tabs, tabs the seat doesn't own, and tabs on a shared session (their page is never sent to a decider).
+- **Lunar natures in the map.** `/map` asks Lunar Foundry (`LUNA_FOUNDRY_URL`, default
+  https://lunar-foundry.vercel.app; empty turns it off) for each tab's natures, cached 60 s.
+  Tabs on a shared session are withheld: their URLs never leave the relay.
+- **Domain-oriented navigation.** Every map tab carries `domain: {tld, class}`
+  (`relay/domains.py`, `app/src/domains.ts`, the same table as the Foundry lens). `?ask` adds the
+  class to its context. The bridge sees it in every observation.
+- **Luna partners.** With `LUNA_SHELL_URL`, the relay joins the Luna shell as partner
+  `golden-surface` on start. With `LUNA_LOOM_URL`, pages ر opens are also opened in Loom. Both are
+  optional and never block.
+- `/state` keeps the spec's tab shape `{id, owner, url, title, signedIn}`. `locked` and `ai`
+  appear on `/map` only.
+- The Luna locked tab's home is https://lunar-foundry.vercel.app/.

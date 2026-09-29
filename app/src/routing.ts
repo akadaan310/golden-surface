@@ -1,9 +1,13 @@
 import { explainScheme } from './schemes';
+import { parseAddress, type Address } from './seurl';
 
 /** URL routing seam. http/https (and the few in-page schemes a browser must
  *  allow) load normally; every other scheme goes to schemes.ts — the one
  *  handler module. Nothing is built behind that seam yet. */
-export type Route = { kind: 'web'; url: string } | { kind: 'scheme'; scheme: string; message: string };
+export type Route =
+  | { kind: 'web'; url: string }
+  | { kind: 'surface'; address: Address }
+  | { kind: 'scheme'; scheme: string; message: string };
 
 const WEB = new Set(['http', 'https', 'about', 'data', 'blob', 'javascript']);
 
@@ -15,6 +19,10 @@ export function schemeOf(url: string) {
 export function route(url: string): Route {
   const s = schemeOf(url);
   if (WEB.has(s)) return { kind: 'web', url };
+  if (s === 'seurl') {
+    const address = parseAddress(url);
+    if (address) return { kind: 'surface', address };
+  }
   return { kind: 'scheme', scheme: s || '(none)', message: explainScheme(s, url) };
 }
 

@@ -5,13 +5,33 @@ import { engine, handleFor, registerHandle, type EngineEvent } from '../engine';
 import { isLocked, lockedDef } from '../locked';
 import { loginDone, signal } from '../relay';
 import { looksLikeLogin, normalizeInput, route, siteOf } from '../routing';
-import { blankTab, notify, tabById, updateBrowser, useApp } from '../state';
+import { addressOf, type Address } from '../seurl';
+import { blankTab, getState, notify, tabById, updateBrowser, useApp } from '../state';
 import { C } from '../theme';
 import { ltr, SEAT_COLOR, SEAT_NAME, type Tab } from '../types';
 import { openInChrome } from './LoginBanner';
 
+/** A seurl://golden address typed in the address bar: Abed's fingers drive the surface. */
+function resolveAddress(a: Address) {
+  const tabs = getState().browser.tabs;
+  if (a.verb === 'map') {
+    notify('info', `${tabs.length} tabs · ${addressOf()}`);
+    return;
+  }
+  if (!tabs.some((t) => t.id === a.tab)) {
+    notify('warn', `No tab ${a.tab} on this surface.`);
+    return;
+  }
+  updateBrowser((b) => void (b.activeTabId = a.tab));
+  if (a.verb === 'open') navigate(a.tab, a.params.url);
+}
+
 export function navigate(tabId: string, url: string) {
   const r = route(url);
+  if (r.kind === 'surface') {
+    resolveAddress(r.address);
+    return;
+  }
   if (r.kind !== 'web') {
     notify('warn', r.message);
     return;

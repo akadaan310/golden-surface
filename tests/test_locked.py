@@ -32,9 +32,11 @@ class LockedTabs(unittest.TestCase):
 
     def test_telemetry_marks_locked(self):
         tw = TwinModel(tabs=tabs(), active="t1")
-        tel = {t["id"]: t for t in tw.telemetry()["tabs"]}
+        tel = {t["id"]: t for t in tw.telemetry(extended=True)["tabs"]}
         self.assertTrue(tel["lock-trial"]["locked"])
         self.assertFalse(tel["t1"]["locked"])
+        # /state keeps the spec's shape
+        self.assertEqual(set(tw.telemetry()["tabs"][0]), {"id", "owner", "url", "title", "signedIn"})
 
 
 if __name__ == "__main__":

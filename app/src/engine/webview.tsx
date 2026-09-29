@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { captureRef } from 'react-native-view-shot';
 import { WebView, type WebViewMessageEvent } from 'react-native-webview';
 import { route } from '../routing';
+import { explainScheme } from '../schemes';
 import type { Engine, TabHandle, TabViewProps } from './types';
 
 /**
@@ -117,7 +118,9 @@ function WebTab({ tab, visible, onEvent, register }: TabViewProps) {
           onShouldStartLoadWithRequest={(req) => {
             const r = route(req.url);
             if (r.kind === 'web') return true;
-            onEvent(tab.id, { type: 'scheme', url: req.url, scheme: r.scheme, message: r.message });
+            // a page never drives the Surface: seurl://golden resolves only from the address bar or the relay
+            const message = r.kind === 'scheme' ? r.message : explainScheme('seurl', req.url);
+            onEvent(tab.id, { type: 'scheme', url: req.url, scheme: r.kind === 'scheme' ? r.scheme : 'seurl', message });
             return false;
           }}
           onLoadEnd={(e) => {

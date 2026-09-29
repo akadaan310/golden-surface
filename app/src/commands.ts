@@ -45,7 +45,8 @@ async function processOp(m: { rev: number; op: string; params: any; id?: string 
     const r = route(p.url);
     const tab = tabById(p.tab);
     if (!tab) rejected = 'no such tab';
-    else if (r.kind !== 'web') rejected = `scheme not supported: ${r.message}`;
+    else if (r.kind === 'scheme') rejected = `scheme not supported: ${r.message}`;
+    else if (r.kind === 'surface') rejected = 'seurl://golden addresses resolve on the relay, not as a page';
     if (rejected) {
       updateBrowser((b) => {
         b.ackTwinRev = m.rev;
@@ -114,6 +115,48 @@ const TYPE_JS = (text: string) => `var el = document.activeElement;
   } else throw new Error('focused element is not editable');
   return {typed: t.length, field: el.name || el.id || el.tagName.toLowerCase()};`;
 
+// Structures: the page's affordances, indexed, so an LLM acts by number instead
+// of by pixel. Values are never read; password fields are marked fingers-only.
+const PW_TEST = `function gsPw(el){var ac=(el.getAttribute('autocomplete')||'').toLowerCase();
+  var nm=((el.name||'')+' '+(el.id||'')).toLowerCase();
+  return (el.type||'').toLowerCase()==='password'||ac.indexOf('password')>=0||/pass(word|wd)?\\b|pin\\b|otp/.test(nm);}`;
+
+const STRUCTURES_JS = `${PW_TEST}
+  var sel='a[href],button,input,textarea,select,[role=button],[role=link],[contenteditable=true]';
+  var out=[], i=0;
+  document.querySelectorAll('[data-gs-i]').forEach(function(e){e.removeAttribute('data-gs-i');});
+  document.querySelectorAll(sel).forEach(function(el){
+    if(out.length>=200) return;
+    var r=el.getBoundingClientRect(); if(!r.width||!r.height) return;
+    var tag=el.tagName.toLowerCase(), type=(el.type||'').toLowerCase();
+    if(tag==='input'&&(type==='hidden')) return;
+    var kind=tag==='a'?'link':(tag==='input'&&!/submit|button|image|reset|checkbox|radio/.test(type))||tag==='textarea'||el.isContentEditable?'field':tag==='select'?'select':'button';
+    var label=(el.getAttribute('aria-label')||el.innerText||el.value&&kind==='button'&&el.value||el.placeholder||el.name||el.title||'').trim().replace(/\\s+/g,' ').slice(0,80);
+    el.setAttribute('data-gs-i', String(i));
+    var e={i:i,kind:kind,label:label};
+    if(kind==='link') e.href=el.href;
+    if(kind==='field'){e.name=el.name||el.id||null;e.type=type||tag;if(gsPw(el))e.fingersOnly=true;}
+    out.push(e); i++;
+  });
+  return {url:location.href,title:document.title,count:out.length,items:out};`;
+
+const ACT_JS = (index: number, kind: string, text: string) => `${PW_TEST}
+  var el=document.querySelector('[data-gs-i="${index}"]');
+  if(!el) throw new Error('no element ${index}: the page changed — read structures again');
+  if(gsPw(el)) throw new Error('refused: password field — Abed types these himself');
+  var k=${JSON.stringify(kind)}, t=${JSON.stringify(text)};
+  if(k==='tap'){ if(el.focus)el.focus(); el.click(); }
+  else if(k==='fill'){
+    if(el.isContentEditable){el.focus();document.execCommand('insertText',false,t);}
+    else if('value' in el){var proto=el.tagName==='TEXTAREA'?HTMLTextAreaElement.prototype:el.tagName==='SELECT'?HTMLSelectElement.prototype:HTMLInputElement.prototype;
+      Object.getOwnPropertyDescriptor(proto,'value').set.call(el,t);
+      el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}));}
+    else throw new Error('element ${index} is not fillable');
+  } else if(k==='submit'){ var f=el.form||el.closest('form');
+    if(f){ f.requestSubmit?f.requestSubmit():f.submit(); } else el.click(); }
+  else throw new Error('act kind must be tap, fill or submit');
+  return {done:k,index:${index},tag:el.tagName.toLowerCase()};`;
+
 export async function onCmd(m: { id: string; cmd: string; params: any }, send: Send) {
   const p = m.params;
   const h = handleFor(p.tab);
@@ -129,6 +172,10 @@ export async function onCmd(m: { id: string; cmd: string; params: any }, send: S
         return reply(true, { data: await h.evaluate(TAP_JS(Number(p.x), Number(p.y))) });
       case 'type':
         return reply(true, { data: await h.evaluate(TYPE_JS(String(p.text ?? ''))) });
+      case 'structures':
+        return reply(true, { data: await h.evaluate(STRUCTURES_JS) });
+      case 'act':
+        return reply(true, { data: await h.evaluate(ACT_JS(Number(p.index), String(p.kind), String(p.text ?? ''))) });
       default:
         return reply(false, { error: `unknown cmd ${m.cmd}` });
     }

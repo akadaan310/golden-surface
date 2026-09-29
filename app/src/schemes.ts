@@ -8,6 +8,10 @@ export function explainScheme(scheme: string, url: string): string {
     case 'tel':
     case 'sms':
       return `${scheme}: links aren't supported in the Surface yet.`;
+    case 'seurl':
+      return url.toLowerCase().startsWith('seurl://golden')
+        ? 'A page tried to drive the Surface through a seurl://golden address. Only the address bar and the relay can.'
+        : `Only seurl://golden addresses resolve in the Surface.`;
     default:
       return `"${scheme || '?'}:" isn't a supported scheme yet — only http and https open here.`;
   }

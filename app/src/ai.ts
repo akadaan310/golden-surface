@@ -1,3 +1,4 @@
+import { domainOfUrl } from './domains';
 import { siteOf } from './routing';
 
 /** Which AI surface, if any, a URL is. Detection is by address only: the
@@ -38,7 +39,8 @@ const MAX_Q = 1800; // keep the whole URL well under common length limits
 export function askUrl(question: string, ctx: TabContext | null): string {
   let q = question.trim();
   if (ctx) {
-    const head = `\n\nMy open tab: ${ctx.title || siteOf(ctx.url)} — ${ctx.url}`;
+    const d = domainOfUrl(ctx.url);
+    const head = `\n\nMy open tab: ${ctx.title || siteOf(ctx.url)} — ${ctx.url}${d ? ` (.${d.tld}: ${d.class})` : ''}`;
     const room = MAX_Q - q.length - head.length - 8;
     const text = ctx.text && room > 80 ? `\n${ctx.text.replace(/\s+/g, ' ').trim().slice(0, room)}` : '';
     q += head + text;

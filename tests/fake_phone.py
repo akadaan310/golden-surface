@@ -22,6 +22,8 @@ class FakePhone:
         self.inbox = []           # everything the relay pushed
         self.drop_next_op = False
         self.ws = None
+        self.structures_seen = []  # tabs whose structures were asked for
+        self.acts = []             # act commands received
 
     def state(self):
         return {"rev": self.rev, "ackTwinRev": self.ack, "tabs": self.tabs, "activeTabId": self.active}
@@ -80,6 +82,19 @@ class FakePhone:
                     res = {"ok": True, "data": {"png": "iVBORw0KGgo="}}
                 elif m["cmd"] == "type":
                     res = {"ok": True, "data": {"typed": len(p["text"])}}
+                elif m["cmd"] == "structures":
+                    self.structures_seen.append(p["tab"])
+                    res = {"ok": True, "data": {"url": t["url"], "title": t["title"], "count": 3, "items": [
+                        {"i": 0, "kind": "field", "label": "Search", "name": "q", "type": "search"},
+                        {"i": 1, "kind": "button", "label": "Go"},
+                        {"i": 2, "kind": "field", "label": "Password", "name": "pw", "type": "password",
+                         "fingersOnly": True}]}}
+                elif m["cmd"] == "act":
+                    self.acts.append(p)
+                    if int(p.get("index", -1)) == 2:
+                        res = {"ok": False, "error": "refused: password field — Abed types these himself"}
+                    else:
+                        res = {"ok": True, "data": {"done": p.get("kind"), "index": p.get("index")}}
                 else:
                     res = {"ok": True, "data": {}}
                 await self.ws.send_json({"type": "result", "id": m["id"], **res})

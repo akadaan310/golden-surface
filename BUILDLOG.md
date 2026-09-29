@@ -80,3 +80,13 @@ Chrome Custom Tab path; its limit is in docs/DECISIONS.md.
 - Verified here: `tsc --noEmit` clean; `python3 -m unittest tests.test_locked` passes.
   Not yet run: the live relay tests and the app on a device.
 - Open: the Trial tab's home URL waits on where the trial lives.
+
+## The engine
+
+- seurl://golden addresses (phone + relay), the hash-chained surface shard (migration 004),
+  structures/act, the bridge loop, Lunar natures and domain classes in /map, Luna shell/Loom partners.
+- Verified here: `tests/test_engine.py` (self-contained: two relays, stub decider, stub Foundry,
+  FakePhone). All checks pass. `tests/test_relay.py` PHASE 2 OK, `tests/test_sync_loud.py` SYNC LOUD OK
+  (with the sync-convergence watcher), `tests.test_locked` OK, `npx tsc --noEmit` clean.
+- Not run here: the app on a device, and the Luna shell/Loom partnering (they run on the VM).
+- To turn the bridge on: set GOLDEN_AI_URL (+ KEY, MODEL) in relay/.env and restart golden-relay.

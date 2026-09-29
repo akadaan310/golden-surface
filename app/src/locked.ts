@@ -20,7 +20,7 @@ export const LOCKED: LockedDef[] = [
     id: 'lock-luna',
     owner: 'r',
     label: 'Luna',
-    home: process.env.EXPO_PUBLIC_LUNA_URL ?? 'https://seurl-akadaan310s-projects.vercel.app/',
+    home: process.env.EXPO_PUBLIC_LUNA_URL ?? 'https://lunar-foundry.vercel.app/',
   },
   {
     id: 'lock-acsp',
