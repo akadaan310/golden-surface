@@ -120,8 +120,9 @@ function WebTab({ tab, visible, onEvent, register }: TabViewProps) {
             onEvent(tab.id, { type: 'scheme', url: req.url, scheme: r.scheme, message: r.message });
             return false;
           }}
-          onLoadEnd={() => {
-            loadWaiters.current.splice(0).forEach((f) => f());
+          onLoadEnd={(e) => {
+            // a fresh tab's initial about:blank is not the load anyone is waiting for
+            if (e.nativeEvent.url !== 'about:blank') loadWaiters.current.splice(0).forEach((f) => f());
             ref.current?.injectJavaScript(GOOGLE_BLOCK_PROBE);
           }}
           onNavigationStateChange={(n) =>

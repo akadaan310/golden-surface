@@ -68,10 +68,10 @@ function Entry({ ev }: { ev: BusEvent }) {
       const sp = (p.speaker ?? ev.actor) as Owner;
       return (
         <View style={s.turn}>
-          <Text style={[s.speaker, { color: SEAT_COLOR[sp] ?? C.muted }]}>
-            {SEAT_NAME[sp] ?? sp}
-            <Text style={s.time}>  {time}</Text>
-          </Text>
+          <View style={s.speakerRow}>
+            <Text style={[s.speaker, { color: SEAT_COLOR[sp] ?? C.muted }]}>{SEAT_NAME[sp] ?? sp}</Text>
+            <Text style={s.time}>{time}</Text>
+          </View>
           <Text style={s.turnText}>{p.text}</Text>
         </View>
       );
@@ -113,8 +113,9 @@ const s = StyleSheet.create({
   closedText: { color: C.faint, fontSize: 11, letterSpacing: 2 },
   closedSummary: { color: C.muted, fontFamily: SERIF, fontStyle: 'italic', marginTop: 6, textAlign: 'center' },
   turn: { marginBottom: 18 },
-  speaker: { fontFamily: SERIF, fontSize: 15, marginBottom: 4 },
-  time: { color: C.faint, fontSize: 10 },
+  speakerRow: { flexDirection: 'row', alignItems: 'baseline', marginBottom: 4 },
+  speaker: { fontFamily: SERIF, fontSize: 15, marginRight: 10 },
+  time: { color: C.faint, fontSize: 10, writingDirection: 'ltr' },
   turnText: { color: C.text, fontFamily: SERIF, fontSize: 16, lineHeight: 24 },
   chair: { borderLeftWidth: 2, borderColor: C.gold, paddingLeft: 12, marginBottom: 18, marginLeft: 4 },
   chairLabel: { color: C.gold, fontSize: 10, letterSpacing: 2, marginBottom: 3 },

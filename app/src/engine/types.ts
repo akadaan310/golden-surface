@@ -9,7 +9,7 @@ export interface TabHandle {
   /** Run `body` (a JS function body; may return a value or a Promise) in the page. */
   evaluate<T = unknown>(body: string, timeoutMs?: number): Promise<T>;
   screenshot(): Promise<string>;           // base64 PNG
-  /** Resolves at the next load end (or after timeoutMs). */
+  /** Resolves at the next load end of a real page (not about:blank), or after timeoutMs. */
   waitForLoad(timeoutMs: number): Promise<void>;
   reload(): void;
   goBack(): void;
