@@ -37,14 +37,9 @@ function WebTab({ tab, visible, onEvent, register }: TabViewProps) {
   const pending = useRef(new Map<string, (m: { ok: boolean; v?: unknown; e?: string }) => void>());
   const loadWaiters = useRef<Array<() => void>>([]);
 
-  // The initial source is fixed at mount (restore / new tab). Every later load
-  // is a src.n bump, delivered by navigation inside the page — so the engine
-  // never reloads just because the prop object changed.
-  const source = useMemo(() => ({ uri: tab.src.uri }), []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    if (tab.src.n > 0) ref.current?.injectJavaScript(`location.assign(${JSON.stringify(tab.src.uri)});true;`);
-  }, [tab.src.n]); // eslint-disable-line react-hooks/exhaustive-deps
+  // A load is requested by bumping src.n (open, address bar, restore). Page-driven
+  // navigation only updates tab.url, never src, so the engine never reloads on its own.
+  const source = useMemo(() => ({ uri: tab.src.uri }), [tab.src.n]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const handle: TabHandle = {

@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml:2:13-83
+INJECTED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml:2:13-83
+	package
+		INJECTED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml
+	xmlns:android
+		ADDED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml:2:23-81
+uses-sdk
+INJECTED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml reason: use-sdk injection requested
+INJECTED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml
+INJECTED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml
+	android:targetSdkVersion
+		INJECTED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml
+	android:minSdkVersion
+		INJECTED from /home/azureuser/golden-surface/app/modules/golden-cookies/android/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15156529421039370000.xml

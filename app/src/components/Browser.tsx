@@ -5,7 +5,7 @@ import { loginDone, signal } from '../relay';
 import { looksLikeLogin, normalizeInput, route, siteOf } from '../routing';
 import { blankTab, notify, tabById, updateBrowser, useApp } from '../state';
 import { C } from '../theme';
-import { SEAT_COLOR, SEAT_NAME, type Tab } from '../types';
+import { ltr, SEAT_COLOR, SEAT_NAME, type Tab } from '../types';
 import { openInChrome } from './LoginBanner';
 
 export function navigate(tabId: string, url: string) {
@@ -108,7 +108,7 @@ export function Browser() {
       {active && active.owner !== 'abed' ? (
         <View style={[s.ownerBar, { borderColor: SEAT_COLOR[active.owner] }]}>
           <Text style={[s.ownerText, { color: SEAT_COLOR[active.owner] }]}>
-            {SEAT_NAME[active.owner]}'s tab — driven through the relay
+            {ltr(`${SEAT_NAME[active.owner]}'s tab — driven through the relay`)}
           </Text>
         </View>
       ) : null}

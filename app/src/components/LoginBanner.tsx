@@ -4,7 +4,7 @@ import { loginDone, signal } from '../relay';
 import { siteOf } from '../routing';
 import { blankTab, getState, notify, setUi, tabById, updateBrowser, useApp } from '../state';
 import { C } from '../theme';
-import { SEAT_NAME, type LoginRequest } from '../types';
+import { ltr, SEAT_NAME, type LoginRequest } from '../types';
 
 /** The login handoff. The relay sends login_request {site, url, tab}; Abed
  *  signs in with his own fingers; the app reports login_done {site, tab}.
@@ -75,7 +75,7 @@ function LoginBanner({ req }: { req: LoginRequest }) {
   if (req.stage === 'asked') {
     return (
       <View style={s.box}>
-        <Text style={s.head}>{who} needs this signed in — your fingers only.</Text>
+        <Text style={s.head}>{ltr(`${who} needs this signed in — your fingers only.`)}</Text>
         <Text style={s.sub}>
           {req.site}
           {req.reason ? ` · ${req.reason}` : ''}

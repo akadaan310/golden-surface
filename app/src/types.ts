@@ -68,3 +68,6 @@ export interface Notice {
   text: string;
   action?: { label: string; run: () => void };
 }
+
+/** Sentences that begin with ر or ن would otherwise be laid out right-to-left. */
+export const ltr = (s: string) => '\u200E' + s;
