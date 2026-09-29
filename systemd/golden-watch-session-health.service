@@ -1,0 +1,16 @@
+[Unit]
+Description=Golden Surface watcher: session-health
+After=network.target golden-relay.service
+Wants=golden-relay.service
+
+[Service]
+Type=simple
+User=azureuser
+WorkingDirectory=/home/azureuser/golden-surface
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /home/azureuser/golden-surface/watchers/watchers.py session-health
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

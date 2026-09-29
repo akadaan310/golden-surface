@@ -19,4 +19,10 @@ the repo is the durable record.
   Bus = events table fanned out over SSE at /bus/stream. Validate:
   `python3 tests/test_relay.py` (FakePhone stands in for the app).
   Note: the pre-existing najwa-bus.service (:8476) is left untouched.
-- NEXT: Phase 3 — watchers + systemd units.
+- Phase 3 DONE: watchers/watchers.py (session-health, sync-convergence,
+  relay-heartbeat), one systemd unit each (systemd/golden-watch-*.service,
+  Restart=always; install all with systemd/install.sh). Intervals live in
+  the watchers table. Validate: `python3 tests/test_watchers.py` (kills a
+  /testsite session -> session.dead -> watcher.alert -> login_request on
+  the phone). Heartbeat verified by stopping golden-relay.
+- NEXT: Phase 4 — Expo app (app/).

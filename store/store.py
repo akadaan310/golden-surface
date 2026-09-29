@@ -26,8 +26,8 @@ OWNERS = ("abed", "r", "n")
 STATUSES = ("alive", "expiring", "dead", "unknown")
 WATCHERS = (
     ("session-health", "approved sessions: load in twin, verify logged-in", 900),
-    ("sync-convergence", "phone_rev vs twin_rev", 30),
-    ("relay-heartbeat", "relay up and answering", 60),
+    ("sync-convergence", "phone_rev vs twin_rev, structural hashes, pending ops", 5),
+    ("relay-heartbeat", "relay up and answering", 30),
 )
 
 
