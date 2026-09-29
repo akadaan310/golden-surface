@@ -9,3 +9,4 @@ app/.expo/
 twin-profile/
 relay/.env
 *.apk
+app/.env

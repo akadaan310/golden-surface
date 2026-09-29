@@ -15,8 +15,9 @@
   GET  /health                       heartbeat
   /testsite/*                        a password-less fixture site for watcher tests
 
-Auth: token in JSON body, ?token=, or "Authorization: Bearer". Tokens live in
-relay/.env (never git). Seats: r, n, abed (the app), watcher.
+Auth: every endpoint but /health and /testsite needs a seat token — in the JSON
+body, ?token=, or "Authorization: Bearer". Tokens live in relay/.env (never
+git). Seats: r, n, abed (the app), watcher.
 """
 import asyncio
 import json
@@ -217,6 +218,8 @@ class Relay:
         elif t == "suggested_opened":
             store.mark_suggested(self.db, m["service"], "opened")
             self.event("suggested.opened", "abed", {"service": m["service"]})
+        elif t == "signal" and m.get("kind") in ("session.signed_out", "login.custom_tab"):
+            self.event(m["kind"], "abed", {k: v for k, v in m.items() if k not in ("type", "kind")})
         elif t == "probe_result":   # phone-side session check answer
             fut = self.waiting.pop(m.get("id"), None)
             if fut and not fut.done():
@@ -532,10 +535,16 @@ class Relay:
         return web.json_response({"ok": True, "base": base})
 
 
+OPEN_PATHS = ("/health", "/testsite/")
+
+
 @web.middleware
 async def cors(request, handler):
     if request.method == "OPTIONS":
         resp = web.Response()
+    elif request.method == "GET" and not request.path.startswith(OPEN_PATHS) and \
+            not await Relay.seat(request):
+        resp = web.json_response({"ok": False, "error": "token required"}, status=401)
     else:
         resp = await handler(request)
     resp.headers["Access-Control-Allow-Origin"] = "*"

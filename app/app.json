@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Golden Surface",
+    "slug": "golden-surface",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.akadaan.goldensurface"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0b0b0c",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.akadaan.goldensurface"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-web-browser",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ],
+    "scheme": "goldensurface",
+    "backgroundColor": "#0b0b0c"
+  }
+}

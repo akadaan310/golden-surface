@@ -28,7 +28,7 @@ async def main():
             return r.status, await r.json()
 
     async def get(path):
-        async with s.get(f"{BASE}{path}") as r:
+        async with s.get(f"{BASE}{path}", headers={"Authorization": f"Bearer {R}"}) as r:
             return await r.json()
 
     phone = FakePhone(BASE, APP)
@@ -73,7 +73,9 @@ async def main():
                                                  "payload": {"round": 1, "speaker": "n", "text": "I hear it."}}) as r:
         assert r.status == 200
     got = []
-    async with s.get(f"{BASE}/bus/stream?since={seq - 1}") as r:
+    async with s.get(f"{BASE}/state") as r:
+        assert r.status == 401, "reads need a token"
+    async with s.get(f"{BASE}/bus/stream?since={seq - 1}&token={R}") as r:
         async for line in r.content:
             if line.startswith(b"data: "):
                 got.append(json.loads(line[6:]))
