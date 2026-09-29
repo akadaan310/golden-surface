@@ -94,3 +94,14 @@ isolation, would implement the same interface; nothing else changes.
   on foreground.
 - Relay URL and app token come from `app/.env` (gitignored) and can be edited in the panel (☰).
 - Metro for Expo Go runs as `golden-metro.service` on :8491. :8081 belongs to client-portal.
+
+## APK
+
+- The debug APK is standalone. `app/plugins/withStandaloneDebug.js` sets
+  `debuggableVariants = []`, so the JS bundle is embedded, and `useDevSupport = false`, so the app never
+  looks for Metro. A stock debug APK tries to load JS from a dev server and shows a red
+  "Unable to load script" screen on a phone. On this VM's emulator it would even reach
+  client-portal's Metro on :8081. It is still a debug build: debuggable and debug-signed.
+- One live phone link. A newer connection replaces the older one with close code 4000. The replaced
+  client stops auto-reconnecting and stops posting state, and says so loudly ("Take it back"), so
+  Expo Go and the APK on one phone can't ping-pong.

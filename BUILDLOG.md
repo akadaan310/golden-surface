@@ -42,12 +42,32 @@ the repo is the durable record.
   DB, and events.
 - Docs: docs/SYNC.md (sync model + divergence classes), docs/DECISIONS.md,
   docs/PROTOCOL.md, docs/ACCEPTANCE.md.
-- Phase 5 (in progress): app/plugins/withStandaloneDebug.js embeds the JS
-  bundle in debug and turns dev support off, so the debug APK never
-  looks for Metro. That was the likely failure mode of earlier APKs.
+- Phase 5 DONE: APK at app/android/app/build/outputs/apk/debug/app-debug.apk
+  (android/ is generated and gitignored; rebuild with the commands below).
+  Verified on the emulator (AVD "golden", stored on /mnt/apkbuild because / has
+  no room): debug-signed, installs, launches, connects, commands round-trip.
   Build: cd app && npx expo prebuild --platform android --no-install
-  && cd android && ./gradlew assembleDebug
-  Emulator: AVD "golden" (android-35 google_apis x86_64); run it with
-  `sg kvm -c "~/Android/Sdk/emulator/emulator -avd golden -no-window ..."`.
-- NEXT: finish the APK build, install and launch on the emulator, and run
-  acceptance 5–7 against the emulator where possible.
+         && cd android && ./gradlew assembleDebug
+  Emulator: sg kvm -c "~/Android/Sdk/emulator/emulator -avd golden -no-window
+            -no-audio -no-snapshot -gpu swiftshader_indirect -memory 3072"
+  (azureuser was added to the kvm group; `sg kvm` works until next login.)
+- Bugs found only on a real Android runtime, all fixed: open on a fresh
+  tab (now navigates via source keyed on src.n and waits for a
+  non-blank load); bidi layout of "ر needs…" (LRM prefix); Najwa speaker row;
+  link ping-pong between two clients (close code 4000).
+- Observed once, not reproduced in 3 retries: a freshly opened r-tab missing
+  after force-stop right after install -r. Keep an eye on it.
+- Test sessions created during validation are retired (approved_by_abed_at
+  NULL); test events stay in the append-only events table.
+
+## STATUS — all 8 acceptance items run; one needs Abed
+
+See docs/ACCEPTANCE.md. Remaining is human-only: Abed signs in to Google with
+his own fingers on his phone (Expo Go exp://40.64.120.87:8491, or the APK),
+then ر reads the page back. If Google refuses the WebView, the app offers the
+Chrome Custom Tab path; its limit is in docs/DECISIONS.md.
+
+## NEXT (not started)
+- TLS in front of the relay (tokens are in cleartext over plain HTTP today).
+- Hand the APK to Abed (e.g. adb install, or a private download).
+- Retune session-health's expiring heuristic once real sessions exist.

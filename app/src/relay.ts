@@ -51,9 +51,18 @@ export function connect() {
     }
   };
   sock.onerror = () => {};
-  sock.onclose = () => {
+  sock.onclose = (e) => {
     if (ws === sock) ws = null;
     setLink('down');
+    if (e.code === 4000) {
+      // another Golden Surface (e.g. Expo Go and the APK on one phone) took the link
+      stopped = true;
+      notify('error', 'Another Golden Surface took the relay link. This one is offline.', {
+        label: 'Take it back',
+        run: () => connect(),
+      });
+      return;
+    }
     if (stopped) return;
     const wait = Math.min(backoff, 30000) * (0.8 + Math.random() * 0.4);
     backoff = Math.min(backoff * 2, 30000);
@@ -63,7 +72,7 @@ export function connect() {
 
 export function reconnectNow() {
   backoff = 1000;
-  if (!ws) connect();
+  if (!ws && !stopped) connect();
 }
 
 export function disconnect() {
@@ -162,6 +171,7 @@ async function postState(b: BrowserState) {
 }
 
 onBrowserChange((b) => {
+  if (stopped) return; // a replaced client must not overwrite the twin with stale state
   if (postTimer) clearTimeout(postTimer);
   postTimer = setTimeout(() => postState(b), 250);
 });

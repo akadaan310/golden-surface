@@ -157,7 +157,8 @@ class Relay:
         ws = web.WebSocketResponse(heartbeat=20)
         await ws.prepare(request)
         if self.phone is not None and not self.phone.closed:
-            await self.phone.close(message=b"replaced")
+            # 4000 = replaced: the older client stops auto-reconnecting (no ping-pong)
+            await self.phone.close(code=4000, message=b"replaced by a newer connection")
         self.phone = ws
         self.twin.link_up, self.twin.link_changed_at = True, time.time()
         self.event("link.up", "system", {"peer": request.remote})
