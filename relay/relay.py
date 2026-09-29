@@ -35,7 +35,7 @@ sys.path.insert(0, str(ROOT / "store"))
 sys.path.insert(0, str(ROOT / "relay"))
 import store  # noqa: E402
 from twin import (MUTATING, DIVERGENCE_CLASSES, TwinBrowser, TwinModel,  # noqa: E402
-                  classify)
+                  classify, redact_url)
 
 CONFERENCE_KINDS = ("round.opened", "turn.saved", "chair.direction", "scribe.note", "round.closed")
 SPEAKERS = {"abed": "Abed", "r": "ر", "n": "ن"}
@@ -84,6 +84,8 @@ class Relay:
 
     # ---- helpers ---------------------------------------------------------------
     def event(self, kind, actor, payload):
+        payload = {k: redact_url(v) if k == "url" and isinstance(v, str) else v
+                   for k, v in (payload or {}).items()}
         return store.append_event(self.db, kind, actor, payload)
 
     async def send_phone(self, msg):
@@ -227,7 +229,8 @@ class Relay:
 
     def apply_phone_state(self, state):
         self.twin.phone_state(state)
-        store.save_tabs(self.db, state.get("tabs", []), state.get("activeTabId"))
+        store.save_tabs(self.db, [{**t, "url": redact_url(t.get("url"))} for t in state.get("tabs", [])],
+                        state.get("activeTabId"))
         self.persist_revs()
 
     async def login_done(self, m):
@@ -247,7 +250,7 @@ class Relay:
             except Exception as e:
                 print("twin add_cookies failed:", type(e).__name__, flush=True)
         if approved:
-            sid = store.record_login(self.db, site or host, url, owner, True, check_via)
+            sid = store.record_login(self.db, site or host, redact_url(url), owner, True, check_via)
         else:
             sid = None
         self.event("login.done", "abed", {

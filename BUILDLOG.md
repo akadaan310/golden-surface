@@ -25,4 +25,29 @@ the repo is the durable record.
   the watchers table. Validate: `python3 tests/test_watchers.py` (kills a
   /testsite session -> session.dead -> watcher.alert -> login_request on
   the phone). Heartbeat verified by stopping golden-relay.
-- NEXT: Phase 4 — Expo app (app/).
+- Phase 4 (code complete, needs a device for acceptance 5/6): app/ is
+  Expo SDK 57 + TypeScript. Browser (tabs, ownership, login handoff,
+  suggested cards, session list) and Najwa (SSE room). Sync/link/session
+  banners. Engine seam in app/src/engine/, URL seam in
+  app/src/routing.ts + schemes.ts. Local native module
+  app/modules/golden-cookies (APK only). `npx tsc --noEmit` is clean and
+  `npx expo export --platform android` bundles.
+  Metro for Expo Go: golden-metro.service on :8491 (CI mode, so restart the
+  unit after JS edits). Expo Go URL: exp://40.64.120.87:8491
+  NSG rules opened: golden-relay-8490, golden-metro-8491.
+  app/.env (gitignored) holds EXPO_PUBLIC_RELAY_URL + EXPO_PUBLIC_APP_TOKEN
+  (from relay/.env).
+- Relay hardening: every endpoint except /health and /testsite needs a
+  token. URLs are redacted of secret-looking params before telemetry, the
+  DB, and events.
+- Docs: docs/SYNC.md (sync model + divergence classes), docs/DECISIONS.md,
+  docs/PROTOCOL.md, docs/ACCEPTANCE.md.
+- Phase 5 (in progress): app/plugins/withStandaloneDebug.js embeds the JS
+  bundle in debug and turns dev support off, so the debug APK never
+  looks for Metro. That was the likely failure mode of earlier APKs.
+  Build: cd app && npx expo prebuild --platform android --no-install
+  && cd android && ./gradlew assembleDebug
+  Emulator: AVD "golden" (android-35 google_apis x86_64); run it with
+  `sg kvm -c "~/Android/Sdk/emulator/emulator -avd golden -no-window ..."`.
+- NEXT: finish the APK build, install and launch on the emulator, and run
+  acceptance 5–7 against the emulator where possible.

@@ -21,8 +21,10 @@ SYNC MODEL (declared; see docs/SYNC.md for the full statement)
 import copy
 import hashlib
 import json
+import re
 import time
 from pathlib import Path
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 MUTATING = ("open", "newtab", "closetab")
 
@@ -37,6 +39,27 @@ DIVERGENCE_CLASSES = {
 }
 
 GRACE_SECONDS = 10
+
+SECRET_PARAM = re.compile(r"token|code|secret|pass|pwd|auth|session|sid|sig|key|state|otp|ticket|"
+                          r"assertion|saml|nonce|credential", re.I)
+
+
+def redact_url(url):
+    """URLs leave the relay (telemetry, DB, events) without secrets: sensitive query and
+    fragment values become REDACTED. The in-memory twin keeps the raw URL for sync."""
+    if not url or "://" not in url:
+        return url
+    try:
+        parts = urlsplit(url)
+        q = urlencode([(k, "REDACTED" if SECRET_PARAM.search(k) else v)
+                       for k, v in parse_qsl(parts.query, keep_blank_values=True)])
+        frag = parts.fragment
+        if "=" in frag:
+            frag = urlencode([(k, "REDACTED" if SECRET_PARAM.search(k) else v)
+                              for k, v in parse_qsl(frag, keep_blank_values=True)])
+        return urlunsplit((parts.scheme, parts.netloc, parts.path, q, frag))
+    except ValueError:
+        return url.split("?")[0]
 
 
 def structural(state):
@@ -131,7 +154,8 @@ class TwinModel:
         """GET /state: what the phone last reported (the displayed truth), plus sync."""
         src = self.phone or self.model
         return {
-            "tabs": [{k: t.get(k) for k in ("id", "owner", "url", "title", "signedIn")}
+            "tabs": [{"id": t.get("id"), "owner": t.get("owner"), "url": redact_url(t.get("url")),
+                      "title": t.get("title"), "signedIn": bool(t.get("signedIn"))}
                      for t in src.get("tabs", [])],
             "activeTabId": src.get("activeTabId"),
             "phoneRev": self.phone_rev,
