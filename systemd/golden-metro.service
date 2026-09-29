@@ -1,0 +1,17 @@
+[Unit]
+Description=Golden Surface Metro (Expo Go dev server) port 8491
+After=network.target
+
+[Service]
+Type=simple
+User=azureuser
+WorkingDirectory=/home/azureuser/golden-surface/app
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=REACT_NATIVE_PACKAGER_HOSTNAME=40.64.120.87
+Environment=CI=1
+ExecStart=/usr/bin/npx expo start --port 8491
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

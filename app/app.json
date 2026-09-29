@@ -32,7 +32,8 @@
             "usesCleartextTraffic": true
           }
         }
-      ]
+      ],
+      "./plugins/withStandaloneDebug"
     ],
     "scheme": "goldensurface",
     "backgroundColor": "#0b0b0c"
