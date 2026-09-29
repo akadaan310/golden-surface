@@ -113,23 +113,23 @@ def find_session(con, site_id, owner):
                        (site_id, owner)).fetchone()
 
 
-def record_login(con, site_name, base_url, owner, approved=True):
+def record_login(con, site_name, base_url, owner, approved=True, check_via="phone"):
     """Abed signed in by hand (login_done). Sharing is per site, approved each time."""
-    assert owner in OWNERS
+    assert owner in OWNERS and check_via in ("twin", "phone")
     sid = upsert_site(con, site_name, base_url, "abed")
     row = find_session(con, sid, owner)
     t = now()
     if row:
         con.execute(
             "UPDATE sessions SET status='alive', last_seen_alive_at=?, last_checked_at=?, "
-            "check_failures=0, approved_by_abed_at=COALESCE(?, approved_by_abed_at) WHERE id=?",
-            (t, t, t if approved else None, row["id"]))
+            "check_failures=0, check_via=?, approved_by_abed_at=COALESCE(?, approved_by_abed_at) "
+            "WHERE id=?", (t, t, check_via, t if approved else None, row["id"]))
         return row["id"]
     sess_id = uuid.uuid4().hex[:12]
     con.execute(
         "INSERT INTO sessions (id, site_id, owner, status, created_at, last_seen_alive_at, "
-        "last_checked_at, approved_by_abed_at) VALUES (?,?,?,?,?,?,?,?)",
-        (sess_id, sid, owner, "alive", t, t, t, t if approved else None))
+        "last_checked_at, approved_by_abed_at, check_via) VALUES (?,?,?,?,?,?,?,?,?)",
+        (sess_id, sid, owner, "alive", t, t, t, t if approved else None, check_via))
     return sess_id
 
 
@@ -155,7 +155,7 @@ def session_map(con):
     return [dict(r) for r in con.execute(
         "SELECT s.name AS site, s.id AS site_id, s.base_url, se.id AS session_id, se.owner, "
         "se.status, se.last_seen_alive_at, se.last_checked_at, se.check_failures, "
-        "se.approved_by_abed_at FROM sessions se JOIN sites s ON s.id = se.site_id "
+        "se.approved_by_abed_at, se.check_via FROM sessions se JOIN sites s ON s.id = se.site_id "
         "ORDER BY s.name, se.owner")]
 
 

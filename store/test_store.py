@@ -5,7 +5,7 @@ import store
 
 p = os.path.join(tempfile.mkdtemp(), "t.db")
 c = store.init(p)
-assert c.execute("PRAGMA user_version").fetchone()[0] == 2
+assert c.execute("PRAGMA user_version").fetchone()[0] == 3
 store.init(p)  # idempotent
 sid = store.record_login(c, "Gmail", "https://mail.google.com/", "abed")
 store.record_login(c, "GitHub", "https://github.com/login", "r")
