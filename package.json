@@ -1,0 +1,32 @@
+{
+  "name": "golden-motion",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GOLDEN MOTION reproducible invisible-surface research and demonstrations",
+  "workspaces": ["packages/*", "apps/*", "services/*"],
+  "scripts": {
+    "bootstrap": "python3 scripts/bootstrap.py",
+    "verify": "python3 scripts/verify.py",
+    "test": "vitest run",
+    "test:harness": "python3 -m unittest discover -s tests -p 'test_*.py' -v",
+    "build:sdk": "npm run build --workspace @golden-motion/isi && npm run build --workspace @golden-motion/rf",
+    "dev:web": "npm run dev --workspace @golden-motion/web -- --hostname 127.0.0.1",
+    "build:web": "npm run build --workspace @golden-motion/web",
+    "relay": "npm run start --workspace @golden-motion/relay",
+    "harness": "python3 -m harness run",
+    "harness:status": "python3 -m harness status",
+    "package:demo": "python3 scripts/package_demo.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "22.10.5",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@types/three": "0.171.0",
+    "@types/ws": "8.5.13",
+    "tsx": "4.19.2",
+    "typescript": "5.7.3",
+    "vitest": "2.1.9"
+  },
+  "engines": {"node": ">=20.19", "npm": ">=10"}
+}

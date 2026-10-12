@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "experiments": [
+    {
+      "id": "GM-001",
+      "name": "Synthetic acoustic observability",
+      "hypothesis": "Synthetic acoustic observability yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    },
+    {
+      "id": "GM-002",
+      "name": "Physical acoustic feasibility",
+      "hypothesis": "Physical acoustic feasibility yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "No physical A16/ESP32 acquisition available"
+      ]
+    },
+    {
+      "id": "GM-003",
+      "name": "Optical reference",
+      "hypothesis": "Optical reference yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    },
+    {
+      "id": "GM-004",
+      "name": "Cross-modal acoustic optical comparison",
+      "hypothesis": "Cross-modal acoustic optical comparison yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    },
+    {
+      "id": "GM-005",
+      "name": "Alternative tagged magnetic sensing",
+      "hypothesis": "Alternative tagged magnetic sensing yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    },
+    {
+      "id": "GM-RF-001",
+      "name": "Synthetic moving-reflector CSI",
+      "hypothesis": "Synthetic moving-reflector CSI yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    },
+    {
+      "id": "GM-RF-002",
+      "name": "RSSI observability limits",
+      "hypothesis": "RSSI observability limits yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    },
+    {
+      "id": "GM-RF-003",
+      "name": "Android public Wi-Fi capability probe",
+      "hypothesis": "Android public Wi-Fi capability probe yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "No physical A16/ESP32 acquisition available"
+      ]
+    },
+    {
+      "id": "GM-RF-004",
+      "name": "Hotspot and cooperating-device evaluation",
+      "hypothesis": "Hotspot and cooperating-device evaluation yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "No physical A16/ESP32 acquisition available"
+      ]
+    },
+    {
+      "id": "GM-RF-005",
+      "name": "ESP32 CSI acquisition",
+      "hypothesis": "ESP32 CSI acquisition yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "No physical A16/ESP32 acquisition available"
+      ]
+    },
+    {
+      "id": "GM-RF-006",
+      "name": "RF gesture inference",
+      "hypothesis": "RF gesture inference yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    },
+    {
+      "id": "GM-RF-007",
+      "name": "Cross-modal RF fusion",
+      "hypothesis": "Cross-modal RF fusion yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress",
+      "validationLevels": [],
+      "evidenceCategory": null,
+      "physicalValidation": "pending",
+      "modelVersion": null,
+      "seed": null,
+      "results": [],
+      "knownLimitations": [
+        "Synthetic results require later physical model validation"
+      ]
+    }
+  ]
+}

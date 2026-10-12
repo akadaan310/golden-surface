@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-12T10:12:18.137540+00:00",
+  "referenceDevice": {
+    "manufacturer": "Samsung",
+    "family": "Galaxy A16",
+    "exactModel": null,
+    "androidVersion": null,
+    "chipset": null,
+    "hardwareConnected": false,
+    "inventoryStatus": "pending actual device probe"
+  },
+  "classifications": [
+    "established",
+    "research-demonstrated",
+    "plausible but unvalidated",
+    "impractical on commodity hardware",
+    "unsupported"
+  ],
+  "candidates": [
+    {
+      "id": "chirp-sonar",
+      "family": "acoustic",
+      "classification": "research-demonstrated",
+      "acquisition": "AudioRecord/AudioTrack",
+      "observableInformation": "scalar echo delay / bistatic path, hardware bandwidth pending",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "continuous-wave-doppler",
+      "family": "acoustic",
+      "classification": "research-demonstrated",
+      "acquisition": "AudioRecord/AudioTrack",
+      "observableInformation": "radial/path velocity, direction/calibration/multipath ambiguity",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "acoustic-phase",
+      "family": "acoustic",
+      "classification": "research-demonstrated",
+      "acquisition": "AudioRecord/AudioTrack",
+      "observableInformation": "sub-wavelength relative path variation; wraps/clock drift",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "near-ultrasound",
+      "family": "acoustic",
+      "classification": "plausible but unvalidated",
+      "acquisition": "AudioRecord/AudioTrack",
+      "observableInformation": "Galaxy A16 usable playback/capture bandwidth unmeasured",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "multi-device-acoustics",
+      "family": "acoustic",
+      "classification": "research-demonstrated",
+      "acquisition": "cooperating microphones/speakers",
+      "observableInformation": "clock alignment and geometry needed",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "wifi-csi",
+      "family": "rf",
+      "classification": "research-demonstrated",
+      "acquisition": "external supported CSI device",
+      "observableInformation": "not exposed by ordinary Android WifiManager",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "wifi-rssi",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "WifiManager documented connection/scan APIs",
+      "observableInformation": "coarse signal strength; hand gesture observability unvalidated",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "wifi-rtt",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "WifiRttManager + supported AP/device",
+      "observableInformation": "ranges participating radios, not untagged hand",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "wifi-80211az",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "capability-dependent public ranging API",
+      "observableInformation": "device/support unknown; participating radio range",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "android-hotspot",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "LocalOnlyHotspot documented API",
+      "observableInformation": "network provisioning is not CSI access",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "esp32-csi",
+      "family": "rf",
+      "classification": "research-demonstrated",
+      "acquisition": "official Espressif CSI + owned hardware",
+      "observableInformation": "CSI capable chip/firmware/calibration needed; hardware absent",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "cooperative-wifi",
+      "family": "rf",
+      "classification": "research-demonstrated",
+      "acquisition": "owned radios + alignment",
+      "observableInformation": "can improve geometry; cannot create absent CSI APIs",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "ble-rssi",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "BluetoothLeScanner runtime permissions",
+      "observableInformation": "coarse tag/link strength, environment sensitive",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "bluetooth-channel-sounding",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "Bluetooth capability-dependent platform/vendor API",
+      "observableInformation": "compatible controller and peer required; A16 unknown",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "ble-direction-finding",
+      "family": "rf",
+      "classification": "impractical on commodity hardware",
+      "acquisition": "external antenna arrays + compatible firmware",
+      "observableInformation": "ordinary handset APIs do not expose raw IQ antenna array",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "uwb",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "UWB chipset + participating tag/peer",
+      "observableInformation": "A16 support unknown; tag ranging not hand reconstruction",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "fmcw-radar",
+      "family": "rf",
+      "classification": "research-demonstrated",
+      "acquisition": "external radar",
+      "observableInformation": "range/Doppler/angle geometry require specialized hardware",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "mmwave-radar",
+      "family": "rf",
+      "classification": "research-demonstrated",
+      "acquisition": "external radar",
+      "observableInformation": "no consumer A16 radar assumption",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "nfc-rfid",
+      "family": "rf",
+      "classification": "established",
+      "acquisition": "NFC tags/readers hardware-dependent",
+      "observableInformation": "very near tagged interaction, not generic hand pose",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "capacitive-fringe",
+      "family": "electric",
+      "classification": "research-demonstrated",
+      "acquisition": "external electrodes/controller",
+      "observableInformation": "touchscreen raw fringe-field data not public Android API",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "electrode-array",
+      "family": "electric",
+      "classification": "research-demonstrated",
+      "acquisition": "external multi-electrode accessory",
+      "observableInformation": "geometry/calibration constrained",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "electrostatic-hand",
+      "family": "electric",
+      "classification": "plausible but unvalidated",
+      "acquisition": "external field sensor",
+      "observableInformation": "environment/grounding confounds",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "magnetometer",
+      "family": "magnetic",
+      "classification": "established",
+      "acquisition": "SensorManager if present",
+      "observableInformation": "magnetic tag/accessory motion, bare hand not magnetic source",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "inductive-coupling",
+      "family": "magnetic",
+      "classification": "research-demonstrated",
+      "acquisition": "external coils",
+      "observableInformation": "cooperative tag/coil setup needed",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "hall-effect",
+      "family": "magnetic",
+      "classification": "established",
+      "acquisition": "external sensor or exposed hardware",
+      "observableInformation": "phone API/device support unknown",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "proximity",
+      "family": "optical-electric",
+      "classification": "established",
+      "acquisition": "SensorManager if present",
+      "observableInformation": "binary/coarse proximity; actual A16 inventory unknown",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "rgb-landmarks",
+      "family": "optical",
+      "classification": "research-demonstrated",
+      "acquisition": "camera + landmark inference",
+      "observableInformation": "image-plane baseline; monocular model depth not measured depth",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "optical-flow",
+      "family": "optical",
+      "classification": "established",
+      "acquisition": "camera",
+      "observableInformation": "image motion, object identity needs independent tracking",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "ambient-light-occlusion",
+      "family": "optical",
+      "classification": "plausible but unvalidated",
+      "acquisition": "light sensor if present",
+      "observableInformation": "coarse occlusion; lighting confounds",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "screen-reflection",
+      "family": "optical",
+      "classification": "plausible but unvalidated",
+      "acquisition": "camera/screen calibration",
+      "observableInformation": "weak reflected illumination variable environment",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "infrared-depth",
+      "family": "optical",
+      "classification": "established",
+      "acquisition": "supported external/native depth hardware",
+      "observableInformation": "Galaxy A16 depth access unknown",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "multi-camera-triangulation",
+      "family": "optical",
+      "classification": "established",
+      "acquisition": "calibrated cooperating cameras",
+      "observableInformation": "correspondence/synchronization needed",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "imu",
+      "family": "mechanical",
+      "classification": "established",
+      "acquisition": "SensorManager if present",
+      "observableInformation": "device motion; stationary phone cannot observe free hand directly",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "surface-vibration",
+      "family": "mechanical",
+      "classification": "research-demonstrated",
+      "acquisition": "contact surface + microphone/IMU",
+      "observableInformation": "requires coupling/contact, not free-space hand reconstruction",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "wearable-assisted",
+      "family": "mechanical",
+      "classification": "established",
+      "acquisition": "owned IMU wearable",
+      "observableInformation": "tagged movement; phone geometry needs calibration",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "thermal-hand",
+      "family": "environment",
+      "classification": "impractical on commodity hardware",
+      "acquisition": "external thermal imager",
+      "observableInformation": "battery temperature is not thermal hand imagery",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "air-pressure",
+      "family": "environment",
+      "classification": "plausible but unvalidated",
+      "acquisition": "barometer/pressure array if available",
+      "observableInformation": "weak motion perturbations and environmental confounds",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "ambient-fm-sensing",
+      "family": "rf",
+      "classification": "research-demonstrated",
+      "acquisition": "external SDR/coherent receivers",
+      "observableInformation": "ordinary Android APIs do not expose coherent RF samples",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    },
+    {
+      "id": "phone-only-rssi-precise-hand-3d",
+      "family": "rf",
+      "classification": "unsupported",
+      "acquisition": "none demonstrated",
+      "observableInformation": "scalar coarse RSSI cannot uniquely reconstruct hand pose",
+      "a16Validated": false,
+      "measurementAccess": "requires actual capability probe",
+      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+    }
+  ],
+  "rfPrimaryPillar": true,
+  "rfPathMatrix": "science/rf/research/pathways.json (when generated)"
+}

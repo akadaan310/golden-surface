@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "project": "GOLDEN MOTION",
+  "directives": [
+    "GM-ROOT-001",
+    "GM-RF-001"
+  ],
+  "createdAt": "2026-10-12T10:12:18.138698+00:00",
+  "phase": "parallel-implementation",
+  "tasks": {},
+  "milestones": [
+    {
+      "id": "repository",
+      "validation": "implemented"
+    },
+    {
+      "id": "bounded-harness",
+      "validation": "unit-tested",
+      "evidence": "10 unittest contracts passed"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "GM-001",
+      "description": "Synthetic acoustic observability yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    },
+    {
+      "id": "GM-002",
+      "description": "Physical acoustic feasibility yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware"
+    },
+    {
+      "id": "GM-003",
+      "description": "Optical reference yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    },
+    {
+      "id": "GM-004",
+      "description": "Cross-modal acoustic optical comparison yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    },
+    {
+      "id": "GM-005",
+      "description": "Alternative tagged magnetic sensing yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    },
+    {
+      "id": "GM-RF-001",
+      "description": "Synthetic moving-reflector CSI yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    },
+    {
+      "id": "GM-RF-002",
+      "description": "RSSI observability limits yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    },
+    {
+      "id": "GM-RF-003",
+      "description": "Android public Wi-Fi capability probe yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware"
+    },
+    {
+      "id": "GM-RF-004",
+      "description": "Hotspot and cooperating-device evaluation yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware"
+    },
+    {
+      "id": "GM-RF-005",
+      "description": "ESP32 CSI acquisition yields bounded, observable interaction features under explicit assumptions",
+      "status": "pending-hardware"
+    },
+    {
+      "id": "GM-RF-006",
+      "description": "RF gesture inference yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    },
+    {
+      "id": "GM-RF-007",
+      "description": "Cross-modal RF fusion yields bounded, observable interaction features under explicit assumptions",
+      "status": "implementation-in-progress"
+    }
+  ],
+  "datasets": [],
+  "knownLimitations": [
+    "Galaxy A16 and ESP32 not connected",
+    "Synthetic accuracy is not physical accuracy",
+    "Application builds are not sensor validation"
+  ],
+  "nextCandidateActions": [
+    "Integrate RF/acoustic experiments",
+    "Install shared dependencies",
+    "Build native and web demonstrations",
+    "Run browser and protocol QA"
+  ]
+}
