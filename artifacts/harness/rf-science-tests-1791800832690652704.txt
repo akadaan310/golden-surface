@@ -1,0 +1,16 @@
+test_odd_length_and_wrong_declared_length_rejected (test_acquisition.Tests.test_odd_length_and_wrong_declared_length_rejected) ... ok
+test_official_signed_iq_order_and_invalid_first_word (test_acquisition.Tests.test_official_signed_iq_order_and_invalid_first_word) ... ok
+test_replay_preserves_fixture_provenance (test_acquisition.Tests.test_replay_preserves_fixture_provenance) ... ok
+test_timestamp_wrap_is_monotonic (test_acquisition.Tests.test_timestamp_wrap_is_monotonic) ... ok
+test_classifier_fits_statistical_signal (test_classifiers.Tests.test_classifier_fits_statistical_signal) ... ok
+test_session_split_has_no_window_leakage (test_classifiers.Tests.test_session_split_has_no_window_leakage) ... ok
+test_coarse_rssi_has_independent_inverse_and_no_hand_range (test_rf.RFTests.test_coarse_rssi_has_independent_inverse_and_no_hand_range) ... ok
+test_common_phase_nuisance_is_not_motion (test_rf.RFTests.test_common_phase_nuisance_is_not_motion) ... ok
+test_forward_matches_single_path_delay (test_rf.RFTests.test_forward_matches_single_path_delay) ... ok
+test_moving_csi_detected_with_scalar_only (test_rf.RFTests.test_moving_csi_detected_with_scalar_only) ... ok
+test_single_geometry_rank_does_not_allow_localization (test_rf.RFTests.test_single_geometry_rank_does_not_allow_localization) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.102s
+
+OK

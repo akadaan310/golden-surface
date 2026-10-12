@@ -1,96 +1,1445 @@
 {
-  "schemaVersion": 1,
-  "project": "GOLDEN MOTION",
+  "continuation": "Inspect state/ledgers; connect authorized A16 or ESP32 to unblock physical branches; unchanged software tasks are fingerprint-cached.",
+  "createdAt": "2026-10-12T10:12:18.138698+00:00",
+  "datasets": [
+    {
+      "path": "science/results/browser-fixture.json",
+      "physicalTested": false,
+      "sha256": "32495018ab29d7b7fdec529036080b5632a6f109f6f87db0a354e7612738f8f6",
+      "source": "synthetic"
+    },
+    {
+      "path": "science/rf/results/fixture-replay.jsonl",
+      "physicalTested": false,
+      "sha256": "8b4724b8fd3aa369ae572ab28c60b861809f1c50aecc1c5f74cf6d67b5fef673",
+      "source": "synthetic"
+    },
+    {
+      "path": "science/rf/results/trials.json",
+      "physicalTested": false,
+      "sha256": "9da1687140e863a670a2ccfaa766db853dc3638a19876b75b3df8b129f46df0b",
+      "source": "synthetic"
+    },
+    {
+      "path": "science/rf/results/classifiers.json",
+      "physicalTested": false,
+      "sha256": "d34d2fd65d9608efbc71a2ef80d169e4042387414f268af9f21e3018ec6fc1c2",
+      "source": "synthetic"
+    },
+    {
+      "path": "science/rf/results/fusion.json",
+      "physicalTested": false,
+      "sha256": "46f9dd82387fbb80a7976e34019b6ff46a0a412881a4deee7fc5a889a77625a1",
+      "source": "synthetic"
+    }
+  ],
   "directives": [
     "GM-ROOT-001",
     "GM-RF-001"
   ],
-  "createdAt": "2026-10-12T10:12:18.138698+00:00",
-  "phase": "parallel-implementation",
-  "tasks": {},
-  "milestones": [
-    {
-      "id": "repository",
-      "validation": "implemented"
-    },
-    {
-      "id": "bounded-harness",
-      "validation": "unit-tested",
-      "evidence": "10 unittest contracts passed"
-    }
-  ],
+  "executionActive": false,
   "hypotheses": [
     {
+      "description": "Calibrated acoustic delays/phase provide scalar range and radial rate; a single pair cannot reconstruct unconstrained 3D.",
+      "evidence": [
+        "science/results/results.json",
+        "science/results/parity.json"
+      ],
       "id": "GM-001",
-      "description": "Synthetic acoustic observability yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "supported-with-limitations"
     },
     {
+      "description": "A16 audio has sufficient experimentally measured bandwidth and timing stability for scalar hand sensing.",
+      "evidence": [
+        "artifacts/android-report.md"
+      ],
       "id": "GM-002",
-      "description": "Physical acoustic feasibility yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware"
+      "physicalValidation": "pending",
+      "status": "unresolved-hardware"
     },
     {
+      "description": "Local camera hand landmarks support intentional image-plane interaction.",
+      "evidence": [
+        "artifacts/android-report.md",
+        "artifacts/web-report.md",
+        "artifacts/web-browser.json"
+      ],
       "id": "GM-003",
-      "description": "Optical reference yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "software-lifecycle-supported-physical-unresolved"
     },
     {
+      "description": "Calibrated optical bearing and acoustic range can improve local position estimation under known geometry.",
+      "evidence": [
+        "science/results/results.json"
+      ],
       "id": "GM-004",
-      "description": "Cross-modal acoustic optical comparison yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "conditional-support-unqualified-fusion-rejected"
     },
     {
+      "description": "Tagged BLE RSSI can provide a coarse scalar alternative under calibrated log-distance assumptions.",
+      "evidence": [
+        "science/results/results.json",
+        "artifacts/android-report.md"
+      ],
       "id": "GM-005",
-      "description": "Alternative tagged magnetic sensing yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "conditional-support-bare-hand-localization-unsupported"
     },
     {
+      "description": "Multi-antenna synthetic CSI can detect scalar path-rate changes when geometry and reference assumptions permit.",
+      "evidence": [
+        "science/rf/results/experiments.json",
+        "science/rf/results/trials.json",
+        "science/rf/results/parity.json"
+      ],
       "id": "GM-RF-001",
-      "description": "Synthetic moving-reflector CSI yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "conditional-support-scalar-localization-rejected"
     },
     {
+      "description": "Coarse public-API-like RSSI contains reproducible hand-motion information above nuisance controls.",
+      "evidence": [
+        "science/rf/results/experiments.json"
+      ],
       "id": "GM-RF-002",
-      "description": "RSSI observability limits yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "not-supported-under-tested-model"
     },
     {
+      "description": "Public A16 Wi-Fi APIs expose capability-dependent connection/link/RSSI/RTT diagnostics.",
+      "evidence": [
+        "artifacts/android-report.md",
+        "artifacts/rf-report.md"
+      ],
       "id": "GM-RF-003",
-      "description": "Android public Wi-Fi capability probe yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware"
+      "physicalValidation": "pending",
+      "status": "unresolved-hardware"
     },
     {
+      "description": "Authorized hotspot/cooperating nodes offer useful lawful acquisition and synchronized semantic transport paths.",
+      "evidence": [
+        "artifacts/android-report.md",
+        "artifacts/relay-report.md",
+        "artifacts/browser-verification.json",
+        "artifacts/rf-report.md"
+      ],
       "id": "GM-RF-004",
-      "description": "Hotspot and cooperating-device evaluation yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware"
+      "physicalValidation": "pending",
+      "status": "transport-tested-radio-observability-unresolved"
     },
     {
+      "description": "Official ESP-CSI compatible devices can supply timestamped complex measurements for controlled experiments.",
+      "evidence": [
+        "science/rf/acquisition.py",
+        "science/rf/fixtures/esp32-csi-synthetic.csv",
+        "science/rf/fixtures/esp32-csi-synthetic.provenance.json",
+        "artifacts/rf-report.md"
+      ],
       "id": "GM-RF-005",
-      "description": "ESP32 CSI acquisition yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware"
+      "physicalValidation": "pending",
+      "status": "parser-fixture-supported-acquisition-unresolved"
     },
     {
+      "description": "Session-separated statistical CSI motion inference improves on tested classical baselines.",
+      "evidence": [
+        "science/rf/results/classifiers.json"
+      ],
       "id": "GM-RF-006",
-      "description": "RF gesture inference yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "conditional-support-rssi-fusion-harms"
     },
     {
+      "description": "RF contributes independent useful information to calibrated acoustic/optical fusion.",
+      "evidence": [
+        "science/rf/results/fusion.json"
+      ],
       "id": "GM-RF-007",
-      "description": "Cross-modal RF fusion yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress"
+      "physicalValidation": "pending",
+      "status": "conditional-corroboration-unqualified-fusion-rejected"
     }
   ],
-  "datasets": [],
   "knownLimitations": [
-    "Galaxy A16 and ESP32 not connected",
-    "Synthetic accuracy is not physical accuracy",
-    "Application builds are not sensor validation"
+    "No physical Galaxy A16, ESP32, cooperating radio or physical participant data acquired.",
+    "APK build and isolated application tests do not establish installed native runtime or sensing feasibility.",
+    "Two software-emulator boots timed out without KVM; native installed-app checks did not run.",
+    "Synthetic single-link acoustic/RF observability is scalar; coarse RSSI provides no precise hand position.",
+    "Independent antenna drift, direct leakage, shadowing and unrelated moving objects generated false activations.",
+    "RF analysis uses four-second windows; same-host event latency excludes sensing acquisition.",
+    "Active headless software-rendered Three.js measured 8 FPS, below target; A16 GPU/power/thermal unmeasured.",
+    "Camera startup tests used synthetic test-camera frames; actual hand accuracy remains pending.",
+    "No licensed physical RF dataset was downloaded; published evidence is maintained separately.",
+    "Harness executes a bounded graph; research adaptation requires an active engineering session, not a background agent."
+  ],
+  "lastRun": {
+    "counts": {
+      "blocked": 1,
+      "failed": 0,
+      "passed": 21,
+      "pending": 0
+    },
+    "elapsed_s": 64.20062597000015,
+    "executed": [
+      "rf-statistics",
+      "numeric-parity",
+      "rf-parity",
+      "dataset-validation",
+      "native-js-tests",
+      "web-model-tests",
+      "synchronize-fixtures",
+      "android-build",
+      "web-build",
+      "browser-e2e"
+    ],
+    "stop_reason": "no_unblocked_tasks"
+  },
+  "milestones": [
+    {
+      "evidence": "14 tests; process-group cleanup and resource/dependency regressions",
+      "id": "bounded-harness",
+      "validation": "unit-tested"
+    },
+    {
+      "evidence": "Python/Julia/Octave acoustic parity and fresh RF four-language parity; deterministic negative controls",
+      "id": "scientific-laboratory",
+      "validation": "simulation-validated"
+    },
+    {
+      "evidence": "52 tests plus JS/type builds; temporal/zone/provenance guards",
+      "id": "isi-sdk",
+      "validation": "unit-tested"
+    },
+    {
+      "evidence": "24 tests and synthetic publisher/browser synchronization; hardware synchronization pending",
+      "id": "local-relay",
+      "validation": "integration-tested"
+    },
+    {
+      "evidence": "APK assembled/signature verified; 19 JS/3 Kotlin tests; installed app runtime unverified",
+      "id": "android-apk",
+      "validation": "build-tested"
+    },
+    {
+      "evidence": "Production build; 14 browser + 7 browser-relay scenarios; mobile layout and simulation controls",
+      "id": "spatial-web",
+      "validation": "demonstration-ready"
+    },
+    {
+      "evidence": "No connected physical A16",
+      "id": "physical-a16",
+      "validation": "pending"
+    },
+    {
+      "evidence": "No connected ESP32; generated fixture is synthetic",
+      "id": "physical-esp32",
+      "validation": "pending"
+    },
+    {
+      "evidence": "Two bounded failed boots; both emulators shut down; no installed app test completed",
+      "id": "emulator-runtime",
+      "validation": "blocked"
+    }
   ],
   "nextCandidateActions": [
-    "Integrate RF/acoustic experiments",
-    "Install shared dependencies",
-    "Build native and web demonstrations",
-    "Run browser and protocol QA"
-  ]
+    {
+      "action": "Connect owned A16, inventory actual model/API/sensors and install the debug APK",
+      "priority": 1,
+      "requires": "authorized physical Galaxy A16"
+    },
+    {
+      "action": "Run native simulation/replay/relay and camera interaction trials",
+      "priority": 2,
+      "requires": "connected phone and consenting user"
+    },
+    {
+      "action": "Acquire controlled no-hand/stationary/moving audio datasets and validate DSP/timing",
+      "priority": 3,
+      "requires": "connected phone and bounded consenting experiment"
+    },
+    {
+      "action": "Connect supported ESP32 CSI devices or properly licensed physical RF dataset",
+      "priority": 4,
+      "requires": "owned hardware or verified dataset license"
+    },
+    {
+      "action": "Measure mobile GPU FPS and sensor-to-action latency; assess domain shift",
+      "priority": 5,
+      "requires": "reference phone or hardware-accelerated emulator"
+    }
+  ],
+  "phase": "software-demonstration-ready-physical-validation-pending",
+  "project": "GOLDEN MOTION",
+  "reproducibility": {
+    "bootstrapCommand": "python3 scripts/bootstrap.py",
+    "fullRunSourceEvidence": "artifacts/harness/audit.jsonl",
+    "manifests": [
+      "package-lock.json",
+      "science/requirements.txt",
+      "requirements-harness.txt",
+      "science/results/environment-manifest.json",
+      "science/results/tools-manifest.json",
+      "science/results/octave-conda-explicit.txt"
+    ],
+    "physicalResults": 0,
+    "verificationCommand": "npm run verify"
+  },
+  "schemaVersion": 1,
+  "tasks": {
+    "acoustic-experiments": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "-m",
+        "science.golden_motion.experiments"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 2.844092438000189,
+      "endedAt": "2026-10-12T11:00:30.528036+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "-m",
+            "science.golden_motion.experiments"
+          ],
+          "duration_s": 2.885008321999976,
+          "error": null,
+          "fingerprint": "38058161508e5142cce5592260aa690429ec2baaf1dce20573155a64d2bce1f0",
+          "log": "artifacts/harness/acoustic-experiments-1791800882117301571.txt",
+          "passed": true,
+          "peak_rss_mb": 163.61,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:28:02.117801+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "-m",
+            "science.golden_motion.experiments"
+          ],
+          "duration_s": 2.844092438000189,
+          "error": null,
+          "fingerprint": "7abfed3500365405c043c8083fe8ae158ed409d6358433096b93fb69f3124e9e",
+          "log": "artifacts/harness/acoustic-experiments-1791802830527695246.txt",
+          "passed": true,
+          "peak_rss_mb": 100.89,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:30.527868+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "7abfed3500365405c043c8083fe8ae158ed409d6358433096b93fb69f3124e9e",
+      "peak_rss_mb": 100.89,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:00:27.682517+00:00",
+      "status": "passed",
+      "validation": "simulation-validated"
+    },
+    "android-build": {
+      "attempts": 1,
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "@golden-motion/android"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 14.80026541999996,
+      "endedAt": "2026-10-12T11:12:43.754670+00:00",
+      "evidence": [
+        {
+          "command": [
+            "npm",
+            "run",
+            "build",
+            "--workspace",
+            "@golden-motion/android"
+          ],
+          "duration_s": 14.80026541999996,
+          "error": null,
+          "fingerprint": "15e4b6ed094b04667a329094e470993ac6c0a623b11d62f78897a320f91f3bbc",
+          "log": "artifacts/harness/android-build-1791803563754461967.txt",
+          "passed": true,
+          "peak_rss_mb": 732.57,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:43.754581+00:00"
+        }
+      ],
+      "evidence_kind": "engineering",
+      "failure_class": null,
+      "fingerprint": "15e4b6ed094b04667a329094e470993ac6c0a623b11d62f78897a320f91f3bbc",
+      "peak_rss_mb": 732.57,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:28.952731+00:00",
+      "status": "passed",
+      "validation": "implemented"
+    },
+    "browser-e2e": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "scripts/browser_verify.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 25.075262956000188,
+      "endedAt": "2026-10-12T11:13:25.198816+00:00",
+      "evidence": [
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "scripts/browser_verify.py"
+          ],
+          "duration_s": 25.075262956000188,
+          "error": null,
+          "fingerprint": "f0dc4b4699a6ca4b574a49707209fe8fbfe347bc12de7599b7a819f4cfae7000",
+          "log": "artifacts/harness/browser-e2e-1791803605198289540.txt",
+          "passed": true,
+          "peak_rss_mb": 1116.43,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:13:25.198555+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "f0dc4b4699a6ca4b574a49707209fe8fbfe347bc12de7599b7a819f4cfae7000",
+      "peak_rss_mb": 1116.43,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:13:00.121803+00:00",
+      "status": "passed",
+      "validation": "demonstration-ready"
+    },
+    "dataset-validation": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "scripts/validate_datasets.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 0.05399122200014972,
+      "endedAt": "2026-10-12T11:12:27.570421+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "scripts/validate_datasets.py"
+          ],
+          "duration_s": 0.10361605000002783,
+          "error": null,
+          "fingerprint": "9787a04556b15a54e6d69e58762e5790a575f3ba1b47ec93319ab413d7aa748f",
+          "log": "artifacts/harness/dataset-validation-1791800892968048452.txt",
+          "passed": true,
+          "peak_rss_mb": 9.96,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:28:12.968277+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "scripts/validate_datasets.py"
+          ],
+          "duration_s": 0.16040424299990264,
+          "error": null,
+          "fingerprint": "435a36e7d022233592eee99cab1ef45e3b764ee254e4cc01a81294f00c858997",
+          "log": "artifacts/harness/dataset-validation-1791802846546953500.txt",
+          "passed": true,
+          "peak_rss_mb": 10.09,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:46.551595+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "scripts/validate_datasets.py"
+          ],
+          "duration_s": 0.05399122200014972,
+          "error": null,
+          "fingerprint": "1609730a99344edca0609a108ece2d31155f6cd0ff5e212d0662692646bf4294",
+          "log": "artifacts/harness/dataset-validation-1791803547570138323.txt",
+          "passed": true,
+          "peak_rss_mb": 9.89,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:27.570309+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "1609730a99344edca0609a108ece2d31155f6cd0ff5e212d0662692646bf4294",
+      "peak_rss_mb": 9.89,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:27.515129+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "environment": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "scripts/environment.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 2.1673047960002805,
+      "endedAt": "2026-10-12T10:59:34.122213+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "scripts/environment.py"
+          ],
+          "duration_s": 1.2877741419999893,
+          "error": null,
+          "fingerprint": "91e2b484aa654096854017e5839eb08844ca164c2859decec918a671b065ed0b",
+          "log": "artifacts/harness/environment-1791800823489355484.txt",
+          "passed": true,
+          "peak_rss_mb": 54.56,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:27:03.489513+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "scripts/environment.py"
+          ],
+          "duration_s": 2.1673047960002805,
+          "error": null,
+          "fingerprint": "f2bb9d79bfe668a06a18caf15e8205c4bbf20fcdb5245fd943f2effcbae93c02",
+          "log": "artifacts/harness/environment-1791802774121721215.txt",
+          "passed": true,
+          "peak_rss_mb": 54.69,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:59:34.122088+00:00"
+        }
+      ],
+      "evidence_kind": "engineering",
+      "failure_class": null,
+      "fingerprint": "f2bb9d79bfe668a06a18caf15e8205c4bbf20fcdb5245fd943f2effcbae93c02",
+      "peak_rss_mb": 54.69,
+      "returncode": 0,
+      "startedAt": "2026-10-12T10:59:31.945518+00:00",
+      "status": "passed",
+      "validation": "implemented"
+    },
+    "galaxy-a16-capabilities": {
+      "attempts": 0,
+      "evidence": [],
+      "evidence_kind": "physical",
+      "failure_class": "missing_resource",
+      "fingerprint": "6bd464a7032ea418c8a80938056a17884f26ff8e407e44ddbe959dfc99aa385c",
+      "reason": "Physical hardware unavailable",
+      "status": "blocked",
+      "validation": "implemented"
+    },
+    "harness-tests": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 1.317233729000236,
+      "endedAt": "2026-10-12T10:59:35.547416+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_*.py",
+            "-v"
+          ],
+          "duration_s": 0.6583804320000581,
+          "error": null,
+          "fingerprint": "120ba5dfef980621208b6382b2b4134408619002551eda69c23a399d28ee175a",
+          "log": "artifacts/harness/harness-tests-1791800824149944399.txt",
+          "passed": true,
+          "peak_rss_mb": 30.99,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:27:04.150152+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_*.py",
+            "-v"
+          ],
+          "duration_s": 1.317233729000236,
+          "error": null,
+          "fingerprint": "4c75627e9299bc431f593a5aae23f1df64844e3e64cad08513330d497ce7977c",
+          "log": "artifacts/harness/harness-tests-1791802775547062153.txt",
+          "passed": true,
+          "peak_rss_mb": 29.18,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:59:35.547302+00:00"
+        }
+      ],
+      "evidence_kind": "engineering",
+      "failure_class": null,
+      "fingerprint": "4c75627e9299bc431f593a5aae23f1df64844e3e64cad08513330d497ce7977c",
+      "peak_rss_mb": 29.18,
+      "returncode": 0,
+      "startedAt": "2026-10-12T10:59:34.176066+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "isi-tests": {
+      "attempts": 1,
+      "command": [
+        "npm",
+        "test"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 4.880140113999914,
+      "endedAt": "2026-10-12T10:59:40.432819+00:00",
+      "evidence": [
+        {
+          "command": [
+            "npm",
+            "test"
+          ],
+          "duration_s": 4.648894821000113,
+          "error": null,
+          "fingerprint": "11e418ecd1f6c19277f51134dbc1d88439bb87da5b0171e4caf2c58328a6f0c8",
+          "log": "artifacts/harness/isi-tests-1791800828809497605.txt",
+          "passed": false,
+          "peak_rss_mb": 404.42,
+          "returncode": 1,
+          "timestamp": "2026-10-12T10:27:08.809770+00:00"
+        },
+        {
+          "command": [
+            "npm",
+            "test"
+          ],
+          "duration_s": 2.484323252999957,
+          "error": null,
+          "fingerprint": "a6982893b90ae8257fddbe40177f848dfde69be7afb453b321cc8f740bb327b0",
+          "log": "artifacts/harness/isi-tests-1791801036225979054.txt",
+          "passed": false,
+          "peak_rss_mb": 401.49,
+          "returncode": 1,
+          "timestamp": "2026-10-12T10:30:36.226303+00:00"
+        },
+        {
+          "command": [
+            "npm",
+            "test"
+          ],
+          "duration_s": 4.880140113999914,
+          "error": null,
+          "fingerprint": "e61c339eef97b1936168930161ca26a0532c7deefefd8dd5494bd1647079dd67",
+          "log": "artifacts/harness/isi-tests-1791802780432431505.txt",
+          "passed": true,
+          "peak_rss_mb": 403.63,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:59:40.432701+00:00"
+        }
+      ],
+      "evidence_kind": "engineering",
+      "failure_class": null,
+      "fingerprint": "e61c339eef97b1936168930161ca26a0532c7deefefd8dd5494bd1647079dd67",
+      "peak_rss_mb": 403.63,
+      "returncode": 0,
+      "startedAt": "2026-10-12T10:59:35.551113+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "native-js-tests": {
+      "attempts": 1,
+      "command": [
+        "npm",
+        "run",
+        "test",
+        "--workspace",
+        "@golden-motion/android"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 0.6814690970004449,
+      "endedAt": "2026-10-12T11:12:28.254644+00:00",
+      "evidence": [
+        {
+          "command": [
+            "npm",
+            "run",
+            "test",
+            "--workspace",
+            "@golden-motion/android"
+          ],
+          "duration_s": 0.6814690970004449,
+          "error": null,
+          "fingerprint": "b4cd866d44669b67b5192b9521c14532e2b46b79a4ccb36e526a0d3b86c41382",
+          "log": "artifacts/harness/native-js-tests-1791803548254355247.txt",
+          "passed": true,
+          "peak_rss_mb": 199.29,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:28.254557+00:00"
+        }
+      ],
+      "evidence_kind": "engineering",
+      "failure_class": null,
+      "fingerprint": "b4cd866d44669b67b5192b9521c14532e2b46b79a4ccb36e526a0d3b86c41382",
+      "peak_rss_mb": 199.29,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:27.571545+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "numeric-parity": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "-m",
+        "science.golden_motion.parity"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 4.832252455999878,
+      "endedAt": "2026-10-12T11:12:25.989925+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "-m",
+            "science.golden_motion.parity"
+          ],
+          "duration_s": 5.571346833999996,
+          "error": null,
+          "fingerprint": "810748f3361d97506b5228922f5f0587d1708ce367ea912b9748f51a65df7e72",
+          "log": "artifacts/harness/numeric-parity-1791800892697046896.txt",
+          "passed": true,
+          "peak_rss_mb": 348.65,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:28:12.697264+00:00"
+        },
+        {
+          "command": [
+            "python3",
+            "-m",
+            "science.golden_motion.parity"
+          ],
+          "duration_s": 6.092255419000139,
+          "error": null,
+          "fingerprint": "810748f3361d97506b5228922f5f0587d1708ce367ea912b9748f51a65df7e72",
+          "log": "artifacts/harness/numeric-parity-1791801068793343321.txt",
+          "passed": true,
+          "peak_rss_mb": 348.23,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:31:08.793566+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "-m",
+            "science.golden_motion.parity"
+          ],
+          "duration_s": 4.832252455999878,
+          "error": null,
+          "fingerprint": "31000aaf583db04025c7dbc4774f0d7e7c962fecbfb1c7c1dfb814dae1c1462d",
+          "log": "artifacts/harness/numeric-parity-1791803545989621232.txt",
+          "passed": true,
+          "peak_rss_mb": 368.67,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:25.989830+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "31000aaf583db04025c7dbc4774f0d7e7c962fecbfb1c7c1dfb814dae1c1462d",
+      "peak_rss_mb": 368.67,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:21.156249+00:00",
+      "status": "passed",
+      "validation": "simulation-validated"
+    },
+    "rf-classifiers": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "science/rf/classifiers.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 2.2585335090002445,
+      "endedAt": "2026-10-12T11:00:32.789718+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "science/rf/classifiers.py"
+          ],
+          "duration_s": 2.762795515000107,
+          "error": null,
+          "fingerprint": "4583df5a6edbf23d4d1a42fec9c8cc899f4b11e725fea6694768ccd455c322e9",
+          "log": "artifacts/harness/rf-classifiers-1791800884882465039.txt",
+          "passed": true,
+          "peak_rss_mb": 27.19,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:28:04.882581+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "science/rf/classifiers.py"
+          ],
+          "duration_s": 2.2585335090002445,
+          "error": null,
+          "fingerprint": "a22905455eee6b97689cc0075d6811c265df3e0999b4d565e75d75d2e389670b",
+          "log": "artifacts/harness/rf-classifiers-1791802832789128553.txt",
+          "passed": true,
+          "peak_rss_mb": 33.73,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:32.789503+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "a22905455eee6b97689cc0075d6811c265df3e0999b4d565e75d75d2e389670b",
+      "peak_rss_mb": 33.73,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:00:30.529189+00:00",
+      "status": "passed",
+      "validation": "simulation-validated"
+    },
+    "rf-experiments": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "science/rf/experiments.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 2.6982425629998943,
+      "endedAt": "2026-10-12T11:00:35.491604+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "science/rf/experiments.py"
+          ],
+          "duration_s": 2.238470172999996,
+          "error": null,
+          "fingerprint": "94ba4ca0ac3687cec177033844af6d4820055b5deeddbb7321c85cfe5feaf0a8",
+          "log": "artifacts/harness/rf-experiments-1791800887122688138.txt",
+          "passed": true,
+          "peak_rss_mb": 30.38,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:28:07.122806+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "science/rf/experiments.py"
+          ],
+          "duration_s": 2.6982425629998943,
+          "error": null,
+          "fingerprint": "f52d046f9281e3c3dacae0b36075ed64b629a98999d07379b7c4cacfe6ff3f7f",
+          "log": "artifacts/harness/rf-experiments-1791802835491124188.txt",
+          "passed": true,
+          "peak_rss_mb": 38.58,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:35.491401+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "f52d046f9281e3c3dacae0b36075ed64b629a98999d07379b7c4cacfe6ff3f7f",
+      "peak_rss_mb": 38.58,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:00:32.791739+00:00",
+      "status": "passed",
+      "validation": "simulation-validated"
+    },
+    "rf-fusion": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "science/rf/fusion.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 10.647596990999773,
+      "endedAt": "2026-10-12T11:00:46.143800+00:00",
+      "evidence": [
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "science/rf/fusion.py"
+          ],
+          "duration_s": 10.647596990999773,
+          "error": null,
+          "fingerprint": "0691bd405fe432d5fc9809802c7c2f5980a937cfeb1e01fb8b649ee99ce37652",
+          "log": "artifacts/harness/rf-fusion-1791802846142410728.txt",
+          "passed": true,
+          "peak_rss_mb": 101.57,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:46.143633+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "0691bd405fe432d5fc9809802c7c2f5980a937cfeb1e01fb8b649ee99ce37652",
+      "peak_rss_mb": 101.57,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:00:35.493454+00:00",
+      "status": "passed",
+      "validation": "simulation-validated"
+    },
+    "rf-parity": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "science/rf/parity_runner.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 1.5215362879998793,
+      "endedAt": "2026-10-12T11:12:27.514001+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "science/rf/parity.py"
+          ],
+          "duration_s": 0.15814108200015653,
+          "error": null,
+          "fingerprint": "896394c47f7471ee4e9c0dcccbd4743171281ec11931825b353777f637a2af10",
+          "log": "artifacts/harness/rf-parity-1791800892862848425.txt",
+          "passed": true,
+          "peak_rss_mb": 23.85,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:28:12.863006+00:00"
+        },
+        {
+          "command": [
+            "python3",
+            "science/rf/parity.py"
+          ],
+          "duration_s": 0.2273597839998729,
+          "error": null,
+          "fingerprint": "896394c47f7471ee4e9c0dcccbd4743171281ec11931825b353777f637a2af10",
+          "log": "artifacts/harness/rf-parity-1791801069023124160.txt",
+          "passed": true,
+          "peak_rss_mb": 23.84,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:31:09.023345+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "science/rf/parity_runner.py"
+          ],
+          "duration_s": 1.5215362879998793,
+          "error": null,
+          "fingerprint": "4b98237de159f75030b7b05e5d1679f25adf2975428ec139dc7a82e1a245fbe6",
+          "log": "artifacts/harness/rf-parity-1791803547513715576.txt",
+          "passed": true,
+          "peak_rss_mb": 269.14,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:27.513909+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "4b98237de159f75030b7b05e5d1679f25adf2975428ec139dc7a82e1a245fbe6",
+      "peak_rss_mb": 269.14,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:25.991006+00:00",
+      "status": "passed",
+      "validation": "simulation-validated"
+    },
+    "rf-science-tests": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "scripts/rf_unit_tests.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 2.257854644999952,
+      "endedAt": "2026-10-12T10:59:44.729115+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "science/rf",
+            "-p",
+            "test_*.py",
+            "-v"
+          ],
+          "duration_s": 0.5737917379999544,
+          "error": null,
+          "fingerprint": "9ab6b5dd64730aed8d598c45d25410386e58f6727daffc8cc579fbd90e9f7963",
+          "log": "artifacts/harness/rf-science-tests-1791800832690652704.txt",
+          "passed": true,
+          "peak_rss_mb": 29.68,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:27:12.690941+00:00"
+        },
+        {
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "science/rf",
+            "-p",
+            "test_*.py",
+            "-v"
+          ],
+          "duration_s": 0.30517644100018515,
+          "error": null,
+          "fingerprint": "3e1642a7b33086a835efc4d3a07123279036d8f5938b4130b2396e2427c67db7",
+          "log": "artifacts/harness/rf-science-tests-1791801037518782542.txt",
+          "passed": true,
+          "peak_rss_mb": 30.64,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:30:37.518985+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "scripts/rf_unit_tests.py"
+          ],
+          "duration_s": 2.257854644999952,
+          "error": null,
+          "fingerprint": "d8e5c0e4bded0929b7d17177419011c66f4dc93404688e6ab8cea27b06eeab89",
+          "log": "artifacts/harness/rf-science-tests-1791802784728665784.txt",
+          "passed": true,
+          "peak_rss_mb": 90.66,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:59:44.728962+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "d8e5c0e4bded0929b7d17177419011c66f4dc93404688e6ab8cea27b06eeab89",
+      "peak_rss_mb": 90.66,
+      "returncode": 0,
+      "startedAt": "2026-10-12T10:59:42.394824+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "rf-sdk-tests": {
+      "attempts": 1,
+      "command": [
+        "npm",
+        "run",
+        "test",
+        "--workspace",
+        "@golden-motion/rf"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 1.9213292550002734,
+      "endedAt": "2026-10-12T10:59:42.360648+00:00",
+      "evidence": [
+        {
+          "command": [
+            "npm",
+            "run",
+            "test",
+            "--workspace",
+            "@golden-motion/rf"
+          ],
+          "duration_s": 3.2005740970000716,
+          "error": null,
+          "fingerprint": "bf5f7b584b3f17cdb0b3ad8fb46a3e34aa261d58db9a487d8bb61ae69aaf8868",
+          "log": "artifacts/harness/rf-sdk-tests-1791800832017169688.txt",
+          "passed": true,
+          "peak_rss_mb": 193.68,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:27:12.017489+00:00"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "test",
+            "--workspace",
+            "@golden-motion/rf"
+          ],
+          "duration_s": 0.9757375640001555,
+          "error": null,
+          "fingerprint": "b718e07f18d6142f35f3f632d453622cd05f13c2dd4af9bc2b4bde8cd0d66c5b",
+          "log": "artifacts/harness/rf-sdk-tests-1791801037204775164.txt",
+          "passed": true,
+          "peak_rss_mb": 194.85,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:30:37.205040+00:00"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "test",
+            "--workspace",
+            "@golden-motion/rf"
+          ],
+          "duration_s": 1.9213292550002734,
+          "error": null,
+          "fingerprint": "37f5035202f8840ef4857ab17f18c9d90eced2ad9eb5e24a09b0a0a5b81b17a1",
+          "log": "artifacts/harness/rf-sdk-tests-1791802782360149060.txt",
+          "passed": true,
+          "peak_rss_mb": 199.06,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:59:42.360530+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "37f5035202f8840ef4857ab17f18c9d90eced2ad9eb5e24a09b0a0a5b81b17a1",
+      "peak_rss_mb": 199.06,
+      "returncode": 0,
+      "startedAt": "2026-10-12T10:59:40.437644+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "rf-statistics": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "science/rf/test_statistics.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 0.09198603299955721,
+      "endedAt": "2026-10-12T11:12:21.155024+00:00",
+      "evidence": [
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "science/rf/test_statistics.py"
+          ],
+          "duration_s": 0.23429346700004317,
+          "error": null,
+          "fingerprint": "9db6798a34421f18cf8b1ff3ec9718603817cf7420875a0210492ea590403887",
+          "log": "artifacts/harness/rf-statistics-1791802846383271739.txt",
+          "passed": true,
+          "peak_rss_mb": 13.71,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:46.383482+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "science/rf/test_statistics.py"
+          ],
+          "duration_s": 0.09198603299955721,
+          "error": null,
+          "fingerprint": "317956afd94a7189608c99b61364b3b60940cd936df1cd48ee6262775c0d121e",
+          "log": "artifacts/harness/rf-statistics-1791803541154732828.txt",
+          "passed": true,
+          "peak_rss_mb": 12.69,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:21.154940+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "317956afd94a7189608c99b61364b3b60940cd936df1cd48ee6262775c0d121e",
+      "peak_rss_mb": 12.69,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:21.061640+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "science-tests": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "science/tests",
+        "-v"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 35.538851870000144,
+      "endedAt": "2026-10-12T11:00:20.287484+00:00",
+      "evidence": [
+        {
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "science/tests",
+            "-v"
+          ],
+          "duration_s": 46.49842727200007,
+          "error": null,
+          "fingerprint": "fbd8ec8b6b1d1c32343399ac667dcbe3894ae015c6d227022dd384df0d5f7d5b",
+          "log": "artifacts/harness/science-tests-1791800879229729476.txt",
+          "passed": true,
+          "peak_rss_mb": 95.04,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:27:59.229949+00:00"
+        },
+        {
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "science/tests",
+            "-v"
+          ],
+          "duration_s": 25.174556616000018,
+          "error": null,
+          "fingerprint": "c1bff4faae58cadd35b4ca75f960e6b2830ab469629c86f34a82d3eb0c893c35",
+          "log": "artifacts/harness/science-tests-1791801062696712948.txt",
+          "passed": true,
+          "peak_rss_mb": 95.04,
+          "returncode": 0,
+          "timestamp": "2026-10-12T10:31:02.696963+00:00"
+        },
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "science/tests",
+            "-v"
+          ],
+          "duration_s": 35.538851870000144,
+          "error": null,
+          "fingerprint": "73511e3a3378b03cbf15cee1652b48ed36206687174827a32288bf842b4b8994",
+          "log": "artifacts/harness/science-tests-1791802820287055746.txt",
+          "passed": true,
+          "peak_rss_mb": 115.99,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:20.287334+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "73511e3a3378b03cbf15cee1652b48ed36206687174827a32288bf842b4b8994",
+      "peak_rss_mb": 115.99,
+      "returncode": 0,
+      "startedAt": "2026-10-12T10:59:44.730694+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "sdk-build": {
+      "attempts": 1,
+      "command": [
+        "npm",
+        "run",
+        "build:sdk"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 7.3898146579999775,
+      "endedAt": "2026-10-12T11:00:27.681462+00:00",
+      "evidence": [
+        {
+          "command": [
+            "npm",
+            "run",
+            "build:sdk"
+          ],
+          "duration_s": 7.3898146579999775,
+          "error": null,
+          "fingerprint": "a8de3d93cfbfc6cccaafab834b8bba46d700ea2420a3199288d29ce877bfceed",
+          "log": "artifacts/harness/sdk-build-1791802827681161371.txt",
+          "passed": true,
+          "peak_rss_mb": 428.92,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:27.681351+00:00"
+        }
+      ],
+      "evidence_kind": "engineering",
+      "failure_class": null,
+      "fingerprint": "a8de3d93cfbfc6cccaafab834b8bba46d700ea2420a3199288d29ce877bfceed",
+      "peak_rss_mb": 428.92,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:00:20.288818+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    },
+    "synchronize-fixtures": {
+      "attempts": 1,
+      "command": [
+        "/workspace/golden-motion/.venv/bin/python",
+        "scripts/sync_fixtures.py"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 0.05399175899947295,
+      "endedAt": "2026-10-12T11:12:28.951674+00:00",
+      "evidence": [
+        {
+          "command": [
+            "/workspace/golden-motion/.venv/bin/python",
+            "scripts/sync_fixtures.py"
+          ],
+          "duration_s": 0.05399175899947295,
+          "error": null,
+          "fingerprint": "f556875e150bb0629b0ffbbf41e032eb77e1fcbb14cfdc9ce108623ec08b1270",
+          "log": "artifacts/harness/synchronize-fixtures-1791803548951467309.txt",
+          "passed": true,
+          "peak_rss_mb": 1.21,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:28.951595+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "f556875e150bb0629b0ffbbf41e032eb77e1fcbb14cfdc9ce108623ec08b1270",
+      "peak_rss_mb": 1.21,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:28.895828+00:00",
+      "status": "passed",
+      "validation": "implemented"
+    },
+    "web-build": {
+      "attempts": 1,
+      "command": [
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 16.362870934000057,
+      "endedAt": "2026-10-12T11:13:00.120199+00:00",
+      "evidence": [
+        {
+          "command": [
+            "npm",
+            "run",
+            "build:web"
+          ],
+          "duration_s": 49.965469074999874,
+          "error": null,
+          "fingerprint": "44e07364af07e2240398f969a0541cdd484a76eb26b57db0528bb815e5e2c6df",
+          "log": "artifacts/harness/web-build-1791802898531957214.txt",
+          "passed": true,
+          "peak_rss_mb": 876.82,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:01:38.532174+00:00"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "build:web"
+          ],
+          "duration_s": 16.362870934000057,
+          "error": null,
+          "fingerprint": "607f9c1130afbe3b62ffb266a79d2eaf50d8d3bef9a98e5727897e27cc2169bc",
+          "log": "artifacts/harness/web-build-1791803580119916881.txt",
+          "passed": true,
+          "peak_rss_mb": 962.42,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:13:00.120056+00:00"
+        }
+      ],
+      "evidence_kind": "engineering",
+      "failure_class": null,
+      "fingerprint": "607f9c1130afbe3b62ffb266a79d2eaf50d8d3bef9a98e5727897e27cc2169bc",
+      "peak_rss_mb": 962.42,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:43.755928+00:00",
+      "status": "passed",
+      "validation": "implemented"
+    },
+    "web-model-tests": {
+      "attempts": 1,
+      "command": [
+        "npm",
+        "run",
+        "test",
+        "--workspace",
+        "@golden-motion/web"
+      ],
+      "corrective_actions": [],
+      "cwd": ".",
+      "duration_s": 0.6369614320001347,
+      "endedAt": "2026-10-12T11:12:28.894588+00:00",
+      "evidence": [
+        {
+          "command": [
+            "npm",
+            "run",
+            "test",
+            "--workspace",
+            "@golden-motion/web"
+          ],
+          "duration_s": 1.9660638340001242,
+          "error": null,
+          "fingerprint": "0745e077f338c1d575372ea074d5310fc08e2885dcc0e8303be7bd770341ae6c",
+          "log": "artifacts/harness/web-model-tests-1791802848525937031.txt",
+          "passed": true,
+          "peak_rss_mb": 184.54,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:00:48.526440+00:00"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "test",
+            "--workspace",
+            "@golden-motion/web"
+          ],
+          "duration_s": 0.6369614320001347,
+          "error": null,
+          "fingerprint": "86d3ab7d517adc1b474abaed4cadf536d790eafeb38768ed2328b9d8ca2cd29e",
+          "log": "artifacts/harness/web-model-tests-1791803548894277611.txt",
+          "passed": true,
+          "peak_rss_mb": 263.0,
+          "returncode": 0,
+          "timestamp": "2026-10-12T11:12:28.894495+00:00"
+        }
+      ],
+      "evidence_kind": "synthetic",
+      "failure_class": null,
+      "fingerprint": "86d3ab7d517adc1b474abaed4cadf536d790eafeb38768ed2328b9d8ca2cd29e",
+      "peak_rss_mb": 263.0,
+      "returncode": 0,
+      "startedAt": "2026-10-12T11:12:28.255929+00:00",
+      "status": "passed",
+      "validation": "unit-tested"
+    }
+  },
+  "updatedAt": "2026-10-12T11:31:54.616454+00:00"
 }

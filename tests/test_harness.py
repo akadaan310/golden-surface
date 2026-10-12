@@ -1,5 +1,7 @@
 """Behavior contracts: no retries forever, no success claims without evidence."""
 import json
+import os
+import signal
 from pathlib import Path
 import sys
 import tempfile
@@ -97,6 +99,28 @@ class HarnessTests(unittest.TestCase):
         r.run(budget_s=5)
         evidence = r.root / r.state['tasks']['loud']['evidence'][-1]['log']
         self.assertLessEqual(evidence.stat().st_size, 2048)
+
+    def test_timeout_kills_a_descendant_that_ignores_termination(self):
+        code = """import os,signal,time
+from pathlib import Path
+child=os.fork()
+if child==0:
+ signal.signal(signal.SIGTERM,signal.SIG_IGN)
+ Path('child.pid').write_text(str(os.getpid()))
+ time.sleep(30)
+else:
+ time.sleep(30)
+"""
+        r = Runner(self.root,[self.task('fork',code,timeout_s=.3)],min_disk_bytes=0)
+        r.run(budget_s=5)
+        pid=int((self.root/'child.pid').read_text())
+        try:
+            status=Path(f'/proc/{pid}/stat')
+            self.assertTrue(not status.exists() or status.read_text().split()[2]=='Z',
+                            'A surviving child violates the execution budget')
+        finally:
+            try: os.kill(pid,signal.SIGKILL)
+            except ProcessLookupError: pass
 
 
 if __name__ == '__main__':

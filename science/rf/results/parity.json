@@ -1,0 +1,24 @@
+{
+  "julia": {
+    "status": "passed",
+    "complex_values_compared": 18,
+    "maximum_absolute_complex_error": 4.3898371421117684e-14,
+    "rssi_inverse_distance_m": 2.0000000000000004,
+    "single_link_fisher_rank": 1,
+    "noise": "disabled for deterministic mathematical parity; not stochastic simulator equivalence"
+  },
+  "octave": {
+    "status": "passed",
+    "complex_values_compared": 18,
+    "maximum_absolute_complex_error": 4.3898371421117684e-14,
+    "rssi_inverse_distance_m": 2.0000000000000004,
+    "single_link_fisher_rank": 1,
+    "noise": "disabled for deterministic mathematical parity; not stochastic simulator equivalence"
+  },
+  "typescript": {
+    "status": "passed",
+    "complex_values_compared": 18,
+    "maximum_absolute_complex_error": 4.410814219054482e-14,
+    "stochastic_parity": "not asserted; PRNGs differ"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "source": "synthetic",
+  "seed": 20261012,
+  "modelVersion": "gm-acoustics-v1",
+  "framesEqual": true,
+  "tracesEqual": true,
+  "scientificMetricsEqual": true,
+  "excluded": "Measured wall-clock costs"
+}

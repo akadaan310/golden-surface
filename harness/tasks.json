@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 1,
+  "tasks": [
+    {
+      "id": "environment",
+      "command": [
+        "python3",
+        "scripts/environment.py"
+      ],
+      "inputs": [
+        "scripts/environment.py",
+        "package-lock.json"
+      ],
+      "outputs": [
+        "artifacts/environment.json"
+      ],
+      "priority": 100,
+      "timeout_s": 120,
+      "validation": "implemented"
+    },
+    {
+      "id": "harness-tests",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "inputs": [
+        "harness/*.py",
+        "tests/test_*.py",
+        "requirements-harness.txt"
+      ],
+      "priority": 95,
+      "timeout_s": 120
+    },
+    {
+      "id": "isi-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "inputs": [
+        "packages/isi/src/*.ts",
+        "services/relay/**/*.ts",
+        "vitest.config.ts",
+        "package-lock.json"
+      ],
+      "priority": 94,
+      "timeout_s": 180
+    },
+    {
+      "id": "rf-sdk-tests",
+      "command": [
+        "npm",
+        "run",
+        "test",
+        "--workspace",
+        "@golden-motion/rf"
+      ],
+      "inputs": [
+        "packages/rf/src/*.ts",
+        "packages/rf/test/*.ts",
+        "package-lock.json"
+      ],
+      "priority": 94,
+      "timeout_s": 120,
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "sdk-build",
+      "command": [
+        "npm",
+        "run",
+        "build:sdk"
+      ],
+      "depends": [
+        "isi-tests",
+        "rf-sdk-tests"
+      ],
+      "inputs": [
+        "packages/isi/src/*.ts",
+        "packages/isi/tsconfig.json",
+        "packages/rf/src/*.ts",
+        "packages/rf/tsconfig.json",
+        "package-lock.json"
+      ],
+      "outputs": [
+        "packages/isi/dist/index.js",
+        "packages/rf/dist/index.js"
+      ],
+      "priority": 90,
+      "timeout_s": 180,
+      "validation": "unit-tested"
+    },
+    {
+      "id": "science-tests",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "science/tests",
+        "-v"
+      ],
+      "inputs": [
+        "science/golden_motion/*.py",
+        "science/tests/*.py",
+        "science/requirements.txt"
+      ],
+      "priority": 90,
+      "timeout_s": 300,
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "rf-science-tests",
+      "command": [
+        "python3",
+        "scripts/rf_unit_tests.py"
+      ],
+      "inputs": [
+        "science/rf/*.py",
+        "scripts/rf_unit_tests.py"
+      ],
+      "priority": 90,
+      "timeout_s": 300,
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "acoustic-experiments",
+      "command": [
+        "python3",
+        "-m",
+        "science.golden_motion.experiments"
+      ],
+      "depends": [
+        "science-tests"
+      ],
+      "inputs": [
+        "science/golden_motion/*.py"
+      ],
+      "outputs": [
+        "science/results/results.json",
+        "science/results/browser-fixture.json"
+      ],
+      "priority": 85,
+      "timeout_s": 300,
+      "validation": "simulation-validated",
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "rf-experiments",
+      "command": [
+        "python3",
+        "science/rf/experiments.py"
+      ],
+      "depends": [
+        "rf-science-tests"
+      ],
+      "inputs": [
+        "science/rf/experiments.py",
+        "science/rf/kernel.py"
+      ],
+      "outputs": [
+        "science/rf/results/experiments.json"
+      ],
+      "priority": 85,
+      "timeout_s": 300,
+      "validation": "simulation-validated",
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "rf-classifiers",
+      "command": [
+        "python3",
+        "science/rf/classifiers.py"
+      ],
+      "depends": [
+        "rf-science-tests"
+      ],
+      "inputs": [
+        "science/rf/classifiers.py",
+        "science/rf/kernel.py"
+      ],
+      "outputs": [
+        "science/rf/results/classifiers.json"
+      ],
+      "priority": 85,
+      "timeout_s": 300,
+      "validation": "simulation-validated",
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "numeric-parity",
+      "command": [
+        "python3",
+        "-m",
+        "science.golden_motion.parity"
+      ],
+      "depends": [
+        "science-tests"
+      ],
+      "inputs": [
+        "science/golden_motion/parity.py",
+        "science/kernels/*",
+        "science/julia/*",
+        "science/octave/*"
+      ],
+      "priority": 82,
+      "timeout_s": 300,
+      "validation": "simulation-validated",
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "rf-parity",
+      "command": [
+        "python3",
+        "science/rf/parity_runner.py"
+      ],
+      "depends": [
+        "rf-science-tests"
+      ],
+      "inputs": [
+        "science/rf/parity_runner.py",
+        "science/rf/parity.py",
+        "science/rf/kernel.jl",
+        "science/rf/kernel.m",
+        "science/rf/kernel.py",
+        "packages/rf/src/*.ts",
+        "package-lock.json"
+      ],
+      "priority": 82,
+      "timeout_s": 300,
+      "validation": "simulation-validated",
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "dataset-validation",
+      "command": [
+        "python3",
+        "scripts/validate_datasets.py"
+      ],
+      "depends": [
+        "acoustic-experiments",
+        "rf-experiments",
+        "rf-statistics"
+      ],
+      "inputs": [
+        "scripts/validate_datasets.py",
+        "science/results/browser-fixture.json",
+        "science/rf/results/experiments.json"
+      ],
+      "priority": 80,
+      "timeout_s": 120,
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "web-model-tests",
+      "command": [
+        "npm",
+        "run",
+        "test",
+        "--workspace",
+        "@golden-motion/web"
+      ],
+      "depends": [
+        "sdk-build"
+      ],
+      "inputs": [
+        "apps/web/lib/*.ts",
+        "apps/web/tests/*",
+        "apps/web/package.json"
+      ],
+      "priority": 80,
+      "timeout_s": 180,
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "web-build",
+      "command": [
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "depends": [
+        "web-model-tests",
+        "synchronize-fixtures"
+      ],
+      "inputs": [
+        "apps/web/app/**/*",
+        "apps/web/components/**/*",
+        "apps/web/lib/**/*",
+        "apps/web/next.config.mjs",
+        "apps/web/package.json",
+        "package-lock.json",
+        "apps/web/pages/**/*",
+        "apps/web/styles/**/*"
+      ],
+      "outputs": [
+        "apps/web/.next/BUILD_ID"
+      ],
+      "priority": 75,
+      "timeout_s": 900,
+      "max_rss_mb": 6144,
+      "validation": "implemented"
+    },
+    {
+      "id": "browser-e2e",
+      "command": [
+        "python3",
+        "scripts/browser_verify.py"
+      ],
+      "depends": [
+        "web-build"
+      ],
+      "inputs": [
+        "scripts/browser_verify.py",
+        "scripts/browser_transport.ts",
+        "apps/web/tests/browser.mjs",
+        "apps/web/components/**/*",
+        "apps/web/lib/**/*"
+      ],
+      "priority": 70,
+      "timeout_s": 300,
+      "max_rss_mb": 6144,
+      "validation": "demonstration-ready",
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "android-build",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "@golden-motion/android"
+      ],
+      "depends": [
+        "sdk-build",
+        "native-js-tests"
+      ],
+      "inputs": [
+        "apps/android/src/**/*",
+        "apps/android/android/**/*.kt",
+        "apps/android/android/**/*.gradle",
+        "apps/android/android/**/*.xml",
+        "apps/android/scripts/*",
+        "package-lock.json"
+      ],
+      "outputs": [
+        "artifacts/golden-motion-debug.apk"
+      ],
+      "priority": 75,
+      "timeout_s": 1800,
+      "max_rss_mb": 8192,
+      "validation": "implemented"
+    },
+    {
+      "id": "galaxy-a16-capabilities",
+      "command": [
+        "python3",
+        "scripts/physical_probe.py",
+        "--install"
+      ],
+      "depends": [
+        "android-build"
+      ],
+      "requires_hardware": true,
+      "priority": 60,
+      "timeout_s": 120,
+      "validation": "hardware-tested",
+      "evidence_kind": "physical",
+      "inputs": [
+        "scripts/physical_probe.py",
+        "harness/hardware.py"
+      ],
+      "outputs": [
+        "artifacts/physical-a16-capabilities.json"
+      ]
+    },
+    {
+      "id": "rf-fusion",
+      "command": [
+        "python3",
+        "science/rf/fusion.py"
+      ],
+      "depends": [
+        "rf-science-tests",
+        "acoustic-experiments"
+      ],
+      "inputs": [
+        "science/rf/fusion.py",
+        "science/rf/kernel.py",
+        "science/golden_motion/*.py"
+      ],
+      "outputs": [
+        "science/rf/results/fusion.json"
+      ],
+      "priority": 84,
+      "timeout_s": 300,
+      "validation": "simulation-validated",
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "rf-statistics",
+      "command": [
+        "python3",
+        "science/rf/test_statistics.py"
+      ],
+      "depends": [
+        "rf-experiments",
+        "rf-classifiers",
+        "rf-fusion"
+      ],
+      "inputs": [
+        "science/rf/test_statistics.py",
+        "science/rf/results/experiments.json",
+        "science/rf/results/classifiers.json",
+        "science/rf/results/fusion.json"
+      ],
+      "priority": 83,
+      "timeout_s": 120,
+      "evidence_kind": "synthetic"
+    },
+    {
+      "id": "native-js-tests",
+      "command": [
+        "npm",
+        "run",
+        "test",
+        "--workspace",
+        "@golden-motion/android"
+      ],
+      "depends": [
+        "sdk-build"
+      ],
+      "inputs": [
+        "apps/android/src/**/*",
+        "apps/android/tests/**/*",
+        "apps/android/package.json"
+      ],
+      "priority": 80,
+      "timeout_s": 180,
+      "validation": "unit-tested"
+    },
+    {
+      "id": "synchronize-fixtures",
+      "command": [
+        "python3",
+        "scripts/sync_fixtures.py"
+      ],
+      "depends": [
+        "dataset-validation",
+        "rf-statistics"
+      ],
+      "inputs": [
+        "scripts/sync_fixtures.py",
+        "science/results/browser-fixture.json",
+        "science/rf/results/experiments.json",
+        "science/rf/results/classifiers.json"
+      ],
+      "outputs": [
+        "apps/web/public/fixtures/acoustic-optical.json",
+        "apps/web/public/fixtures/rf-results.json",
+        "apps/web/public/fixtures/rf-classifiers.json"
+      ],
+      "priority": 79,
+      "timeout_s": 120,
+      "validation": "implemented",
+      "evidence_kind": "synthetic"
+    }
+  ]
+}

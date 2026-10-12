@@ -1,0 +1,32 @@
+{
+  "name": "@golden-motion/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 127.0.0.1",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1",
+    "test": "node --import tsx --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:browser": "node tests/browser.mjs",
+    "test:relay-browser": "node tests/relay-browser.mjs"
+  },
+  "dependencies": {
+    "@golden-motion/isi": "*",
+    "@golden-motion/rf": "*",
+    "@mediapipe/tasks-vision": "0.10.22-rc.20250304",
+    "@react-three/fiber": "8.18.0",
+    "next": "15.5.27",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.171.0",
+    "lucide-react": "0.468.0",
+    "@golden-motion/relay": "*"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "@types/three": "0.171.0"
+  },
+  "type": "module"
+}

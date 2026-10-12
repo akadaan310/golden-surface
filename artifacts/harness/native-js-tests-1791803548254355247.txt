@@ -1,0 +1,31 @@
+
+> @golden-motion/android@0.1.0 test
+> node --test tests/*.test.cjs
+
+✔ Stop cancels deferred startWifi permission in actual App (8.291032ms)
+✔ Stop cancels deferred startAudio permission in actual App (2.306105ms)
+✔ Stop cancels deferred startCamera permission in actual App (2.277758ms)
+✔ mode invalidates pending acquisition in actual App (4.004686ms)
+✔ background invalidates pending acquisition in actual App (2.141947ms)
+✔ Stop cancels deferred independent startHotspot permission (1.997045ms)
+✔ Stop cancels deferred independent startBle permission (1.719729ms)
+✔ late native start acknowledgement cannot re-enable stopped App (2.726732ms)
+✔ recording round-trips bounded action metadata and isolates delta (1.359339ms)
+✔ disarmed actual App replay monitors events without selecting or scrolling (3.214416ms)
+✔ armed replay applies action values and releases selected target at EOF (2.374719ms)
+✔ disarming during replay immediately releases selection (2.092886ms)
+✔ actual native audio adapter uses valid unitless RMS with acquisition timestamp (3.279587ms)
+✔ native camera uses acquisition timestamps and silent frames release via tick (4.134909ms)
+✔ audio is low amplitude and bounded despite hostile configuration (0.95141ms)
+✔ publisher rejects public and credential-bearing websocket URLs (0.348801ms)
+✔ bounded recordings copy metadata and never retain raw sensor media (3.696261ms)
+✔ relay endpoint validation runs on React Native without URL implementation (0.298364ms)
+✔ semantic recording drops arbitrary top-level media and isolates coordinate arrays (1.350191ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 497.044794

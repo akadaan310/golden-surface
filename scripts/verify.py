@@ -8,6 +8,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from harness.runner import Runner, Task
+from harness.config import load_tasks, exclude_tasks
+from harness.hardware import connected_a16
 
 
 def main():
@@ -16,10 +18,10 @@ def main():
     parser.add_argument('--quick', action='store_true', help='Skip numerical parity, browser and native build')
     parser.add_argument('--force', action='store_true', help='Rerun previously successful checks')
     args = parser.parse_args()
-    tasks = [Task(**t) for t in json.loads((ROOT/'harness/tasks.json').read_text())['tasks']]
+    tasks = load_tasks(ROOT)
     if args.quick:
-        tasks = [t for t in tasks if t.id not in ['numeric-parity', 'rf-parity', 'android-build', 'browser-e2e']]
-    runner = Runner(ROOT,tasks)
+        tasks = exclude_tasks(tasks, ['numeric-parity', 'rf-parity', 'android-build', 'browser-e2e'])
+    runner = Runner(ROOT,tasks,hardware_available=connected_a16(ROOT) is not None)
     if args.force:
         for t in tasks:
             runner.state['tasks'].pop(t.id,None)

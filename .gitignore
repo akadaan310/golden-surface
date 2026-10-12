@@ -17,3 +17,5 @@ test-results/
 artifacts/recordings/
 .env*
 !*.env.example
+science/rf/sources/
+artifacts/golden-motion-source.tar.gz

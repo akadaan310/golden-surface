@@ -1,0 +1,287 @@
+{
+  "esp_csi_repo": {
+    "url": "https://github.com/espressif/esp-csi",
+    "checked_utc": "2026-10-12T10:12:03Z",
+    "status": 200,
+    "final_url": "https://github.com/espressif/esp-csi",
+    "content_type": "text/html; charset=utf-8",
+    "bytes_read": 310021,
+    "sha256": "910ffb9ca16a18a43fe7f9a1f4f7e4b465f464001247321ed57cd3cbded8c578",
+    "physical_tested": false
+  },
+  "esp_idf_csi": {
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi.html#wi-fi-channel-state-information",
+    "checked_utc": "2026-10-12T10:12:03Z",
+    "status": 200,
+    "final_url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi.html#wi-fi-channel-state-information",
+    "content_type": "text/html",
+    "bytes_read": 276,
+    "sha256": "5a2b5c1f80d0977cf5641ce899c9e77bd0bc8a340be6d3390af36a8c60cbd755",
+    "physical_tested": false,
+    "note": "Meta refresh only. Actual CSI documentation verified via esp_idf_csi_current."
+  },
+  "android_rtt": {
+    "url": "https://developer.android.com/develop/connectivity/wifi/wifi-rtt",
+    "checked_utc": "2026-10-12T10:12:04Z",
+    "status": 200,
+    "final_url": "https://developer.android.com/develop/connectivity/wifi/wifi-rtt",
+    "content_type": "text/html; charset=utf-8",
+    "bytes_read": 328556,
+    "sha256": "c502628e906931b38daf420f8cea49c2125873e0528804ded9c1dc334f946f14",
+    "physical_tested": false
+  },
+  "android_scan": {
+    "url": "https://developer.android.com/develop/connectivity/wifi/wifi-scan",
+    "checked_utc": "2026-10-12T10:12:05Z",
+    "status": 200,
+    "final_url": "https://developer.android.com/develop/connectivity/wifi/wifi-scan",
+    "content_type": "text/html; charset=utf-8",
+    "bytes_read": 305174,
+    "sha256": "99a5741544417c919812220884d34c3daa62adc04c6e46e8a32f5243c2b4be4c",
+    "physical_tested": false
+  },
+  "android_hotspot": {
+    "url": "https://developer.android.com/reference/android/net/wifi/WifiManager#startLocalOnlyHotspot(android.net.wifi.WifiManager.LocalOnlyHotspotCallback,%20android.os.Handler)",
+    "checked_utc": "2026-10-12T10:12:06Z",
+    "status": 200,
+    "final_url": "https://developer.android.com/reference/android/net/wifi/WifiManager#startLocalOnlyHotspot(android.net.wifi.WifiManager.LocalOnlyHotspotCallback,%20android.os.Handler)",
+    "content_type": "text/html; charset=utf-8",
+    "bytes_read": 2700847,
+    "sha256": "4c710d9bcfb2900346efcab515676dd32f95b3cb0f29817ee442f7cd97509c43",
+    "physical_tested": false
+  },
+  "wisee": {
+    "url": "https://homes.cs.washington.edu/~gshyam/Papers/wisee.pdf",
+    "checked_utc": "2026-10-12T10:12:07Z",
+    "status": 200,
+    "final_url": "https://homes.cs.washington.edu/~gshyam/Papers/wisee.pdf",
+    "content_type": "application/pdf",
+    "bytes_read": 687241,
+    "sha256": "59cc61afbbdd9441c275ee3a5288977e6f5e198151214f4829d25f1b9630cf3d",
+    "physical_tested": false
+  },
+  "witrack": {
+    "url": "https://witrack.csail.mit.edu/witrack-paper.pdf",
+    "checked_utc": "2026-10-12T10:12:08Z",
+    "status": 200,
+    "final_url": "https://witrack.csail.mit.edu/witrack-paper.pdf",
+    "content_type": "application/pdf",
+    "bytes_read": 3000000,
+    "sha256": "d12b3964874ef13bfd1762c4371ca9649c25300b9b6de19adaa19dd7b822aca5",
+    "physical_tested": false,
+    "note": "Initial paper download bounded at3MB; full verified via witrack_full (3201458 bytes)."
+  },
+  "rf_pose": {
+    "url": "https://rfpose.csail.mit.edu/",
+    "checked_utc": "2026-10-12T10:12:08Z",
+    "status": 200,
+    "final_url": "https://rfpose.csail.mit.edu/",
+    "content_type": "text/html",
+    "bytes_read": 7496,
+    "sha256": "4ce2dc61fe5aa569546fd2653297432259fb3ac8bd5e3cb93e4c8a752e14a89c",
+    "physical_tested": false
+  },
+  "densepose_wifi": {
+    "url": "https://arxiv.org/abs/2301.00250",
+    "checked_utc": "2026-10-12T10:12:09Z",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2301.00250",
+    "content_type": "text/html; charset=utf-8",
+    "bytes_read": 40753,
+    "sha256": "410358f670bb67395925eb4434fbf442d0fc31128d7ae513c8c445a4cc946eac",
+    "physical_tested": false
+  },
+  "widar": {
+    "url": "https://tns.thss.tsinghua.edu.cn/widar3.0/",
+    "checked_utc": "2026-10-12T10:12:09Z",
+    "status": 200,
+    "final_url": "https://tns.thss.tsinghua.edu.cn/widar3.0/",
+    "content_type": "text/html",
+    "bytes_read": 39996,
+    "sha256": "d12261aa88b6d541289d8137aaa7a1d35c36c21c96a1d950366d356d44bf16da",
+    "physical_tested": false
+  },
+  "wigest": {
+    "url": "https://arxiv.org/abs/1501.04301",
+    "checked_utc": "2026-10-12T10:12:11Z",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/1501.04301",
+    "content_type": "text/html; charset=utf-8",
+    "bytes_read": 43081,
+    "sha256": "cca986da0f3dfc1a7a89b311cf94ee7e22232199de5fbf0358bf31183768af95",
+    "physical_tested": false
+  },
+  "esp_csi_readme": {
+    "url": "https://raw.githubusercontent.com/espressif/esp-csi/master/README.md",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/espressif/esp-csi/master/README.md",
+    "bytes_read": 7222,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "esp_csi_license": {
+    "url": "https://raw.githubusercontent.com/espressif/esp-csi/master/LICENSE",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/espressif/esp-csi/master/LICENSE",
+    "bytes_read": 11358,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "esp_csi_tree": {
+    "url": "https://api.github.com/repos/espressif/esp-csi/git/trees/master?recursive=1",
+    "status": 200,
+    "final_url": "https://api.github.com/repos/espressif/esp-csi/git/trees/master?recursive=1",
+    "bytes_read": 62954,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "esp_idf_csi_driver": {
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi-driver/wifi-csi.html",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found",
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "wifinger_search": {
+    "url": "https://api.crossref.org/works?query.title=WiFinger%20Leveraging%20Commodity%20WiFi%20for%20Fine-grained%20Finger%20Gesture%20Recognition&rows=3",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works?query.title=WiFinger%20Leveraging%20Commodity%20WiFi%20for%20Fine-grained%20Finger%20Gesture%20Recognition&rows=3",
+    "bytes_read": 18346,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "wigest_pdf": {
+    "url": "https://arxiv.org/pdf/1501.04301",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/1501.04301",
+    "bytes_read": 3585159,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "densepose_pdf": {
+    "url": "https://arxiv.org/pdf/2301.00250",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2301.00250",
+    "bytes_read": 11369233,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "rfpose_pdf": {
+    "url": "https://openaccess.thecvf.com/content_cvpr_2018/papers/Zhao_Through-Wall_Human_Pose_CVPR_2018_paper.pdf",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content_cvpr_2018/papers/Zhao_Through-Wall_Human_Pose_CVPR_2018_paper.pdf",
+    "bytes_read": 1544760,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "widar3_pdf": {
+    "url": "https://tns.thss.tsinghua.edu.cn/widar3.0/data/MobiSys19_Widar3.0_paper.pdf",
+    "status": 200,
+    "final_url": "https://tns.thss.tsinghua.edu.cn/widar3.0/data/MobiSys19_Widar3.0_paper.pdf",
+    "bytes_read": 861387,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "esp_csi_recv_code": {
+    "url": "https://raw.githubusercontent.com/espressif/esp-csi/8633d67152db2808f141cc1595970aa9cf406045/examples/get-started/csi_recv/main/app_main.c",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/espressif/esp-csi/8633d67152db2808f141cc1595970aa9cf406045/examples/get-started/csi_recv/main/app_main.c",
+    "bytes_read": 11546,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "esp_csi_parser_code": {
+    "url": "https://raw.githubusercontent.com/espressif/esp-csi/8633d67152db2808f141cc1595970aa9cf406045/examples/get-started/tools/csi_data_read_parse.py",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/espressif/esp-csi/8633d67152db2808f141cc1595970aa9cf406045/examples/get-started/tools/csi_data_read_parse.py",
+    "bytes_read": 13602,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "esp_idf_driver_index": {
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi-driver/index.html",
+    "status": 200,
+    "final_url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi-driver/index.html",
+    "bytes_read": 26552,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "wifinger_exact": {
+    "url": "https://api.crossref.org/works?query=WiFinger&rows=15",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works?query=WiFinger&rows=15",
+    "bytes_read": 22142,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "widar_license_metadata": {
+    "url": "https://tns.thss.tsinghua.edu.cn/widar3.0/index.html",
+    "status": 200,
+    "final_url": "https://tns.thss.tsinghua.edu.cn/widar3.0/index.html",
+    "bytes_read": 39996,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "esp_idf_csi_current": {
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi-driver/wifi-vendor-features.html#wi-fi-channel-state-information",
+    "retrieval_scope": "public primary publication/documentation; not a dataset download",
+    "status": 200,
+    "final_url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi-driver/wifi-vendor-features.html#wi-fi-channel-state-information",
+    "bytes_read": 42583,
+    "content_type": "text/html",
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "witrack_full": {
+    "url": "https://witrack.csail.mit.edu/witrack-paper.pdf",
+    "retrieval_scope": "public primary publication/documentation; not a dataset download",
+    "status": 200,
+    "final_url": "https://witrack.csail.mit.edu/witrack-paper.pdf",
+    "bytes_read": 3201458,
+    "content_type": "application/pdf",
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "wifinger_mobihoc_primary": {
+    "url": "https://dl.acm.org/doi/10.1145/2942358.2942393",
+    "retrieval_scope": "public primary publication/documentation; not a dataset download",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden",
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "wifinger_ubicomp_primary": {
+    "url": "https://dl.acm.org/doi/10.1145/2971648.2971738",
+    "retrieval_scope": "public primary publication/documentation; not a dataset download",
+    "status": "unavailable",
+    "error": "HTTP Error 403: Forbidden",
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "wifinger_author": {
+    "url": "https://www.cis.temple.edu/~jyang/papers/WiFinger-MobiHoc16.pdf",
+    "retrieval_scope": "public primary publication/documentation; not a dataset download",
+    "status": "unavailable",
+    "error": "HTTP Error 404: Not Found",
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "rf_pose_cvpr": {
+    "url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Zhao_Through-Wall_Human_Pose_CVPR_2018_paper.html",
+    "retrieval_scope": "public primary publication/documentation; not a dataset download",
+    "status": 200,
+    "final_url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Zhao_Through-Wall_Human_Pose_CVPR_2018_paper.html",
+    "bytes_read": 4924,
+    "content_type": "text/html; charset=UTF-8",
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  },
+  "widar_dataport_metadata": {
+    "url": "https://ieee-dataport.org/open-access/widar-30-wifi-based-activity-recognition-dataset",
+    "retrieval_scope": "metadata only; no dataset download",
+    "status": 200,
+    "bytes_read": 77317,
+    "checked_utc": "2026-10-12T10:27:38Z",
+    "physical_tested": false
+  }
+}

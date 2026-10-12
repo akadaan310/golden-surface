@@ -1,0 +1,20 @@
+
+> golden-motion@0.1.0 test
+> vitest run
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v2.1.9 /workspace/golden-motion
+
+ ✓ packages/isi/src/lifecycle.test.ts (7 tests) 17ms
+ ✓ packages/isi/src/engine.test.ts (45 tests) 80ms
+ ✓ services/relay/test/client.test.ts (5 tests) 339ms
+ ✓ services/relay/test/relay.test.ts (16 tests) 261ms
+ ✓ services/relay/test/synthetic.test.ts (3 tests) 523ms
+   ✓ cleans up reconnect attempts when the command fails to pair with an unavailable relay 357ms
+
+ Test Files  5 passed (5)
+      Tests  76 passed (76)
+   Start at  10:59:36
+   Duration  3.34s (transform 1.27s, setup 0ms, collect 2.10s, tests 1.22s, environment 1ms, prepare 1.45s)
+

@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "build": "production",
+  "url": "http://127.0.0.1:3001",
+  "camera": "Chromium synthetic test camera; not physical hand accuracy",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "apps/web/tests/browser.mjs"
+      ],
+      "returncode": 0,
+      "duration_s": 12.726819645999967,
+      "peak_rss_mb": 950.21,
+      "output": "{\n  \"passed\": true,\n  \"checks\": [\n    \"3D WebGL scene renders\",\n    \"software renderer auto-degrades quality and standby schedules no GPU rendering\",\n    \"acquisition events and intent-gated inference hover\",\n    \"measured scalar change creates shared-engine scroll event\",\n    \"dropout withholds estimate and releases action\",\n    \"stop releases intent and stops actions\",\n    \"bounded recorded replay preserves source labeling\",\n    \"modality changes and explicit camera depth limit\",\n    \"opt-in local MediaPipe camera inference starts and explicitly stops\",\n    \"shared RF simulation and inference-gated explicit scroll-direction policy\",\n    \"RF perturbation updates measured quality; RSSI has no directional gesture action\",\n    \"executed scientific fixture evidence is visible\",\n    \"no uncaught browser errors\",\n    \"390px mobile layout without horizontal overflow; touch-accessible controls\"\n  ]\n}\n",
+      "error": null
+    },
+    {
+      "command": [
+        "node",
+        "apps/web/tests/relay-browser.mjs"
+      ],
+      "returncode": 0,
+      "duration_s": 3.690563340999688,
+      "peak_rss_mb": 677.52,
+      "output": "{\n  \"passed\": true,\n  \"checks\": [\n    \"authenticated browser subscriber connection\",\n    \"fresh authenticated semantic event drives preview without local simulator bypass\",\n    \"low-confidence remote observation releases preview hover\",\n    \"protocol-valid stale event monitored but action withheld\",\n    \"browser stop prevents remote actions\",\n    \"browser reconnects to restarted authenticated loopback relay\",\n    \"disconnect releases relay and erases pairing token\"\n  ]\n}\n",
+      "error": null
+    },
+    {
+      "command": [
+        "node_modules/.bin/tsx",
+        "scripts/browser_transport.ts"
+      ],
+      "returncode": 0,
+      "duration_s": 8.039394010999786,
+      "peak_rss_mb": 730.09,
+      "output": "{\n  \"source\": \"synthetic\",\n  \"environment\": \"same-host headless Chromium software rendering\",\n  \"physicalPhoneTested\": false,\n  \"latency\": {\n    \"samplesMs\": [\n      17,\n      32,\n      8,\n      5,\n      5,\n      11,\n      4,\n      6,\n      4,\n      5\n    ],\n    \"meanMs\": 9.7,\n    \"p95Ms\": 32,\n    \"measurement\": \"host publisher send to observable browser semantic action commit; synchronized same-host epoch\"\n  },\n  \"rendering\": {\n    \"samples\": 119,\n    \"meanRafIntervalMs\": 16.66638655462185,\n    \"p95RafIntervalMs\": 16.799999999999955,\n    \"observedStandbyRafFps\": 60.001008420309574,\n    \"standbyRenderedFrames\": 0,\n    \"standbyElapsedMs\": 1988,\n    \"activeRenderedFrames\": 16,\n    \"activeElapsedMs\": 2003,\n    \"observedActiveRenderFps\": 7.9880179730404395,\n    \"policy\": \"demand\",\n    \"quality\": \"low-power\",\n    \"scheduledHz\": 20,\n    \"measurement\": \"Actual Three.js frame counter plus browser RAF cadence; software renderer, not Galaxy A16 GPU\"\n  },\n  \"limitations\": [\n    \"No Galaxy A16 FPS/power/network/camera performance measured.\",\n    \"Browser cadence and instrumentation include software-renderer/host load.\"\n  ]\n}\n",
+      "error": null
+    }
+  ]
+}

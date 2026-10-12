@@ -1,0 +1,47 @@
+[
+  {
+    "key": "audio-record",
+    "url": "https://developer.android.com/reference/android/media/AudioRecord",
+    "resolvedUrl": "https://developer.android.com/reference/android/media/AudioRecord",
+    "downloadedBytes": 2379573,
+    "sha256": "f59e55945981257374d3c75e699afebf9f541f95bd57ad22e90300bd0030e9d0",
+    "category": "official-api-docs",
+    "evidence": "retrieved documentation; not project hardware evidence"
+  },
+  {
+    "key": "sensor-manager",
+    "url": "https://developer.android.com/reference/android/hardware/SensorManager",
+    "resolvedUrl": "https://developer.android.com/reference/android/hardware/SensorManager",
+    "downloadedBytes": 2425077,
+    "sha256": "422e42889a946c857c3a2d926676744eebd86c6eebbe3b36a7cbde8cae595361",
+    "category": "official-api-docs",
+    "evidence": "retrieved documentation; not project hardware evidence"
+  },
+  {
+    "key": "mediapipe-hand",
+    "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/web_js",
+    "resolvedUrl": "https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker/web_js",
+    "downloadedBytes": 139794,
+    "sha256": "fd67f878fb1ee1f0395f343609e27ed1c7e3fc9719ff671587e612b233b68af6",
+    "category": "official-api-docs",
+    "evidence": "retrieved documentation; not project hardware evidence"
+  },
+  {
+    "key": "wifi-scan",
+    "url": "https://developer.android.com/develop/connectivity/wifi/wifi-scan",
+    "resolvedUrl": "https://developer.android.com/develop/connectivity/wifi/wifi-scan",
+    "downloadedBytes": 305178,
+    "sha256": "5e7eaf8c123eee87a78eecb1ff5982ac230334a8ca86b3a21e24d827b399bcfb",
+    "category": "official-api-docs",
+    "evidence": "retrieved documentation; not project hardware evidence"
+  },
+  {
+    "key": "wifi-rtt",
+    "url": "https://developer.android.com/develop/connectivity/wifi/wifi-rtt",
+    "resolvedUrl": "https://developer.android.com/develop/connectivity/wifi/wifi-rtt",
+    "downloadedBytes": 328552,
+    "sha256": "c83c005a1f7bb1802209ee4c9c2fad2e9c487f8616d4f545c482e973a01169e7",
+    "category": "official-api-docs",
+    "evidence": "retrieved documentation; not project hardware evidence"
+  }
+]

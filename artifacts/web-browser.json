@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "3D WebGL scene renders",
+    "software renderer auto-degrades quality and standby schedules no GPU rendering",
+    "acquisition events and intent-gated inference hover",
+    "measured scalar change creates shared-engine scroll event",
+    "dropout withholds estimate and releases action",
+    "stop releases intent and stops actions",
+    "bounded recorded replay preserves source labeling",
+    "modality changes and explicit camera depth limit",
+    "opt-in local MediaPipe camera inference starts and explicitly stops",
+    "shared RF simulation and inference-gated explicit scroll-direction policy",
+    "RF perturbation updates measured quality; RSSI has no directional gesture action",
+    "executed scientific fixture evidence is visible",
+    "no uncaught browser errors",
+    "390px mobile layout without horizontal overflow; touch-accessible controls"
+  ],
+  "errors": []
+}

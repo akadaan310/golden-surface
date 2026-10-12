@@ -1,0 +1,12 @@
+
+> golden-motion@0.1.0 build:sdk
+> npm run build --workspace @golden-motion/isi && npm run build --workspace @golden-motion/rf
+
+
+> @golden-motion/isi@0.1.0 build
+> tsc -p tsconfig.json
+
+
+> @golden-motion/rf@0.1.0 build
+> tsc -p tsconfig.json
+

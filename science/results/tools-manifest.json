@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "platform": "linux-x86_64",
+  "julia": {
+    "version": "1.11.5",
+    "archiveSha256": "723e878c642220cc0251a0e13758c059a389cadc7f01376feaf1ea7388fe8f9c"
+  },
+  "micromamba": {
+    "version": "2.9.0",
+    "archiveSha256": "8761c382127e6363bd9e0a2451aa3ef90d071a79133f736e2f759a3bf13040dd"
+  },
+  "octave": {
+    "version": "9.4.0",
+    "explicitDependencyManifest": "octave-conda-explicit.txt",
+    "manifestSha256": "c3084dc98b57c9d9ec84415ad49be292fb4b32ce564d0fdb011ec9d2ba184798"
+  },
+  "runtimeInstallation": "science/.tools, ignored; no root required"
+}

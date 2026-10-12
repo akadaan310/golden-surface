@@ -1,0 +1,18 @@
+
+> @golden-motion/rf@0.1.0 test
+> node --experimental-strip-types --test test/*.test.ts
+
+✔ common CFO never becomes inferred position or motion (49.842155ms)
+✔ moving reflector returns scalar motion evidence (66.124067ms)
+✔ RSSI pipeline rejects CSI and does not invent radial velocity (80.482438ms)
+✔ deterministic stream and explicit loss (234.402702ms)
+✔ ISI adapter preserves measurement space and requires explicit intent (28.38977ms)
+✔ RF adapter validates in the shared SDK including absent Doppler (31.50704ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 692.704101

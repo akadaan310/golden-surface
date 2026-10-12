@@ -1,0 +1,23 @@
+{
+  "executed": [
+    "rf-statistics",
+    "numeric-parity",
+    "rf-parity",
+    "dataset-validation",
+    "native-js-tests",
+    "web-model-tests",
+    "synchronize-fixtures",
+    "android-build",
+    "web-build",
+    "browser-e2e"
+  ],
+  "stop_reason": "no_unblocked_tasks",
+  "elapsed_s": 64.20062597000015,
+  "counts": {
+    "passed": 21,
+    "failed": 0,
+    "pending": 0,
+    "blocked": 1
+  }
+}
+Selected engineering/synthetic checks passed. Physical validation is pending.

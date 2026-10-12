@@ -1,0 +1,15 @@
+{
+  "sha256": {
+    "results.json": "3d8e4846b942ee3270c053eb3a46ab51767abedde07e5d34d29f876c8b1d5265",
+    "browser-fixture.json": "32495018ab29d7b7fdec529036080b5632a6f109f6f87db0a354e7612738f8f6"
+  },
+  "determinism": "Signals and metrics deterministic; wall-clock cost measurements intentionally vary.",
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "seed": 20261012,
+  "modelVersion": "gm-acoustics-v1"
+}

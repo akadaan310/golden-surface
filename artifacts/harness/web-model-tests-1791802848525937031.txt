@@ -1,0 +1,26 @@
+
+> @golden-motion/web@0.1.0 test
+> node --experimental-strip-types --test tests/*.test.mjs
+
+✔ acoustic forward model estimates a generated delay rather than copying truth (5.002861ms)
+✔ seeded perturbations repeat and waveform noise changes estimation evidence (4.581012ms)
+✔ dropout and absent hand withhold estimate and confidence (2.558525ms)
+✔ intent confidence and current sensing are all required for semantic actions (0.418527ms)
+✔ magnetic model is scalar and marked simulated capability (0.52496ms)
+✔ zone editor changes membership using explicit phone-local proxy coordinates (0.29699ms)
+✔ competing observed echo peaks reduce confidence and increase uncertainty (0.862265ms)
+✔ relay action clock rejects old future and nonfinite events (0.834052ms)
+✔ scalar RSSI has no spatial or scrolling preview capability (0.16704ms)
+✔ scroll applies the shared inference event delta rather than synthetic truth (4.432442ms)
+✔ stop disarm lowconfidence and wrong observation prevent actions (0.50175ms)
+✔ unsigned RF score never creates a signed sensor displacement (0.270245ms)
+✔ RF synthetic continuous policy requires inference hover and explicit user direction (1.59733ms)
+✔ a low-confidence event releases previous consumer hover state (0.236561ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 869.737628

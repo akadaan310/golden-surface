@@ -2,6 +2,8 @@ import argparse
 import json
 from pathlib import Path
 from .runner import Runner, Task
+from .config import load_tasks
+from .hardware import connected_a16
 
 
 def main():
@@ -12,8 +14,7 @@ def main():
     parser.add_argument('--task', action='append', help='Select a task and its prerequisites')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    config = json.loads((root/'harness/tasks.json').read_text())
-    tasks = [Task(**t) for t in config['tasks']]
+    tasks = load_tasks(root)
     if args.task:
         by_id = {t.id:t for t in tasks}
         selected = set()
@@ -27,7 +28,7 @@ def main():
         for id in args.task:
             add(id)
         tasks = [t for t in tasks if t.id in selected]
-    r = Runner(root, tasks)
+    r = Runner(root, tasks, hardware_available=connected_a16(root) is not None)
     if args.action == 'run':
         summary = r.run(max_tasks=args.max_tasks, budget_s=args.budget)
         print(json.dumps(summary, indent=2))

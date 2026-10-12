@@ -1,0 +1,136 @@
+{
+  "nominal": {
+    "hand_presence_truth": true,
+    "n": 40,
+    "rf_only_activation": 1.0,
+    "acoustic_only_activation": 1.0,
+    "optical_proxy_only_activation": 1.0,
+    "naive_OR_activation": 1.0,
+    "quality_gated_acoustic_optical_activation": 1.0,
+    "quality_gated_activation_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "fused_position_MAE_m": 0.0024554636636658625,
+    "fused_MAE_bootstrap_95": [
+      0.002352857936802653,
+      0.0025515532082762238
+    ],
+    "rf_corroborated_fraction": 1.0,
+    "rf_rejected_fraction": 0.0
+  },
+  "no_hand_rf_drift": {
+    "hand_presence_truth": false,
+    "n": 40,
+    "rf_only_activation": 1.0,
+    "acoustic_only_activation": 0.0,
+    "optical_proxy_only_activation": 0.0,
+    "naive_OR_activation": 1.0,
+    "quality_gated_acoustic_optical_activation": 0.0,
+    "quality_gated_activation_wilson_95": [
+      0.0,
+      0.08762453925039232
+    ],
+    "fused_position_MAE_m": null,
+    "fused_MAE_bootstrap_95": null,
+    "rf_corroborated_fraction": 0.0,
+    "rf_rejected_fraction": 0.0
+  },
+  "optical_dropout": {
+    "hand_presence_truth": true,
+    "n": 40,
+    "rf_only_activation": 1.0,
+    "acoustic_only_activation": 1.0,
+    "optical_proxy_only_activation": 0.0,
+    "naive_OR_activation": 1.0,
+    "quality_gated_acoustic_optical_activation": 0.0,
+    "quality_gated_activation_wilson_95": [
+      0.0,
+      0.08762453925039232
+    ],
+    "fused_position_MAE_m": null,
+    "fused_MAE_bootstrap_95": null,
+    "rf_corroborated_fraction": 0.0,
+    "rf_rejected_fraction": 0.0
+  },
+  "acoustic_clock_bias": {
+    "hand_presence_truth": true,
+    "n": 40,
+    "rf_only_activation": 1.0,
+    "acoustic_only_activation": 1.0,
+    "optical_proxy_only_activation": 1.0,
+    "naive_OR_activation": 1.0,
+    "quality_gated_acoustic_optical_activation": 1.0,
+    "quality_gated_activation_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "fused_position_MAE_m": 0.17242999160043465,
+    "fused_MAE_bootstrap_95": [
+      0.17241319112131132,
+      0.17244706251273914
+    ],
+    "rf_corroborated_fraction": 1.0,
+    "rf_rejected_fraction": 0.0
+  },
+  "acoustic_multipath": {
+    "hand_presence_truth": true,
+    "n": 40,
+    "rf_only_activation": 1.0,
+    "acoustic_only_activation": 1.0,
+    "optical_proxy_only_activation": 1.0,
+    "naive_OR_activation": 1.0,
+    "quality_gated_acoustic_optical_activation": 1.0,
+    "quality_gated_activation_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "fused_position_MAE_m": 0.10081869548070373,
+    "fused_MAE_bootstrap_95": [
+      0.10080940188243288,
+      0.10082794218846797
+    ],
+    "rf_corroborated_fraction": 1.0,
+    "rf_rejected_fraction": 0.0
+  },
+  "weak_rf_motion": {
+    "hand_presence_truth": true,
+    "n": 40,
+    "rf_only_activation": 0.0,
+    "acoustic_only_activation": 1.0,
+    "optical_proxy_only_activation": 1.0,
+    "naive_OR_activation": 1.0,
+    "quality_gated_acoustic_optical_activation": 1.0,
+    "quality_gated_activation_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "fused_position_MAE_m": 0.0024554636636658625,
+    "fused_MAE_bootstrap_95": [
+      0.002352857936802653,
+      0.0025515532082762238
+    ],
+    "rf_corroborated_fraction": 0.0,
+    "rf_rejected_fraction": 0.0
+  },
+  "unrelated_moving_object": {
+    "hand_presence_truth": false,
+    "n": 40,
+    "rf_only_activation": 1.0,
+    "acoustic_only_activation": 1.0,
+    "optical_proxy_only_activation": 1.0,
+    "naive_OR_activation": 1.0,
+    "quality_gated_acoustic_optical_activation": 1.0,
+    "quality_gated_activation_wilson_95": [
+      0.9123754607496077,
+      1.0
+    ],
+    "fused_position_MAE_m": 0.0024554636636658625,
+    "fused_MAE_bootstrap_95": [
+      0.002352857936802653,
+      0.0025515532082762238
+    ],
+    "rf_corroborated_fraction": 1.0,
+    "rf_rejected_fraction": 0.0
+  }
+}

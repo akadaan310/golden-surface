@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "source": "synthetic",
+  "modelVersion": "gm-acoustics-v1",
+  "names": [
+    "bistaticPathM",
+    "gradientX",
+    "gradientY",
+    "gradientZ",
+    "matchedRangeM",
+    "matchedCoherence",
+    "dopplerHz",
+    "radialVelocityMps",
+    "phaseDisplacementM",
+    "positionRank",
+    "stateRank"
+  ],
+  "reference": [
+    0.5844655678480983,
+    0.6843859108291549,
+    1.0265788662437323,
+    1.5740875949070563,
+    0.29285313156811216,
+    0.9999880711700414,
+    -4.24905273436177,
+    0.04048403021905798,
+    0.000999999999999962,
+    3.0,
+    6.0
+  ],
+  "languages": {
+    "julia": {
+      "status": "executed",
+      "command": [
+        "/workspace/golden-motion/science/.tools/julia-1.11.5/bin/julia",
+        "--startup-file=no",
+        "/workspace/golden-motion/science/kernels/acoustic.jl",
+        "/workspace/golden-motion/science/results/parity"
+      ],
+      "version": "julia version 1.11.5",
+      "exitCode": 0,
+      "elapsedS": 3.368703228999948,
+      "stdout": "Independent Julia kernels complete: 1920 samples, 11 scalar outputs.\n",
+      "stderr": "",
+      "scalars": {
+        "passed": true,
+        "maxAbsError": 1.0125233984581428e-13,
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "signal": {
+        "passed": true,
+        "maxAbsError": 1.1102230246251565e-16,
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "outputs": [
+        0.5844655678480983,
+        0.6843859108291549,
+        1.0265788662437323,
+        1.5740875949070563,
+        0.29285313156811243,
+        0.9999880711700421,
+        -4.249052734361872,
+        0.04048403021905894,
+        0.000999999999999962,
+        3.0,
+        6.0
+      ],
+      "passed": true
+    },
+    "octave": {
+      "status": "executed",
+      "command": [
+        "/workspace/golden-motion/science/.tools/octave/bin/octave-cli",
+        "--no-gui",
+        "--quiet",
+        "/workspace/golden-motion/science/kernels/acoustic.m",
+        "/workspace/golden-motion/science/results/parity"
+      ],
+      "version": "GNU Octave, version 9.4.0",
+      "exitCode": 0,
+      "elapsedS": 0.3927553800003807,
+      "stdout": "Independent Octave kernels complete: 1920 samples, 11 scalar outputs.\n",
+      "stderr": "",
+      "scalars": {
+        "passed": true,
+        "maxAbsError": 1.0835776720341528e-13,
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "signal": {
+        "passed": true,
+        "maxAbsError": 2.142730437526552e-14,
+        "atol": 1e-09,
+        "rtol": 1e-09
+      },
+      "outputs": [
+        0.5844655678480983,
+        0.6843859108291549,
+        1.026578866243732,
+        1.574087594907056,
+        0.2928531315681122,
+        0.9999880711700428,
+        -4.249052734361879,
+        0.04048403021905901,
+        0.000999999999999962,
+        3.0,
+        6.0
+      ],
+      "passed": true
+    }
+  },
+  "negativeControl": {
+    "passed": false,
+    "maxAbsError": 0.001000000000000334,
+    "atol": 1e-09,
+    "rtol": 1e-09
+  },
+  "passed": true
+}

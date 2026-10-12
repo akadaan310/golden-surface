@@ -1,6 +1,11 @@
 # Next actions
 
-1. Implement and verify all independent tracks from the implementation plan.
-2. Integrate SDK contracts, execute numerical parity and builds, record failures.
-3. Run browser and transport demonstrations; preserve measured results.
-4. When a Galaxy A16 is connected, inventory its exact variant, install APK, calibrate and run GM-002 negative controls before gesture claims.
+1. Read PROJECT_STATE.json and the two ledgers; preserve the 21 passed graph tasks and their fingerprints. `npm run verify` reruns changed work; do not blindly restart completed experiments.
+2. Connect the actual Galaxy A16 with authorized USB debugging. Inventory exact variant/build/chipset, install the APK and test native permissions, Stop/background cancellation, replay, camera reference and public Wi-Fi/hotspot diagnostics. Isolated JS/build tests are not installed-phone validation.
+3. For GM-002, measure no-hand/static-hand/moving-hand audio controls, usable bandwidth, vendor DSP, drift and sample timing before inference. Add on-device waveform/spectral acquisition required by validated estimators without retaining identifiable raw media by default. Do not assume near-ultrasound properties establish feasibility.
+4. Run real camera hand-reference trials with participant consent, timestamps, negative controls and held-out sessions. Calibrate image-plane zones; do not claim monocular measured depth.
+5. Use an already-owned supported ESP32/CSI device or properly licensed accessible RF recordings for GM-RF-005/006. Purchases, credentials or new infrastructure need authorization. Confirm packet/chip format, antenna coherence, baseline gain/phase stability, actual cadence and device clocks before CSI Doppler algorithms.
+6. Quantify whether Android's coarse RSSI contributes information. Preserve synthetic shadowing/oscillator/iso-delay failures and compare simple baselines. RTT ranges cooperating radios, not an untagged hand.
+7. Test Three.js FPS/power/thermal behavior on the actual phone. Active software rendering measured ~8 FPS here; low-power/demand behavior and source-labelled diagnostics exist. Profile before changing visual or signal budgets.
+8. Reattempt emulator UI tests on a KVM-capable environment; both software-emulator boot failures are preserved, and no further boot retry is running.
+9. Productization: evaluate current supported React Native/React/Fiber versions, real session/participant calibration, transport clock alignment, optional raw-PCM DSP adapter, spatial-zone ergonomics and confidence calibration. Keep unobservable interactions disabled.

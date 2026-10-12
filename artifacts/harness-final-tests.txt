@@ -1,0 +1,19 @@
+test_current_interpreter_used_without_virtual_environment (test_config.ConfigurationTests.test_current_interpreter_used_without_virtual_environment) ... ok
+test_installed_virtual_environment_controls_scientific_interpreter (test_config.ConfigurationTests.test_installed_virtual_environment_controls_scientific_interpreter) ... ok
+test_quick_graph_removes_transitive_dependents_of_excluded_builds (test_config.ConfigurationTests.test_quick_graph_removes_transitive_dependents_of_excluded_builds) ... ok
+test_dependency_order_overrides_priority (test_harness.HarnessTests.test_dependency_order_overrides_priority) ... ok
+test_failure_retries_are_bounded_and_preserved (test_harness.HarnessTests.test_failure_retries_are_bounded_and_preserved) ... ok
+test_fingerprint_includes_command_and_file_content (test_harness.HarnessTests.test_fingerprint_includes_command_and_file_content) ... ok
+test_hardware_block_does_not_block_independent_task (test_harness.HarnessTests.test_hardware_block_does_not_block_independent_task) ... ok
+test_missing_executable_generates_resource_action (test_harness.HarnessTests.test_missing_executable_generates_resource_action) ... ok
+test_output_truncation_preserves_bound (test_harness.HarnessTests.test_output_truncation_preserves_bound) ... ok
+test_required_artifact_missing_is_failure_even_on_exit_zero (test_harness.HarnessTests.test_required_artifact_missing_is_failure_even_on_exit_zero) ... ok
+test_success_is_skipped_until_inputs_change (test_harness.HarnessTests.test_success_is_skipped_until_inputs_change) ... ok
+test_timeout_kills_a_descendant_that_ignores_termination (test_harness.HarnessTests.test_timeout_kills_a_descendant_that_ignores_termination) ... ok
+test_timeout_kills_task_and_saves_checkpoint (test_harness.HarnessTests.test_timeout_kills_task_and_saves_checkpoint) ... ok
+test_unknown_dependency_and_cycle_rejected (test_harness.HarnessTests.test_unknown_dependency_and_cycle_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.234s
+
+OK

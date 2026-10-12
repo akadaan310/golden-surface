@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "authenticated browser subscriber connection",
+    "fresh authenticated semantic event drives preview without local simulator bypass",
+    "low-confidence remote observation releases preview hover",
+    "protocol-valid stale event monitored but action withheld",
+    "browser stop prevents remote actions",
+    "browser reconnects to restarted authenticated loopback relay",
+    "disconnect releases relay and erases pairing token"
+  ]
+}

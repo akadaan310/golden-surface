@@ -1,0 +1,28 @@
+{
+  "executed": [
+    "environment",
+    "harness-tests",
+    "isi-tests",
+    "rf-sdk-tests",
+    "rf-science-tests",
+    "science-tests",
+    "sdk-build",
+    "acoustic-experiments",
+    "rf-classifiers",
+    "rf-experiments",
+    "rf-fusion",
+    "rf-statistics",
+    "dataset-validation",
+    "web-model-tests",
+    "web-build"
+  ],
+  "stop_reason": "no_unblocked_tasks",
+  "elapsed_s": 126.77479527099968,
+  "counts": {
+    "passed": 17,
+    "failed": 0,
+    "pending": 0,
+    "blocked": 0
+  }
+}
+Selected engineering/synthetic checks passed. Physical validation is pending.

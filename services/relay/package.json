@@ -1,0 +1,15 @@
+{
+  "name": "@golden-motion/relay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": { ".": "./src/index.ts", "./client": "./src/client.ts" },
+  "scripts": {
+    "start": "tsx src/cli.ts",
+    "synthetic": "tsx src/synthetic.ts",
+    "test": "vitest run --root ../.. services/relay/test",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": { "@golden-motion/isi": "*", "ws": "~8.18.0" }
+}

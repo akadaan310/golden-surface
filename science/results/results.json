@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "gm-acoustics-v1",
+  "source": "synthetic",
+  "seed": 20261012,
+  "physicalValidation": false,
+  "experiments": {
+    "GM-001": {
+      "name": "Acoustic scalar range and rate comparison",
+      "matched_filter_range_rmse_m": 0.00044331173538802174,
+      "phase_anchored_range_rmse_m": 0.00039386978283694607,
+      "doppler_integrated_range_rmse_m": 0.0010695503388559514,
+      "kalman_range_rmse_m": 0.0005351626959098823,
+      "doppler_radial_velocity_rmse_m_s": 0.00019625124819485946,
+      "accepted_fraction": 1.0,
+      "scalar_only_position_rmse_m": null,
+      "phase_unambiguous_step_m": 0.004763888888888889,
+      "reasonNoSpatialScore": "Single half-path and radial rate leave angular directions unobserved."
+    },
+    "GM-004": {
+      "name": "Synthetic calibrated range and optical ray fusion",
+      "optical_bearing_rmse_rad": 0.006371809632785151,
+      "fused_position_rmse_m": 0.0021034402066633633,
+      "acoustic_anchored_bearing_prior_position_rmse_m": 0.07364093452262184,
+      "optical_anchored_prior_position_rmse_m": 0.04353863778961776,
+      "corrupt_optical_fused_position_rmse_m": 0.06697217788668042,
+      "fusionHelps": true,
+      "failure": "Unmodeled 0.15 image-coordinate bias makes fusion worse; no calibration claim.",
+      "opticalOnlyDepthObserved": false,
+      "rankRange": 1,
+      "rankOptical": 2,
+      "rankCombined": 3,
+      "combinedSingularValues": [
+        2.525381361380526,
+        2.4999999999999996,
+        1.0
+      ],
+      "combinedJacobian": [
+        [
+          0.0,
+          0.14142135623730948,
+          0.9899494936611665
+        ],
+        [
+          2.4999999999999996,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          2.4999999999999996,
+          -0.35714285714285704
+        ]
+      ],
+      "localOnly": true
+    },
+    "GM-005": {
+      "name": "BLE scalar alternative requiring instrumented tag",
+      "rssi_range_rmse_m": 0.06964513657993333,
+      "body_attenuated_range_rmse_m": 0.36282177163279833,
+      "noise_std_db": 2.0,
+      "path_loss_exponent": 2.0,
+      "body_attenuation_db": 6,
+      "claim": "Log-distance model only; no bare-hand localization and no BLE hardware connected."
+    },
+    "costs": {
+      "measurement": "wall-clock per simulated frame incl estimator; does not measure hardware latency",
+      "echo_ms_mean": 1.4908536528925622,
+      "echo_ms_p95": 1.739873,
+      "tone_ms_mean": 1.322075,
+      "tone_ms_p95": 1.561024
+    }
+  },
+  "controls": {
+    "baseline": {
+      "range_rmse_m": 4.97730390571761e-05,
+      "bias_m": 6.214168620243103e-06,
+      "accepted_fraction": 1.0,
+      "trials": 48
+    },
+    "high_noise": {
+      "range_rmse_m": 0.002156259355112579,
+      "bias_m": 0.0002831457960373639,
+      "accepted_fraction": 0.4375,
+      "trials": 48
+    },
+    "weak_multipath": {
+      "range_rmse_m": 0.00492780971679594,
+      "bias_m": 0.004927558433249307,
+      "accepted_fraction": 1.0,
+      "trials": 48
+    },
+    "dominant_multipath": {
+      "range_rmse_m": 0.04474987033049341,
+      "bias_m": 0.04474984560546235,
+      "accepted_fraction": 1.0,
+      "trials": 48
+    },
+    "sound_speed_mismatch": {
+      "range_rmse_m": 0.00992311339104795,
+      "bias_m": 0.009458035747564911,
+      "accepted_fraction": 1.0,
+      "trials": 48
+    },
+    "clock_offset_400us": {
+      "range_rmse_m": 0.06859201117088272,
+      "bias_m": 0.06859198866595902,
+      "accepted_fraction": 1.0,
+      "trials": 48
+    },
+    "direct_leakage": {
+      "range_rmse_m": 0.23994328193225709,
+      "bias_m": -0.20704197532259852,
+      "accepted_fraction": 1.0,
+      "trials": 48
+    },
+    "no_hand": {
+      "false_accepts": 0,
+      "trials": 100,
+      "source": "synthetic noise only"
+    },
+    "no_hand_direct_leakage": {
+      "raw_false_accepts": 100,
+      "background_subtracted_false_accepts": 0,
+      "calibrated_range_rmse_m": 6.162222327169852e-05,
+      "trials": 100,
+      "failedHypothesis": "Normalized correlation alone cannot distinguish static direct leakage from a hand echo.",
+      "calibrationAssumption": "Measured no-hand background is unchanged except independent additive noise; moving environmental clutter not canceled."
+    },
+    "clock_drift_200ppm": {
+      "clockRateError": 0.0002,
+      "trueVelocityMps": 0.0,
+      "estimatedRadialVelocityMps": -0.034300000000006686,
+      "estimatedDopplerHz": 3.600000000000702,
+      "confounding": "Carrier clock drift is indistinguishable from target range rate without a reference."
+    },
+    "dropout": {
+      "policy": "No measurement is produced from absent acquisition; state expiration belongs to ISI SDK.",
+      "rangeEstimateM": null
+    },
+    "phase_alias": {
+      "true_step_m": 0.013,
+      "estimated_wrapped_step_m": 0.0034722222222222042,
+      "phase_period_m": 0.009527777777777777,
+      "hypothesis": "Pure phase does not determine absolute range."
+    },
+    "observability": {
+      "single_pair": {
+        "position_rank": 1,
+        "state_rank": 2,
+        "state_dimension": 6,
+        "singular_values": [
+          1.0,
+          0.9999999999585668
+        ],
+        "jacobian": [
+          [
+            0.2672612419429843,
+            0.5345224838027018,
+            0.801783725690175,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2672612419124244,
+            0.5345224838248488,
+            0.8017837257372731
+          ]
+        ],
+        "local_only": true
+      },
+      "noncoplanar_array": {
+        "position_rank": 3,
+        "state_rank": 6,
+        "state_dimension": 6,
+        "singular_values": [
+          1.3747492915305495,
+          1.3747492914607253,
+          1.1890881412646304,
+          1.1890881412487468,
+          0.834346317640219,
+          0.8343463176284036
+        ],
+        "jacobian": [
+          [
+            0.2672612419429843,
+            0.5345224838027018,
+            0.801783725690175,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.6396021490495674,
+            0.4264014327182153,
+            0.6396021490495674,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.2672612419429843,
+            -0.5345224838027018,
+            0.801783725690175,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.40824829046492983,
+            0.8164965809298597,
+            -0.40824829045105204,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2672612419124244,
+            0.5345224838248488,
+            0.8017837257372731
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.6396021490668313,
+            0.4264014327112209,
+            0.6396021490668312
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2672612419124244,
+            -0.5345224838248488,
+            0.8017837257372731
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.40824829046386296,
+            0.8164965809277259,
+            -0.4082482904638631
+          ]
+        ],
+        "local_only": true
+      },
+      "collinear_target_on_axis": {
+        "position_rank": 1,
+        "state_rank": 2,
+        "state_dimension": 6,
+        "singular_values": [
+          1.7320508075688772,
+          1.7320508075225352,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "jacobian": [
+          [
+            0.9999999999732445,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.9999999999732445,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.9999999999732445,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "local_only": true
+      },
+      "symmetry": "With monostatic origin, [0.1,0.2,0.3] and [-0.1,0.2,0.3] have identical range."
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "configuration": {
+    "sample_rate_hz": 96000,
+    "sound_speed_m_s": 343.0,
+    "carrier_hz": 18000.0,
+    "bandwidth_hz": 6000.0,
+    "pulse_duration_s": 0.004,
+    "receive_duration_s": 0.02,
+    "noise_std": 0.015,
+    "speaker_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "microphone_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "leakage_gain": 0.0,
+    "clock_offset_s": 0.0,
+    "clock_rate_error": 0.0,
+    "min_range_m": 0.03,
+    "max_range_m": 0.8
+  }
+}

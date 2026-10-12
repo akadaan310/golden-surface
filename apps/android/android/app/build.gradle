@@ -1,0 +1,23 @@
+apply plugin:'com.android.application'
+apply plugin:'org.jetbrains.kotlin.android'
+apply plugin:'com.facebook.react'
+react {
+ root=file('../..')
+ reactNativeDir=file('../../../../node_modules/react-native')
+ codegenDir=file('../../../../node_modules/@react-native/codegen')
+ cliFile=file('../../../../node_modules/react-native/cli.js')
+ entryFile=file('../../index.js')
+ hermesCommand=file('../../../../node_modules/react-native/sdks/hermesc/linux64-bin/hermesc').absolutePath
+ debuggableVariants=[]
+ autolinkLibrariesWithApp()
+}
+android {
+ namespace 'com.goldenmotion'
+ compileSdk rootProject.ext.compileSdkVersion
+ buildToolsVersion rootProject.ext.buildToolsVersion
+ defaultConfig { applicationId 'com.goldenmotion'; minSdkVersion rootProject.ext.minSdkVersion; targetSdkVersion rootProject.ext.targetSdkVersion; versionCode 1; versionName '0.1.0' }
+ signingConfigs { debug { storeFile file('debug.keystore'); storePassword 'android'; keyAlias 'androiddebugkey'; keyPassword 'android' } }
+ buildTypes { debug { signingConfig signingConfigs.debug }; release { signingConfig signingConfigs.debug; minifyEnabled false } }
+ packagingOptions { jniLibs { useLegacyPackaging true } }
+}
+dependencies { implementation('com.facebook.react:react-android'); implementation('com.facebook.react:hermes-android'); testImplementation('junit:junit:4.13.2'); implementation('com.google.mediapipe:tasks-vision:0.10.20') }

@@ -1,0 +1,580 @@
+{
+  "timestamp": "2026-10-12T10:55:26.432288+00:00",
+  "serial": "emulator-5554",
+  "scope": "Android emulator only; no physical audio, RF, camera or Galaxy A16 validation",
+  "budgetSeconds": 600.0,
+  "status": "blocked",
+  "reason": "Android 11 / API30 AOSP software emulator did not finish first boot by the fixed 11:04:45 UTC deadline. APK installation and all app runtime checks were not attempted.",
+  "deadlineUtc": "2026-10-12T11:04:45Z",
+  "apk": "/workspace/golden-motion/artifacts/golden-motion-debug.apk",
+  "checks": {
+    "androidBoot": "blocked",
+    "install": "not-run",
+    "reactNativeRender": "not-run",
+    "syntheticStart": "not-run",
+    "syntheticStop": "not-run",
+    "intentToggle": "not-run",
+    "recordReplay": "not-run",
+    "permissionDenial": "not-run",
+    "backgroundLifecycle": "not-run",
+    "noJavaScriptCrash": "not-run"
+  },
+  "commands": [
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 0.01,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 5.12,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 10.15,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 15.16,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 20.17,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 25.18,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 30.18,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 35.19,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 40.19,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 45.2,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 50.22,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 55.23,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 60.25,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 65.26,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 70.27,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 75.28,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 1,
+      "elapsedSeconds": 80.28,
+      "output": "adb: device offline\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 90.99,
+      "output": "1\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.build.fingerprint; getprop ro.build.version.sdk; uptime"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 102.34,
+      "evidence": "artifacts/emulator-smoke/provenance.txt",
+      "output": "Android/sdk_phone_x86_64/generic_x86_64:11/RSR1.210722.013.A2/10067904:userdebug/test-keys\n30\n 10:57:08 up 2 min,  0 users,  load average: 14.18, 4.61, 1.63\n"
+    },
+    {
+      "args": [
+        "shell",
+        "service list"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 107.98,
+      "evidence": "artifacts/emulator-smoke/initial-services.txt",
+      "output": "Found 28 services:\n0\tSurfaceFlinger: [android.ui.ISurfaceComposer]\n1\tandroid.hardware.identity.IIdentityCredentialStore/default: []\n2\tandroid.hardware.light.ILights/default: []\n3\tandroid.hardware.power.IPower/default: []\n4\tandroid.hardware.rebootescrow.IRebootEscrow/default: []\n5\tandroid.hardware.vibrator.IVibrator/default: []\n6\tandroid.security.identity: [android.security.identity.ICredentialStoreFactory]\n7\tandroid.security.keystore: [android.security.keystore.IKeystoreService]\n8\tandroid.service.gatekeeper.IGateKeeperService: []\n9\tapexservice: []\n10\tdnsresolver: []\n11\tdrm.drmManager: [drm.IDrmManagerService]\n12\tgpu: [android.graphicsenv.IGpuService]\n13\tidmap: [android.os.IIdmap2]\n14\tincident: []\n15\tinstalld: []\n16\tmanager: [android.os.IServiceManager]\n17\tmedia.audio_flinger: [android.media.IAudioFlinger]\n18\tmedia.extractor: [android.IMediaExtractorService]\n19\tmedia.log: [android.media.IMediaLogService]\n20\tmedia.metrics: [android.media.IMediaMetricsService]\n21\tmedia.player: [android.media.IMediaPlayerService]\n22\tmedia.resource_manager: [android.media.IResourceManagerService]\n23\tnetd: []\n24\tstats: [android.os.IStatsd]\n25\tsuspend_control: []\n26\tvold: []\n27\twifinl80211: []\n"
+    },
+    {
+      "args": [
+        "logcat",
+        "-d",
+        "-b",
+        "system",
+        "-s",
+        "SystemServer",
+        "PackageManager",
+        "Watchdog",
+        "AndroidRuntime"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 119.99,
+      "evidence": "artifacts/emulator-smoke/boot-systemserver.txt",
+      "output": "--------- beginning of system\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 125.72,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 139.06,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 150.96,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 163.83,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 176.85,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 188.78,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 202.68,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 222.5,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 244.51,
+      "output": "\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 266.53,
+      "output": "\nService package: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 285.35,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 306.77,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 328.83,
+      "output": "\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 349.72,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 371.75,
+      "output": ""
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 393.77,
+      "output": "\nService package: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 415.81,
+      "output": ""
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 437.83,
+      "output": "\nService package: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 451.25,
+      "output": "\nService package: not found\nService activity: not found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 470.93,
+      "output": "\nService package: found\nService activity: found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 492.93,
+      "output": "\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 514.95,
+      "output": "\nService package: found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 536.96,
+      "output": "\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity; uptime"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 548.97,
+      "evidence": "artifacts/emulator-smoke/final-boot-state.txt",
+      "output": "\n"
+    },
+    {
+      "args": [
+        "logcat",
+        "-d",
+        "-t",
+        "600",
+        "-v",
+        "threadtime"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 558.58,
+      "evidence": "artifacts/emulator-smoke/final-logcat.txt",
+      "output": ""
+    },
+    {
+      "args": [
+        "emu",
+        "kill"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 559.16,
+      "evidence": "artifacts/emulator-smoke/emulator-shutdown.txt",
+      "output": "OK: killing emulator, bye bye\r\n"
+    }
+  ],
+  "bootSamples": [
+    {
+      "elapsedSeconds": 125.72,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 139.06,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 150.96,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 163.83,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 176.85,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 188.78,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 202.68,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 222.5,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 244.51,
+      "state": ""
+    },
+    {
+      "elapsedSeconds": 266.53,
+      "state": "Service package: not found"
+    },
+    {
+      "elapsedSeconds": 285.35,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 306.77,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 328.83,
+      "state": ""
+    },
+    {
+      "elapsedSeconds": 349.72,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 371.75,
+      "state": ""
+    },
+    {
+      "elapsedSeconds": 393.77,
+      "state": "Service package: not found"
+    },
+    {
+      "elapsedSeconds": 415.81,
+      "state": ""
+    },
+    {
+      "elapsedSeconds": 437.83,
+      "state": "Service package: not found"
+    },
+    {
+      "elapsedSeconds": 451.25,
+      "state": "Service package: not found\nService activity: not found"
+    },
+    {
+      "elapsedSeconds": 470.93,
+      "state": "Service package: found\nService activity: found"
+    },
+    {
+      "elapsedSeconds": 492.93,
+      "state": ""
+    },
+    {
+      "elapsedSeconds": 514.95,
+      "state": "Service package: found"
+    },
+    {
+      "elapsedSeconds": 536.96,
+      "state": ""
+    }
+  ],
+  "emulatorConfirmed": true,
+  "apkBytes": 65975804,
+  "apkSha256": "1a50caee3ac2e2e5c170971f54b055ac21c8359916090516ae4f228db115db4b",
+  "elapsedSeconds": 559.16,
+  "diagnosis": {
+    "image": "Android/sdk_phone_x86_64/generic_x86_64:11/RSR1.210722.013.A2/10067904:userdebug/test-keys",
+    "avd": "gm_api30",
+    "hardwareAcceleration": "/dev/kvm absent; software x86_64 CPU emulation",
+    "initialServiceCount": 28,
+    "initialServices": "SurfaceFlinger and installd present; package/activity absent",
+    "observedLog": "iorapd repeatedly waits for package_native and reports Cannot get package manager service",
+    "observedResources": "~105% host CPU and 2.83GB RSS at guest startup age426s",
+    "finalEvidence": "Final readiness command and logcat timed out; no usable API30 screenshot",
+    "shutdown": "adb emu kill exit0; owned gm_api30 QEMU absent afterward",
+    "diagnosticFiles": [
+      "artifacts/emulator-smoke/provenance.txt",
+      "artifacts/emulator-smoke/initial-services.txt",
+      "artifacts/emulator-api30-latest.txt",
+      "artifacts/emulator-api30-run.txt",
+      "artifacts/emulator-smoke/emulator-shutdown.txt"
+    ]
+  }
+}

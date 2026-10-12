@@ -1,0 +1,14 @@
+{
+  "source": "synthetic",
+  "physical_acquired": false,
+  "kind": "official-format-generated-fixture",
+  "format_source": "https://github.com/espressif/esp-csi/blob/8633d67152db2808f141cc1595970aa9cf406045/examples/get-started/csi_recv/main/app_main.c",
+  "firmware_header_lines": [
+    174,
+    184
+  ],
+  "sample_source": "science/rf/kernel.py fixed seed940 static environment; signed8 quantization x32",
+  "mac": "locally administered placeholder, not actual device",
+  "public_recording_found": false,
+  "limitation": "not a real ESP32 acquisition or timing validation"
+}

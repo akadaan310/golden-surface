@@ -1,0 +1,20 @@
+[
+  {
+    "path": "science/results/browser-fixture.json",
+    "frames": 121,
+    "source": "synthetic",
+    "model": "gm-acoustics-v1",
+    "seed": 20261012,
+    "sha256": "4783b0f3cd357611153b8b6ee01b87c25c7045592a250be6c99d8590710fefb8"
+  },
+  {
+    "path": "science/rf/results/experiments.json",
+    "source": "synthetic",
+    "sha256": "709a2f611d0f5e379ef7b8d8bf32cd63c21f73c74bcd4c673e8865fad84ff438"
+  },
+  {
+    "path": "science/rf/results/classifiers.json",
+    "source": "synthetic",
+    "sha256": "bcd0ffe6cece55d36a3d48ecbfc9be2d185482a4d8d7404cca9f745f58db2927"
+  }
+]

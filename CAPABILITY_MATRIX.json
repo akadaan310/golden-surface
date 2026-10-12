@@ -76,7 +76,8 @@
       "observableInformation": "not exposed by ordinary Android WifiManager",
       "a16Validated": false,
       "measurementAccess": "requires actual capability probe",
-      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+      "evidenceCategory": "published/background or physical principle; not project physical evidence",
+      "implementation": "science/rf + packages/rf synthetic CSI, ESP-CSI adapter; Android raw CSI inaccessible by ordinary public API"
     },
     {
       "id": "wifi-rssi",
@@ -86,7 +87,8 @@
       "observableInformation": "coarse signal strength; hand gesture observability unvalidated",
       "a16Validated": false,
       "measurementAccess": "requires actual capability probe",
-      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+      "evidenceCategory": "published/background or physical principle; not project physical evidence",
+      "implementation": "Kotlin public-API probe and independent coarse RSSI model; hand inference rejected in tested synthetic controls"
     },
     {
       "id": "wifi-rtt",
@@ -126,7 +128,8 @@
       "observableInformation": "CSI capable chip/firmware/calibration needed; hardware absent",
       "a16Validated": false,
       "measurementAccess": "requires actual capability probe",
-      "evidenceCategory": "published/background or physical principle; not project physical evidence"
+      "evidenceCategory": "published/background or physical principle; not project physical evidence",
+      "implementation": "official-format parser + bounded serial/TCP adapter + calibration/replay; owned hardware acquisition pending"
     },
     {
       "id": "cooperative-wifi",
@@ -410,5 +413,79 @@
     }
   ],
   "rfPrimaryPillar": true,
-  "rfPathMatrix": "science/rf/research/pathways.json (when generated)"
+  "rfPathMatrix": "artifacts/rf-report.md#practical-paths-ah",
+  "rfAcquisitionPaths": [
+    {
+      "id": "A",
+      "name": "A \u2014 Galaxy A16 public APIs",
+      "hardwareAndPermissions": "Physical phone; runtime feature/permission checks. Scanning normally needs fine location, Wi-Fi state permissions and location enabled. RTT targeting Android 13+ uses nearby Wi-Fi permission; older targets require fine location; hardware/AP FTM support and visible app/service required.",
+      "measurementsAndSampling": "Public RSSI/link/scan fields; cadence/caching vendor dependent. Android 9+ foreground scans:4 per 2 min; all background apps combined:1 per 30 min. RTT measures device-to-FTM AP distance conditionally; foreground RTT not scan-throttled, actual range interval/hardware unknown.",
+      "observabilityAndLimitations": "RSSI is coarse channel power, no complex CSI. RTT is cooperating device/AP range, not reflected-hand range. One AP does not localize 3D. Phone model name/OS version does not establish FTM support. Runtime `FEATURE_WIFI_RTT`/availability checks pending.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    },
+    {
+      "id": "B",
+      "name": "B \u2014 Galaxy A16 hotspot",
+      "hardwareAndPermissions": "Public local-only hotspot API with applicable runtime permissions; owned phone/clients and consent. Tethering/soft-AP management or client metrics can require privileged permissions.",
+      "measurementsAndSampling": "Public hotspot session/configuration and permitted app socket traffic; no public privileged CSI assumed. Propose bounded 5\u201320 Hz cooperative app timing, to be measured; RSSI/client diagnostics may not be exposed.",
+      "observabilityAndLimitations": "App RTT includes OS/queue/network delay and cannot become RF time-of-flight. AP mode is not a radar upgrade. Hotspot channel/gain/client behavior and handset thermal/power effects untested.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    },
+    {
+      "id": "C",
+      "name": "C \u2014 Authorized existing Wi-Fi",
+      "hardwareAndPermissions": "Operator + participant authorization and an authorized app/device. Public API permissions as A; no promiscuous traffic capture or observation of unaware people.",
+      "measurementsAndSampling": "Public app/link/scan fields; documented scan throttling; permitted cooperative own traffic only.",
+      "observabilityAndLimitations": "No high-rate CSI inferred from ordinary app metrics. Multipath, people and unrelated traffic confound attribution. No sensing on public/private networks performed.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    },
+    {
+      "id": "D",
+      "name": "D \u2014 Cooperative owned devices",
+      "hardwareAndPermissions": "Phone\u2013phone/laptop/ESP32 with consent; explicit transport and clock/calibration setup. Multiple links need known geometry and synchronized acquisition.",
+      "measurementsAndSampling": "App timing/RSSI or device-supported CSI; proposed own-packet generation 10\u2013100 Hz, not verified. Local clock offsets/drift must be estimated.",
+      "observabilityAndLimitations": "Multiple receivers can add independent gradients only with calibrated geometry/phase and adequate data. Unsynchronized app clocks do not prove localization. CPU/transport modest; synchronization/calibration is substantial.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    },
+    {
+      "id": "E",
+      "name": "E \u2014 ESP32 official ESP-CSI",
+      "hardwareAndPermissions": "Owned supported chip, USB/serial or explicit TCP stream; official ESP-IDF/ESP-CSI firmware and operator/participant permission. Latest README lists ESP32/S2/C3/S3/C5/C6/C61; format varies.",
+      "measurementsAndSampling": "Official per-received-packet CSI/RSSI/timestamp/antenna metadata. Packet rate not guaranteed; set and measure on owned links. Official current parser uses 921600 baud; validate firmware console settings.",
+      "observabilityAndLimitations": "Adapter handles legacy signed 8 IQ, first invalid word, rollover clock, calibration and replay. New 12 bit/gain layouts explicitly rejected. Typical one coherent antenna supports amplitude anomaly baseline here, not common-phase-free two-antenna Doppler. Hardware-ready, physically pending.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    },
+    {
+      "id": "F",
+      "name": "F \u2014 Specialized research hardware",
+      "hardwareAndPermissions": "CSI-capable research NIC, SDR/USRP, wideband FMCW radar, calibrated arrays and suitable compute. Emissions/capture must comply with local law and operator/participant authorization; no purchases/access here.",
+      "measurementsAndSampling": "Complex CSI or radar IQ/ToF/AoA with hardware-dependent high cadence/bandwidth.",
+      "observabilityAndLimitations": "Additional bandwidth/aperture can improve rank/resolution. Cost, driver/firmware compatibility, clock synchronization and reproduction effort exceed phone-only APIs. Historical paper performance is not current feasibility.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    },
+    {
+      "id": "G",
+      "name": "G \u2014 Full synthetic RF lab",
+      "hardwareAndPermissions": "Python NumPy/SciPy; shared TS; optional Julia/Octave. No RF hardware/network access.",
+      "measurementsAndSampling": "Complex CSI 100 Hz default; RSSI 1 Hz default; deterministic geometry/loss/noise and truth labels.",
+      "observabilityAndLimitations": "Executable perturbation/observability/classifier/fusion controls. Motion truth is available only to evaluation/rendering, not scalar estimator. Cannot validate scattering, gain, firmware or human generalization.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    },
+    {
+      "id": "H",
+      "name": "H \u2014 Properly licensed published RF datasets",
+      "hardwareAndPermissions": "Dataset license, attribution, permitted use, storage budget, participant/session labels and provenance review before acquisition.",
+      "measurementsAndSampling": "Widar3.0 official IEEE DataPort metadata verifies CC BY 4.0; paper uses Intel 5300 CSI. Official project links label/gesture data and extraction/model code, but code ZIP licenses remain unknown.",
+      "observabilityAndLimitations": "No dataset downloaded or evaluated. Session/participant-separated real evaluation remains pending. Do not import unknown-license code or treat unavailable datasets as reproduced evidence. Dataset sampling/training geometry may differ from phone/ESP32.",
+      "realWorldValidated": false,
+      "evidenceCategory": "documentation/planned acquisition or synthetic, not project physical evidence"
+    }
+  ]
 }

@@ -1,0 +1,47 @@
+{
+  "languages": {
+    "julia": {
+      "command": [
+        "/workspace/golden-motion/science/.tools/julia-1.11.5/bin/julia",
+        "--startup-file=no",
+        "/workspace/golden-motion/science/rf/kernel.jl"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "output_sha256": "c94b417054b74d2d3117f74ca3957fa00814cc1fa7add8e3b36f6be2cfb7b869"
+    },
+    "octave": {
+      "command": [
+        "/workspace/golden-motion/science/.tools/octave/bin/octave-cli",
+        "--quiet",
+        "--no-gui",
+        "/workspace/golden-motion/science/rf/kernel.m"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "output_sha256": "6c0d2dc4a2e23afe7ec40c05d7efff2918fc069532d901fe0c248f4801e37cf9"
+    },
+    "typescript": {
+      "command": [
+        "node",
+        "--experimental-strip-types",
+        "--input-type=module",
+        "-e",
+        "<fixed parity fixture>"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "output_sha256": "1dfacf98fbac0b8c9d7bb409a6a7bfdb521bbc218c61ec186d311f036fe1e6e8"
+    }
+  },
+  "sources": {
+    "science/rf/kernel.py": "04c3714af026f249b954041d9f24a6faeaa34172f358862442351b7dd2fc6d94",
+    "science/rf/kernel.jl": "d98e7d18da702053334aa6a2f1c66f2089ebcb34819af285be6ec9992efc1536",
+    "science/rf/kernel.m": "7ac3c7c5ee6e29b79d0bdb87f1b479d110bd66870f3819fb019b6cc017d83eea",
+    "science/rf/parity.py": "a85700970fc43c0e6c86a40dd0eeece936c83e75591c485d212e1c06c87a1196",
+    "science/rf/parity_runner.py": "28e3230f805038ae58ca20f7652f417609aaee046d83a62fe7ebcd058eae376c",
+    "packages/rf/src/index.ts": "2ae415168dd7de272fecc3eb97287ee3c15250e80fe8353f0e9fe842136db07a"
+  },
+  "python_executable": "/workspace/golden-motion/.venv/bin/python",
+  "status": "executed_current_sources"
+}

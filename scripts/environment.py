@@ -28,8 +28,8 @@ def discover():
                        'julia':['julia','--version'], 'octave':['octave','--version'],
                        'adb':['adb','devices','-l']}.items():
         tools[name] = command_version(argv)
-    for name, patterns in {'julia':['.tools/julia*/bin/julia', '.tools/julia/bin/julia'],
-                           'octave':['.tools/octave*/usr/bin/octave', '.tools/octave/bin/octave'],
+    for name, patterns in {'julia':['science/.tools/julia*/bin/julia', '.tools/julia*/bin/julia', '.tools/julia/bin/julia'],
+                           'octave':['science/.tools/octave/bin/octave-cli', 'science/.tools/octave/bin/octave', '.tools/octave*/usr/bin/octave', '.tools/octave/bin/octave'],
                            'adb':['.tools/android/platform-tools/adb']}.items():
         if not tools[name]['available']:
             for pattern in patterns:

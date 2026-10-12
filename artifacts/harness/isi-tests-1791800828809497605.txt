@@ -1,0 +1,36 @@
+
+> golden-motion@0.1.0 test
+> vitest run
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v2.1.9 /workspace/golden-motion
+
+ ❯ packages/isi/src/lifecycle.test.ts (7 tests | 1 failed) 74ms
+   × adapter lifecycle > cleans up a start that resolves after stop and ignores late callbacks 19ms
+     → release is not a function
+ ✓ packages/isi/src/engine.test.ts (34 tests) 77ms
+ ✓ services/relay/test/relay.test.ts (16 tests) 266ms
+ ✓ services/relay/test/client.test.ts (4 tests) 259ms
+ ✓ services/relay/test/synthetic.test.ts (3 tests) 548ms
+   ✓ cleans up reconnect attempts when the command fails to pair with an unavailable relay 370ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  packages/isi/src/lifecycle.test.ts > adapter lifecycle > cleans up a start that resolves after stop and ignores late callbacks
+TypeError: release is not a function
+ ❯ packages/isi/src/lifecycle.test.ts:69:5
+     67|     engine.registerAdapter({ id: 'slow', start: cb => { emit = cb; ret…
+     68|     const starting = engine.startAdapter('slow'); const stopping = eng…
+     69|     release(() => { cleanupCount++; }); await starting; await stopping;
+       |     ^
+     70|     expect(cleanupCount).toBe(1); emit(m(1000)); expect(engine.tick(20…
+     71|     await engine.dispose(); expect(() => engine.subscribe(() => {})).t…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 63 passed (64)
+   Start at  10:27:04
+   Duration  3.30s (transform 745ms, setup 0ms, collect 1.72s, tests 1.22s, environment 1ms, prepare 926ms)
+

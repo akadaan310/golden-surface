@@ -1,0 +1,316 @@
+{
+  "requirement": "GM-RF-006",
+  "provenance": "synthetic",
+  "physical_tested": false,
+  "split": {
+    "train_sessions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "validation_sessions": [
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "test_sessions": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55
+    ],
+    "windows_per_session": 8,
+    "participant_count": 0,
+    "leakage_control": "entire generated environment/session held out; no physical participants, no transfer claim"
+  },
+  "feature_names": [
+    "log10_interantenna_variance",
+    "peak_spectral_fraction",
+    "normalized_spectral_entropy",
+    "coarse_RSSI_std_db"
+  ],
+  "classical_variance_threshold": 0.001873817422860383,
+  "classical": {
+    "n": 128,
+    "accuracy": 0.578125,
+    "accuracy_wilson_95": [
+      0.4915168871907951,
+      0.6601803009501255
+    ],
+    "false_activation_rate": 0.6875,
+    "false_activation_wilson_95": [
+      0.5660743364084737,
+      0.7876909049773426
+    ],
+    "recall": 0.84375,
+    "brier_score": 0.421875,
+    "calibration_bins": [
+      {
+        "bin": [
+          0.0,
+          0.2
+        ],
+        "n": 30,
+        "mean_predicted_probability": 0.0,
+        "fraction_motion": 0.3333333333333333
+      },
+      {
+        "bin": [
+          0.8,
+          1.0
+        ],
+        "n": 98,
+        "mean_predicted_probability": 1.0,
+        "fraction_motion": 0.5510204081632653
+      }
+    ]
+  },
+  "fixed_physics_threshold": {
+    "n": 128,
+    "accuracy": 0.5,
+    "accuracy_wilson_95": [
+      0.41465072364379996,
+      0.5853492763562
+    ],
+    "false_activation_rate": 0.5,
+    "false_activation_wilson_95": [
+      0.38101888493214947,
+      0.6189811150678505
+    ],
+    "recall": 0.5,
+    "brier_score": 0.5,
+    "calibration_bins": [
+      {
+        "bin": [
+          0.0,
+          0.2
+        ],
+        "n": 64,
+        "mean_predicted_probability": 0.0,
+        "fraction_motion": 0.5
+      },
+      {
+        "bin": [
+          0.8,
+          1.0
+        ],
+        "n": 64,
+        "mean_predicted_probability": 1.0,
+        "fraction_motion": 0.5
+      }
+    ]
+  },
+  "regularized_logistic": {
+    "n": 128,
+    "accuracy": 0.7890625,
+    "accuracy_wilson_95": [
+      0.7104917146716522,
+      0.8507878814497541
+    ],
+    "false_activation_rate": 0.109375,
+    "false_activation_wilson_95": [
+      0.054000447526830544,
+      0.20898863291938535
+    ],
+    "recall": 0.6875,
+    "brier_score": 0.18726596697318074,
+    "calibration_bins": [
+      {
+        "bin": [
+          0.2,
+          0.4
+        ],
+        "n": 27,
+        "mean_predicted_probability": 0.3059319497576596,
+        "fraction_motion": 0.0
+      },
+      {
+        "bin": [
+          0.4,
+          0.6000000000000001
+        ],
+        "n": 70,
+        "mean_predicted_probability": 0.4859472001968996,
+        "fraction_motion": 0.5
+      },
+      {
+        "bin": [
+          0.6000000000000001,
+          0.8
+        ],
+        "n": 31,
+        "mean_predicted_probability": 0.6625988284443289,
+        "fraction_motion": 0.9354838709677419
+      }
+    ]
+  },
+  "regularized_logistic_csi_only": {
+    "n": 128,
+    "accuracy": 0.8203125,
+    "accuracy_wilson_95": [
+      0.7447821997086049,
+      0.8771762716691697
+    ],
+    "false_activation_rate": 0.09375,
+    "false_activation_wilson_95": [
+      0.04367765783128784,
+      0.1898309858327767
+    ],
+    "recall": 0.734375,
+    "brier_score": 0.19012173946896435,
+    "calibration_bins": [
+      {
+        "bin": [
+          0.2,
+          0.4
+        ],
+        "n": 15,
+        "mean_predicted_probability": 0.3219238743249638,
+        "fraction_motion": 0.06666666666666667
+      },
+      {
+        "bin": [
+          0.4,
+          0.6000000000000001
+        ],
+        "n": 85,
+        "mean_predicted_probability": 0.4637822301911384,
+        "fraction_motion": 0.43529411764705883
+      },
+      {
+        "bin": [
+          0.6000000000000001,
+          0.8
+        ],
+        "n": 28,
+        "mean_predicted_probability": 0.6707338869601628,
+        "fraction_motion": 0.9285714285714286
+      }
+    ]
+  },
+  "probability_threshold_validation": 0.5,
+  "by_scenario": {
+    "static": {
+      "motion_truth": false,
+      "classical_detection": 0.375,
+      "logistic_detection": 0.0,
+      "mean_logistic_probability": 0.4748579242670353
+    },
+    "nominal": {
+      "motion_truth": true,
+      "classical_detection": 1.0,
+      "logistic_detection": 1.0,
+      "mean_logistic_probability": 0.6598899944646173
+    },
+    "weak": {
+      "motion_truth": true,
+      "classical_detection": 1.0,
+      "logistic_detection": 1.0,
+      "mean_logistic_probability": 0.6524797779859672
+    },
+    "iso_delay": {
+      "motion_truth": true,
+      "classical_detection": 0.375,
+      "logistic_detection": 0.0,
+      "mean_logistic_probability": 0.4413003416161936
+    },
+    "independent_phase_no_hand": {
+      "motion_truth": false,
+      "classical_detection": 1.0,
+      "logistic_detection": 0.25,
+      "mean_logistic_probability": 0.3725218623149622
+    },
+    "noise_static": {
+      "motion_truth": false,
+      "classical_detection": 1.0,
+      "logistic_detection": 0.1875,
+      "mean_logistic_probability": 0.48838196914733556
+    },
+    "loss_motion": {
+      "motion_truth": true,
+      "classical_detection": 1.0,
+      "logistic_detection": 0.75,
+      "mean_logistic_probability": 0.5245575785565277
+    },
+    "shadow_no_hand": {
+      "motion_truth": false,
+      "classical_detection": 0.375,
+      "logistic_detection": 0.0,
+      "mean_logistic_probability": 0.3120749478357339
+    }
+  },
+  "latency": {
+    "window_duration_seconds": 4,
+    "feature_plus_CSI_estimator_median_ms": 0.42832899998757057,
+    "logistic_per_window_ms": 0.00039085937508787083,
+    "note": "single container runtime; not native phone latency"
+  },
+  "model": {
+    "mean": [
+      -1.7135683715104357,
+      0.14423462400797482,
+      0.7018426253347728,
+      1.6179828341182427
+    ],
+    "std": [
+      1.266973216022132,
+      0.18024188969198032,
+      0.2699173504740102,
+      1.3689697821560802
+    ],
+    "weights": [
+      0.0006323870589934606,
+      0.04700980115827264,
+      -1.5711028796370252,
+      -1.5862925091590976,
+      -0.21442449241729605
+    ]
+  },
+  "limitation": "simulator features are not human gesture labels; identical nuisance/motion signals remain nonidentifiable. No deep network justified by 256 synthetic training windows."
+}

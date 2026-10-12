@@ -27,10 +27,16 @@ def _stop(process):
         os.killpg(process.pid, signal.SIGTERM)
         process.wait(timeout=0.5)
     except subprocess.TimeoutExpired:
-        os.killpg(process.pid, signal.SIGKILL)
-        process.wait(timeout=2)
+        pass
     except ProcessLookupError:
         pass
+    # A successful wait only reaps the group leader. Resistant descendants may
+    # still own stdout/CPU; terminate the entire owned session even after exit.
+    try:
+        os.killpg(process.pid, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+    process.wait(timeout=2)
 
 
 def execute(command, cwd, timeout_s, max_rss_mb, max_log_bytes):
@@ -66,6 +72,7 @@ def execute(command, cwd, timeout_s, max_rss_mb, max_log_bytes):
         _stop(process)
         reader.join(timeout=2)
         raise
+    _stop(process)  # no background descendants survive a completed task
     reader.join(timeout=2)
     return {'returncode': process.returncode, 'duration_s': time.monotonic()-started,
             'peak_rss_mb': round(peak_rss, 2),

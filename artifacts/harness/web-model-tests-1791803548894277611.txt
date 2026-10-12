@@ -1,0 +1,29 @@
+
+> @golden-motion/web@0.1.0 test
+> node --import tsx --test tests/*.test.mjs
+
+✔ actual camera mapping retains acquisition epoch, not processing or host tick time (3.886264ms)
+✔ frozen processed camera frame releases real SDK hover after dropout and cannot re-enter (0.718887ms)
+✔ new actual camera frame resumes observation while no-hand releases immediately (0.553063ms)
+✔ acoustic forward model estimates a generated delay rather than copying truth (3.815987ms)
+✔ seeded perturbations repeat and waveform noise changes estimation evidence (3.399725ms)
+✔ dropout and absent hand withhold estimate and confidence (1.288287ms)
+✔ intent confidence and current sensing are all required for semantic actions (0.3004ms)
+✔ magnetic model is scalar and marked simulated capability (0.375674ms)
+✔ zone editor changes membership using explicit phone-local proxy coordinates (0.27259ms)
+✔ competing observed echo peaks reduce confidence and increase uncertainty (1.237418ms)
+✔ relay action clock rejects old future and nonfinite events (1.308219ms)
+✔ scalar RSSI has no spatial or scrolling preview capability (0.309967ms)
+✔ scroll applies the shared inference event delta rather than synthetic truth (1.711438ms)
+✔ stop disarm lowconfidence and wrong observation prevent actions (0.217243ms)
+✔ unsigned RF score never creates a signed sensor displacement (0.122116ms)
+✔ RF synthetic continuous policy requires inference hover and explicit user direction (0.169452ms)
+✔ a low-confidence event releases previous consumer hover state (0.198444ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 437.517101

@@ -1,0 +1,29 @@
+{
+  "checked_utc": "2026-10-12T10:27:38Z",
+  "method": "public HTTP GET through inherited proxy; TLS validation enabled; no credentials or network capture",
+  "esp_csi_commit": "8633d67152db2808f141cc1595970aa9cf406045",
+  "esp_csi_code_license": {
+    "name": "Apache-2.0",
+    "url": "https://raw.githubusercontent.com/espressif/esp-csi/master/LICENSE"
+  },
+  "official_iq_order": {
+    "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/wifi-driver/wifi-vendor-features.html#wi-fi-channel-state-information",
+    "quote": "The first one is imaginary part and the second one is real part.",
+    "invalid_word_quote": "the first four bytes of CSI data is invalid due to a hardware limitation in ESP32."
+  },
+  "widar_dataset_license": {
+    "url": "https://ieee-dataport.org/open-access/widar-30-wifi-based-activity-recognition-dataset",
+    "metadata_field": "JSON-LD license",
+    "value": "https://creativecommons.org/licenses/by/4.0/",
+    "dataset_downloaded": false
+  },
+  "wifinger_identification": {
+    "url": "https://api.crossref.org/works?query=WiFinger&rows=15",
+    "distinct_dois": [
+      "10.1145/2942358.2942393",
+      "10.1145/2971648.2971738"
+    ],
+    "full_text_verified": false
+  },
+  "copyright_policy": "Store short factual summaries/metadata, not downloaded publication PDFs, source HTML or dataset/code archives with unknown reuse rights."
+}

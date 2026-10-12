@@ -1,0 +1,165 @@
+{
+  "timestamp": "2026-10-12T10:47:16.464040+00:00",
+  "serial": "emulator-5554",
+  "scope": "Android emulator only; no physical audio, RF, camera or Galaxy A16 validation",
+  "budgetSeconds": 300.0,
+  "status": "blocked",
+  "reason": "Android first boot did not complete within the fixed additional deadline; package/activity services eventually registered but sys.boot_completed remained empty. APK install and app runtime were not attempted.",
+  "deadlineUtc": "2026-10-12T10:49:05Z",
+  "apk": "/workspace/golden-motion/artifacts/golden-motion-debug.apk",
+  "checks": {
+    "androidBoot": "blocked",
+    "install": "not-run",
+    "reactNativeRender": "not-run",
+    "syntheticStart": "not-run",
+    "syntheticStop": "not-run",
+    "intentToggle": "not-run",
+    "recordReplay": "not-run",
+    "permissionDenial": "not-run",
+    "backgroundLifecycle": "not-run"
+  },
+  "commands": [
+    {
+      "args": [
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.51,
+      "output": "1\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop ro.build.fingerprint; getprop ro.build.version.sdk; uptime"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 9.16,
+      "evidence": "artifacts/emulator-smoke/provenance.txt",
+      "output": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys\n35\n 10:47:25 up 18 min,  0 users,  load average: 6.38, 6.63, 4.96\n"
+    },
+    {
+      "args": [
+        "shell",
+        "service list"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 17.85,
+      "evidence": "artifacts/emulator-smoke/initial-services.txt",
+      "output": "reFactory]\n47\tandroid.security.legacykeystore: [android.security.legacykeystore.ILegacyKeystore]\n48\tandroid.security.maintenance: [android.security.maintenance.IKeystoreMaintenance]\n49\tandroid.security.metrics: [android.security.metrics.IKeystoreMetrics]\n50\tandroid.service.gatekeeper.IGateKeeperService: []\n51\tandroid.system.keystore2.IKeystoreService/default: [android.system.keystore2.IKeystoreService]\n52\tandroid.system.net.netd.INetd/default: []\n53\tandroid.system.suspend.ISystemSuspend/default: []\n54\tapexservice: []\n55\tappops: [com.android.internal.app.IAppOpsService]\n56\tbatterystats: [com.android.internal.app.IBatteryStats]\n57\tcacheinfo: []\n58\tcpuinfo: []\n59\tdataloader_manager: [android.content.pm.IDataLoaderManager]\n60\tdbinfo: []\n61\tdevice_identifiers: [android.os.IDeviceIdentifiersPolicyService]\n62\tdisplay: [android.hardware.display.IDisplayManager]\n63\tdnsresolver: []\n64\tdomain_verification: [android.content.pm.verify.domain.IDomainVerificationManager]\n65\tdrm.drmManager: [drm.IDrmManagerService]\n66\tfeature_flags: [android.flags.IFeatureFlags]\n67\tfile_integrity: [android.security.IFileIntegrityService]\n68\tgfxinfo: []\n69\tgpu: [android.graphicsenv.IGpuService]\n70\tidmap: [android.os.IIdmap2]\n71\tincident: []\n72\tincremental: [android.os.incremental.IIncrementalService]\n73\tinstalld: []\n74\tlegacy_permission: [android.permission.ILegacyPermissionManager]\n75\tlights: [android.hardware.lights.ILightsManager]\n76\tmanager: [android.os.IServiceManager]\n77\tmdns: []\n78\tmedia.camera: [android.hardware.ICameraService]\n79\tmedia.extractor: [android.IMediaExtractorService]\n80\tmedia.metrics: [android.media.IMediaMetricsService]\n81\tmedia.player: [android.media.IMediaPlayerService]\n82\tmedia.resource_manager: [android.media.IResourceManagerService]\n83\tmedia.resource_observer: [android.media.IResourceObserverService]\n84\tmeminfo: []\n85\tmemtrack.proxy: [android.hardware.memtrack.IMemtrack]\n86\tnetd: []\n87\totadexopt: [android.content.pm.IOtaDexopt]\n88\tpackage: [android.content.pm.IPackageManager]\n89\tpackage_native: [android.content.pm.IPackageManagerNative]\n90\tpermission: [android.os.IPermissionController]\n91\tpermission_checker: [android.permission.IPermissionChecker]\n92\tpermissionmgr: [android.permission.IPermissionManager]\n93\tplatform_compat: [com.android.internal.compat.IPlatformCompat]\n94\tplatform_compat_native: [com.android.internal.compat.IPlatformCompatNative]\n95\tpower: [android.os.IPowerManager]\n96\tpowerstats: [android.os.IPowerStatsService]\n97\tprocessinfo: [android.os.IProcessInfoService]\n98\tprocstats: [com.android.internal.app.procstats.IProcessStats]\n99\trecovery: [android.os.IRecoverySystem]\n100\tstats: [android.os.IStatsd]\n101\tstoraged: [android.os.IStoraged]\n102\tstoraged_pri: [android.os.storaged.IStoragedPrivate]\n103\tsuspend_control: []\n104\tsuspend_control_internal: []\n105\tsystem_server_dumper: []\n106\tthermalservice: [android.os.IThermalService]\n107\turi_grants: [android.app.IUriGrantsManager]\n108\tuser: [android.os.IUserManager]\n109\tvold: []\n110\twifinl80211: []\n"
+    },
+    {
+      "args": [
+        "logcat",
+        "-d",
+        "-b",
+        "system",
+        "-s",
+        "SystemServer",
+        "PackageManager",
+        "Watchdog",
+        "AndroidRuntime"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 28.93,
+      "evidence": "artifacts/emulator-smoke/boot-systemserver.txt",
+      "output": "ager: Skipping preparing app data for com.google.android.configinfrastructure\n10-12 10:47:08.748   650  1553 W PackageManager: Skipping preparing app data for com.google.android.cellbroadcast\n10-12 10:47:08.749   650  1553 W PackageManager: Skipping preparing app data for com.android.apex.cts.shim\n10-12 10:47:08.751   650  1553 W PackageManager: Skipping preparing app data for com.android.compos\n10-12 10:47:08.752   650  1553 W PackageManager: Skipping preparing app data for com.google.android.resolv\n10-12 10:47:08.912   650  1553 W PackageManager: Skipping preparing app data for com.google.android.sdkext\n10-12 10:47:08.923   650  1553 W PackageManager: Skipping preparing app data for com.google.android.art\n10-12 10:47:08.931   650  1553 W PackageManager: Skipping preparing app data for com.google.android.uwb\n10-12 10:47:08.946   650   650 I Watchdog: Resuming HandlerChecker: main thread for reason: packagemanagermain. Pause count: 0\n10-12 10:47:09.018   650  1553 W PackageManager: Skipping preparing app data for com.google.android.runtime\n10-12 10:47:09.038   650  1553 W PackageManager: Skipping preparing app data for com.android.hardware.cas\n10-12 10:47:09.039   650  1553 W PackageManager: Skipping preparing app data for com.google.android.adservices\n10-12 10:47:09.062   650  1553 W PackageManager: Skipping preparing app data for com.google.android.scheduling\n10-12 10:47:09.074   650  1553 W PackageManager: Skipping preparing app data for com.google.android.mediaprovider\n10-12 10:47:09.082   650  1553 W PackageManager: Skipping preparing app data for com.android.hardware.neuralnetworks\n10-12 10:47:09.082   650  1553 W PackageManager: Skipping preparing app data for com.google.android.permission\n10-12 10:47:09.083   650  1553 W PackageManager: Skipping preparing app data for com.google.android.profiling\n10-12 10:47:09.188   650  1553 W PackageManager: Skipping preparing app data for com.google.android.neuralnetworks\n10-12 10:47:09.239   650  1553 W PackageManager: Skipping preparing app data for com.google.android.tethering\n10-12 10:47:09.242   650  1553 W PackageManager: Skipping preparing app data for com.google.android.btservices\n10-12 10:47:09.243   650  1553 W PackageManager: Skipping preparing app data for com.google.android.adbd\n10-12 10:47:09.243   650  1553 W PackageManager: Skipping preparing app data for com.google.android.rkpd\n10-12 10:47:09.243   650  1553 W PackageManager: Skipping preparing app data for com.google.android.wifi\n10-12 10:47:09.243   650  1553 W PackageManager: Skipping preparing app data for com.google.android.conscrypt\n10-12 10:47:09.298   650  1553 W PackageManager: Skipping preparing app data for com.android.nfcservices\n10-12 10:47:09.631   650   650 I Watchdog: Pausing HandlerChecker: main thread for reason: moveab. Pause count: 1\n10-12 10:47:09.715   650   650 I Watchdog: Resuming HandlerChecker: main thread for reason: moveab. Pause count: 0\n10-12 10:47:35.878   650   703 I Watchdog: WAITED_UNTIL_PRE_WATCHDOG\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 40.94,
+      "output": "\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 60.24,
+      "output": "\nService package: found\nService activity: found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 79.27,
+      "output": "\nService package: found\nService activity: found\n"
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed; service check package; service check activity; uptime"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 91.95,
+      "evidence": "artifacts/emulator-smoke/final-boot-state.txt",
+      "output": "\nService package: found\nService activity: found\n 10:48:47 up 19 min,  0 users,  load average: 8.49, 7.36, 5.36\n"
+    },
+    {
+      "args": [
+        "logcat",
+        "-d",
+        "-t",
+        "600",
+        "-v",
+        "threadtime"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 96.16,
+      "evidence": "artifacts/emulator-smoke/final-logcat.txt",
+      "output": "m.android.server.vibrator.VibratorManagerService$Lifecycle\n10-12 10:48:44.498   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.vibrator.VibratorManagerService$Lifecycle took to complete: 0ms\n10-12 10:48:44.498   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.alarm.AlarmManagerService\n10-12 10:48:44.499   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.alarm.AlarmManagerService took to complete: 1ms\n10-12 10:48:44.499   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.devicestate.DeviceStateManagerService\n10-12 10:48:44.499   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.devicestate.DeviceStateManagerService took to complete: 0ms\n10-12 10:48:44.499   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.camera.CameraServiceProxy\n10-12 10:48:44.500   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.camera.CameraServiceProxy took to complete: 0ms\n10-12 10:48:44.517   650   650 V SystemServerTiming: OnBootPhase_200 took to complete: 363ms\n10-12 10:48:44.811   504   598 D EGL_emulation: app_time_stats: avg=75.72ms min=16.56ms max=195.82ms count=11\n10-12 10:48:45.054   650   650 I WindowManager: No existing display settings, starting empty\n10-12 10:48:45.855   504   598 D EGL_emulation: app_time_stats: avg=59.33ms min=13.45ms max=174.35ms count=14\n10-12 10:48:46.055   363   368 W ServiceManagerCppClient: Service statscompanion didn't start. Returning NULL\n10-12 10:48:46.076   363   368 E statsd  : Uid 1000 does not have the android.permission.REGISTER_STATS_PULL_ATOM permission when registering atom 10110 (-1)\n10-12 10:48:46.226   650   700 I WindowTracing: Setting window tracing log level to 1\n10-12 10:48:46.227   650   700 I WindowTracing: Setting window tracing buffer capacity to 10485760bytes\n10-12 10:48:46.739   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false\n10-12 10:48:46.867   504   598 D EGL_emulation: app_time_stats: avg=30.77ms min=7.11ms max=60.11ms count=24\n10-12 10:48:47.959   504   598 D EGL_emulation: app_time_stats: avg=65.90ms min=22.46ms max=151.10ms count=12\n10-12 10:48:48.043   650   650 V SystemServerTiming: StartWindowManagerService took to complete: 3931ms\n10-12 10:48:48.044   650   650 D SystemServerTiming: SetWindowManagerService\n10-12 10:48:48.750   650   650 D inputflinger_bootstrap: android_logger: android_logger: log::set_logger failed: attempted to set a logger after the logging system was already initialized\n10-12 10:48:48.989   504   598 D EGL_emulation: app_time_stats: avg=67.12ms min=15.90ms max=129.08ms count=11\n10-12 10:48:50.063   504   598 D EGL_emulation: app_time_stats: avg=70.75ms min=12.80ms max=330.41ms count=11\n10-12 10:48:51.101   504   598 D EGL_emulation: app_time_stats: avg=44.24ms min=5.65ms max=154.63ms count=18\n10-12 10:48:51.233   650   650 I CameraManagerGlobal: Connecting to camera service\n"
+    },
+    {
+      "args": [
+        "exec-out",
+        "screencap",
+        "-p"
+      ],
+      "exitCode": 124,
+      "elapsedSeconds": 108.17,
+      "evidence": "artifacts/emulator-smoke/final-screen.png"
+    },
+    {
+      "args": [
+        "emu",
+        "kill"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 108.18,
+      "evidence": "artifacts/emulator-smoke/emulator-shutdown.txt",
+      "output": "OK: killing emulator, bye bye\r\nOK\r\n"
+    }
+  ],
+  "bootSamples": [
+    {
+      "elapsedSeconds": 40.94,
+      "state": ""
+    },
+    {
+      "elapsedSeconds": 60.24,
+      "state": "Service package: found\nService activity: found"
+    },
+    {
+      "elapsedSeconds": 79.27,
+      "state": "Service package: found\nService activity: found"
+    }
+  ],
+  "emulatorConfirmed": true,
+  "apkBytes": 65975804,
+  "apkSha256": "1a50caee3ac2e2e5c170971f54b055ac21c8359916090516ae4f228db115db4b",
+  "elapsedSeconds": 108.18,
+  "diagnosis": {
+    "hardwareAcceleration": "/dev/kvm absent; software x86_64 CPU emulation",
+    "packageScanSeconds": 705.768,
+    "guestUptimeAtFinalProbe": "19 minutes",
+    "screenshot": "Final screenshot timed out; emulator-boot.png is the earlier actual boot screenshot",
+    "shutdown": "adb emu kill returned OK; owned gm_api35 QEMU process absent after shutdown"
+  }
+}

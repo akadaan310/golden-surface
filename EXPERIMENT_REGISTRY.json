@@ -1,185 +1,1016 @@
 {
-  "schemaVersion": 1,
   "experiments": [
     {
+      "evidenceCategory": "synthetic",
+      "hypothesis": "Calibrated acoustic delays/phase provide scalar range and radial rate; a single pair cannot reconstruct unconstrained 3D.",
       "id": "GM-001",
+      "knownLimitations": [
+        "Synthetic 96 kHz acquisition is not verified phone support.",
+        "Single-link angular null space, phase aliasing, clock bias, direct leakage and multipath remain.",
+        "Kalman tracking did not outperform matched filtering."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "metrics": {
+        "accepted_fraction": 1.0,
+        "doppler_integrated_range_rmse_m": 0.0010695503388559514,
+        "doppler_radial_velocity_rmse_m_s": 0.00019625124819485946,
+        "kalman_range_rmse_m": 0.0005351626959098823,
+        "matched_filter_range_rmse_m": 0.00044331173538802174,
+        "name": "Acoustic scalar range and rate comparison",
+        "phase_anchored_range_rmse_m": 0.00039386978283694607,
+        "phase_unambiguous_step_m": 0.004763888888888889,
+        "reasonNoSpatialScore": "Single half-path and radial rate leave angular directions unobserved.",
+        "scalar_only_position_rmse_m": null
+      },
+      "modelVersion": "gm-acoustics-v1",
       "name": "Synthetic acoustic observability",
-      "hypothesis": "Synthetic acoustic observability yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "supported-with-limitations",
       "physicalValidation": "pending",
-      "modelVersion": null,
-      "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "Synthetic results require later physical model validation"
+      "results": [
+        "science/results/results.json",
+        "science/results/parity.json"
+      ],
+      "seed": 20261012,
+      "status": "simulation-validated",
+      "validationLevels": [
+        "implemented",
+        "unit-tested",
+        "simulation-validated"
       ]
     },
     {
+      "evidenceCategory": "engineering",
+      "hypothesis": "A16 audio has sufficient experimentally measured bandwidth and timing stability for scalar hand sensing.",
       "id": "GM-002",
+      "knownLimitations": [
+        "No actual phone connected; neither emulator boot completed.",
+        "Bounded native capture/playback and summaries compile; real waveform DSP, latency calibration and no-hand controls require device trials."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "modelVersion": "android-audio-probe-v1",
       "name": "Physical acoustic feasibility",
-      "hypothesis": "Physical acoustic feasibility yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "unresolved-hardware",
       "physicalValidation": "pending",
-      "modelVersion": null,
+      "results": [
+        "artifacts/android-report.md"
+      ],
       "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "No physical A16/ESP32 acquisition available"
+      "status": "adapter-built-physical-pending",
+      "validationLevels": [
+        "implemented",
+        "unit-tested"
       ]
     },
     {
+      "evidenceCategory": "engineering",
+      "hypothesis": "Local camera hand landmarks support intentional image-plane interaction.",
       "id": "GM-003",
+      "knownLimitations": [
+        "Browser camera startup/stop used synthetic test-camera input; physical gesture accuracy unmeasured.",
+        "Native APK not successfully installed/run in this environment.",
+        "Monocular image-plane coordinates are not measured depth or metric 3D."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "modelSha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+      "modelVersion": "bundled-mediapipe-hand-landmarker",
       "name": "Optical reference",
-      "hypothesis": "Optical reference yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "software-lifecycle-supported-physical-unresolved",
       "physicalValidation": "pending",
-      "modelVersion": null,
+      "results": [
+        "artifacts/android-report.md",
+        "artifacts/web-report.md",
+        "artifacts/web-browser.json"
+      ],
+      "runtimeVersions": {
+        "androidTasksVision": "0.10.20",
+        "webTasksVision": "0.10.22-rc.20250304"
+      },
       "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "Synthetic results require later physical model validation"
+      "status": "software-tested-physical-pending",
+      "validationLevels": [
+        "implemented",
+        "unit-tested"
       ]
     },
     {
+      "evidenceCategory": "synthetic",
+      "hypothesis": "Calibrated optical bearing and acoustic range can improve local position estimation under known geometry.",
       "id": "GM-004",
+      "knownLimitations": [
+        "Known colocated geometry and calibrated optical ray are model assumptions.",
+        "Optical bias harms fusion; no physical multimodal recordings acquired."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "metrics": {
+        "acoustic_anchored_bearing_prior_position_rmse_m": 0.07364093452262184,
+        "combinedJacobian": [
+          [
+            0.0,
+            0.14142135623730948,
+            0.9899494936611665
+          ],
+          [
+            2.4999999999999996,
+            0.0,
+            -0.0
+          ],
+          [
+            0.0,
+            2.4999999999999996,
+            -0.35714285714285704
+          ]
+        ],
+        "combinedSingularValues": [
+          2.525381361380526,
+          2.4999999999999996,
+          1.0
+        ],
+        "corrupt_optical_fused_position_rmse_m": 0.06697217788668042,
+        "failure": "Unmodeled 0.15 image-coordinate bias makes fusion worse; no calibration claim.",
+        "fused_position_rmse_m": 0.0021034402066633633,
+        "fusionHelps": true,
+        "localOnly": true,
+        "name": "Synthetic calibrated range and optical ray fusion",
+        "opticalOnlyDepthObserved": false,
+        "optical_anchored_prior_position_rmse_m": 0.04353863778961776,
+        "optical_bearing_rmse_rad": 0.006371809632785151,
+        "rankCombined": 3,
+        "rankOptical": 2,
+        "rankRange": 1
+      },
+      "modelVersion": "gm-acoustics-v1",
       "name": "Cross-modal acoustic optical comparison",
-      "hypothesis": "Cross-modal acoustic optical comparison yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "conditional-support-unqualified-fusion-rejected",
       "physicalValidation": "pending",
-      "modelVersion": null,
-      "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "Synthetic results require later physical model validation"
+      "results": [
+        "science/results/results.json"
+      ],
+      "seed": 20261012,
+      "status": "simulation-validated",
+      "validationLevels": [
+        "implemented",
+        "unit-tested",
+        "simulation-validated"
       ]
     },
     {
+      "evidenceCategory": "synthetic",
+      "hypothesis": "Tagged BLE RSSI can provide a coarse scalar alternative under calibrated log-distance assumptions.",
       "id": "GM-005",
-      "name": "Alternative tagged magnetic sensing",
-      "hypothesis": "Alternative tagged magnetic sensing yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
-      "physicalValidation": "pending",
-      "modelVersion": null,
-      "seed": null,
-      "results": [],
       "knownLimitations": [
-        "Synthetic results require later physical model validation"
+        "Requires cooperating instrumented tag; no BLE hardware measured.",
+        "Body attenuation, orientation and domain shift dominate range error.",
+        "Separate magnetic UI mode uses an ideal synthetic dipole model, not this experiment."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "metrics": {
+        "body_attenuated_range_rmse_m": 0.36282177163279833,
+        "body_attenuation_db": 6,
+        "claim": "Log-distance model only; no bare-hand localization and no BLE hardware connected.",
+        "name": "BLE scalar alternative requiring instrumented tag",
+        "noise_std_db": 2.0,
+        "path_loss_exponent": 2.0,
+        "rssi_range_rmse_m": 0.06964513657993333
+      },
+      "modelVersion": "gm-ble-log-distance-v1",
+      "name": "Alternative BLE scalar sensing with instrumented tag",
+      "outcome": "conditional-support-bare-hand-localization-unsupported",
+      "physicalValidation": "pending",
+      "results": [
+        "science/results/results.json",
+        "artifacts/android-report.md"
+      ],
+      "seed": 20261012,
+      "status": "simulation-validated-adapter-built",
+      "validationLevels": [
+        "implemented",
+        "unit-tested",
+        "simulation-validated"
       ]
     },
     {
+      "evidenceCategory": "synthetic",
+      "hypothesis": "Multi-antenna synthetic CSI can detect scalar path-rate changes when geometry and reference assumptions permit.",
       "id": "GM-RF-001",
+      "knownLimitations": [
+        "No measured CSI; fixed reflector/model assumptions.",
+        "Iso-delay, weak reflectors and one-antenna cases unobservable.",
+        "Independent antenna drift falsely activates; unsigned magnitude is not gesture direction or calibrated probability."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "metrics": {
+        "independent_antenna_drift_no_hand": {
+          "bin_resolution_coverage": 0.0,
+          "brier_score": 1.0,
+          "detection_rate": 1.0,
+          "detection_rate_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "error_bootstrap_mean_95": [
+            0.17295459298879745,
+            0.17300891289865575
+          ],
+          "false_positive_rate": 1.0,
+          "mean_detected_absolute_error_mps": 0.17297632095274076,
+          "mean_heuristic_confidence": 1.0,
+          "motion_truth": false,
+          "n": 40,
+          "naive_raw_phase_detection_rate": 1.0
+        },
+        "iso_delay_movement": {
+          "bin_resolution_coverage": null,
+          "brier_score": 0.9964395608407075,
+          "detection_rate": 0.0,
+          "detection_rate_wilson_95": [
+            0.0,
+            0.08762453925039232
+          ],
+          "error_bootstrap_mean_95": null,
+          "false_positive_rate": null,
+          "mean_detected_absolute_error_mps": null,
+          "mean_heuristic_confidence": 0.9982181843147245,
+          "motion_truth": true,
+          "n": 40,
+          "naive_raw_phase_detection_rate": 1.0
+        },
+        "nominal_moving": {
+          "bin_resolution_coverage": 1.0,
+          "brier_score": 0.023934241994444584,
+          "detection_rate": 1.0,
+          "detection_rate_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "error_bootstrap_mean_95": [
+            0.0038538830109212108,
+            0.003935362875708656
+          ],
+          "false_positive_rate": null,
+          "mean_detected_absolute_error_mps": 0.003886474956836189,
+          "mean_heuristic_confidence": 0.8455608906362849,
+          "motion_truth": true,
+          "n": 40,
+          "naive_raw_phase_detection_rate": 1.0
+        },
+        "weak_reflector": {
+          "bin_resolution_coverage": null,
+          "brier_score": 0.8337158188686757,
+          "detection_rate": 0.0,
+          "detection_rate_wilson_95": [
+            0.0,
+            0.08762453925039232
+          ],
+          "error_bootstrap_mean_95": null,
+          "false_positive_rate": null,
+          "mean_detected_absolute_error_mps": null,
+          "mean_heuristic_confidence": 0.9130783603140014,
+          "motion_truth": true,
+          "n": 40,
+          "naive_raw_phase_detection_rate": 1.0
+        }
+      },
+      "modelVersion": "gm-rf-complex-multipath-v1",
       "name": "Synthetic moving-reflector CSI",
-      "hypothesis": "Synthetic moving-reflector CSI yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "conditional-support-scalar-localization-rejected",
       "physicalValidation": "pending",
-      "modelVersion": null,
-      "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "Synthetic results require later physical model validation"
+      "results": [
+        "science/rf/results/experiments.json",
+        "science/rf/results/trials.json",
+        "science/rf/results/parity.json"
+      ],
+      "seed": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "status": "simulation-validated",
+      "validationLevels": [
+        "implemented",
+        "unit-tested",
+        "simulation-validated"
       ]
     },
     {
+      "evidenceCategory": "synthetic",
+      "hypothesis": "Coarse public-API-like RSSI contains reproducible hand-motion information above nuisance controls.",
       "id": "GM-RF-002",
+      "knownLimitations": [
+        "Simulation does not prove impossibility on every physical channel.",
+        "RSSI is not complex CSI or Doppler; link-distance model is not target range.",
+        "Shadowing produced false activations while tested hand motion was missed."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "metrics": {
+        "coarse_moving": {
+          "cadence_hz": 1,
+          "detection_rate": 0.0,
+          "detection_rate_wilson_95": [
+            0.0,
+            0.08762453925039232
+          ],
+          "distance_mae_bootstrap_95": [
+            0.05021083345965963,
+            0.08479427192049187
+          ],
+          "link_distance_mae_m": 0.06629813281879861,
+          "motion_truth": true,
+          "n": 40,
+          "target_range_observable": false
+        },
+        "no_hand": {
+          "cadence_hz": 1,
+          "detection_rate": 0.0,
+          "detection_rate_wilson_95": [
+            0.0,
+            0.08762453925039232
+          ],
+          "distance_mae_bootstrap_95": [
+            0.05021083345965956,
+            0.0847942719204912
+          ],
+          "link_distance_mae_m": 0.06629813281879811,
+          "motion_truth": false,
+          "n": 40,
+          "target_range_observable": false
+        },
+        "shadow_confounded_no_hand": {
+          "cadence_hz": 1,
+          "detection_rate": 1.0,
+          "detection_rate_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "distance_mae_bootstrap_95": [
+            0.4055688259113606,
+            0.7788005357126135
+          ],
+          "link_distance_mae_m": 0.5700234140593141,
+          "motion_truth": false,
+          "n": 40,
+          "target_range_observable": false
+        },
+        "very_coarse_moving": {
+          "cadence_hz": 0.2,
+          "detection_rate": 0.0,
+          "detection_rate_wilson_95": [
+            0.0,
+            0.08762453925039232
+          ],
+          "distance_mae_bootstrap_95": [
+            0.08120660458031756,
+            0.15049693686020746
+          ],
+          "link_distance_mae_m": 0.11334237887440764,
+          "motion_truth": true,
+          "n": 40,
+          "target_range_observable": false
+        }
+      },
+      "modelVersion": "gm-rf-rssi-coarse-v1",
       "name": "RSSI observability limits",
-      "hypothesis": "RSSI observability limits yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "not-supported-under-tested-model",
       "physicalValidation": "pending",
-      "modelVersion": null,
-      "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "Synthetic results require later physical model validation"
+      "results": [
+        "science/rf/results/experiments.json"
+      ],
+      "seed": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "status": "simulation-validated-negative-result",
+      "validationLevels": [
+        "implemented",
+        "unit-tested",
+        "simulation-validated"
       ]
     },
     {
+      "evidenceCategory": "engineering",
+      "hypothesis": "Public A16 Wi-Fi APIs expose capability-dependent connection/link/RSSI/RTT diagnostics.",
       "id": "GM-RF-003",
+      "knownLimitations": [
+        "Actual A16 model/OS/RTT support unknown.",
+        "One-Hz bounded polling requests do not establish independent measurement cadence.",
+        "Public Android API does not expose raw CSI; permissions and throttling apply."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "modelVersion": "android-public-wifi-probe-v1",
       "name": "Android public Wi-Fi capability probe",
-      "hypothesis": "Android public Wi-Fi capability probe yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "unresolved-hardware",
       "physicalValidation": "pending",
-      "modelVersion": null,
+      "results": [
+        "artifacts/android-report.md",
+        "artifacts/rf-report.md"
+      ],
       "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "No physical A16/ESP32 acquisition available"
+      "status": "adapter-built-physical-pending",
+      "validationLevels": [
+        "implemented",
+        "unit-tested"
       ]
     },
     {
+      "evidenceCategory": "engineering",
+      "hypothesis": "Authorized hotspot/cooperating nodes offer useful lawful acquisition and synchronized semantic transport paths.",
       "id": "GM-RF-004",
+      "knownLimitations": [
+        "Opt-in local-only-hotspot code compiles but actual device behavior untested.",
+        "Hotspot mode does not expose raw CSI through documented APIs.",
+        "Native-shaped synthetic transport tests do not constitute phone-to-radio sensing validation."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "modelVersion": "android-hotspot-relay-v1",
       "name": "Hotspot and cooperating-device evaluation",
-      "hypothesis": "Hotspot and cooperating-device evaluation yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "transport-tested-radio-observability-unresolved",
       "physicalValidation": "pending",
-      "modelVersion": null,
+      "results": [
+        "artifacts/android-report.md",
+        "artifacts/relay-report.md",
+        "artifacts/browser-verification.json",
+        "artifacts/rf-report.md"
+      ],
       "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "No physical A16/ESP32 acquisition available"
+      "status": "adapter-built-physical-pending",
+      "validationLevels": [
+        "implemented",
+        "unit-tested"
       ]
     },
     {
+      "evidenceCategory": "engineering",
+      "hypothesis": "Official ESP-CSI compatible devices can supply timestamped complex measurements for controlled experiments.",
       "id": "GM-RF-005",
+      "knownLimitations": [
+        "No ESP32 connected and no firmware flashed.",
+        "CSV fixture is generated synthetic input, not recorded RF.",
+        "Chip/firmware-specific layouts, synchronization and physical calibration require validation."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "modelVersion": "esp-csi-bounded-adapter-v1",
       "name": "ESP32 CSI acquisition",
-      "hypothesis": "ESP32 CSI acquisition yields bounded, observable interaction features under explicit assumptions",
-      "status": "pending-hardware",
-      "validationLevels": [],
-      "evidenceCategory": null,
+      "outcome": "parser-fixture-supported-acquisition-unresolved",
       "physicalValidation": "pending",
-      "modelVersion": null,
+      "results": [
+        "science/rf/acquisition.py",
+        "science/rf/fixtures/esp32-csi-synthetic.csv",
+        "science/rf/fixtures/esp32-csi-synthetic.provenance.json",
+        "artifacts/rf-report.md"
+      ],
       "seed": null,
-      "results": [],
-      "knownLimitations": [
-        "No physical A16/ESP32 acquisition available"
+      "status": "adapter-unit-tested-hardware-pending",
+      "validationLevels": [
+        "implemented",
+        "unit-tested"
       ]
     },
     {
+      "evidenceCategory": "synthetic",
+      "hypothesis": "Session-separated statistical CSI motion inference improves on tested classical baselines.",
       "id": "GM-RF-006",
-      "name": "RF gesture inference",
-      "hypothesis": "RF gesture inference yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
-      "physicalValidation": "pending",
-      "modelVersion": null,
-      "seed": null,
-      "results": [],
       "knownLimitations": [
-        "Synthetic results require later physical model validation"
+        "56 generated sessions and zero physical participants.",
+        "Classifier distinguishes synthetic motion classes, not validated human gesture vocabulary.",
+        "Four-second acquisition window excludes sub-100ms sensing claims; processing cost is host CPU only.",
+        "Adding RSSI worsened held-out accuracy and false activation."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "metrics": {
+        "classical": {
+          "accuracy": 0.578125,
+          "accuracy_wilson_95": [
+            0.4915168871907951,
+            0.6601803009501255
+          ],
+          "brier_score": 0.421875,
+          "calibration_bins": [
+            {
+              "bin": [
+                0.0,
+                0.2
+              ],
+              "fraction_motion": 0.3333333333333333,
+              "mean_predicted_probability": 0.0,
+              "n": 30
+            },
+            {
+              "bin": [
+                0.8,
+                1.0
+              ],
+              "fraction_motion": 0.5510204081632653,
+              "mean_predicted_probability": 1.0,
+              "n": 98
+            }
+          ],
+          "clustered_session_bootstrap_95": {
+            "accuracy": [
+              0.546875,
+              0.609375
+            ],
+            "false_activation_rate": [
+              0.5625,
+              0.8125
+            ],
+            "recall": [
+              0.78125,
+              0.90625
+            ]
+          },
+          "false_activation_rate": 0.6875,
+          "false_activation_wilson_95": [
+            0.5660743364084737,
+            0.7876909049773426
+          ],
+          "n": 128,
+          "recall": 0.84375
+        },
+        "latency": {
+          "feature_plus_CSI_estimator_median_ms": 0.3905369999301911,
+          "logistic_per_window_ms": 0.0006975078115090128,
+          "note": "single container runtime; not native phone latency",
+          "window_duration_seconds": 4
+        },
+        "regularized_logistic": {
+          "accuracy": 0.7890625,
+          "accuracy_wilson_95": [
+            0.7104917146716522,
+            0.8507878814497541
+          ],
+          "brier_score": 0.18726596697318074,
+          "calibration_bins": [
+            {
+              "bin": [
+                0.2,
+                0.4
+              ],
+              "fraction_motion": 0.0,
+              "mean_predicted_probability": 0.3059319497576596,
+              "n": 27
+            },
+            {
+              "bin": [
+                0.4,
+                0.6000000000000001
+              ],
+              "fraction_motion": 0.5,
+              "mean_predicted_probability": 0.4859472001968996,
+              "n": 70
+            },
+            {
+              "bin": [
+                0.6000000000000001,
+                0.8
+              ],
+              "fraction_motion": 0.9354838709677419,
+              "mean_predicted_probability": 0.6625988284443289,
+              "n": 31
+            }
+          ],
+          "clustered_session_bootstrap_95": {
+            "accuracy": [
+              0.7578125,
+              0.828125
+            ],
+            "false_activation_rate": [
+              0.046875,
+              0.1875
+            ],
+            "recall": [
+              0.625,
+              0.734375
+            ]
+          },
+          "false_activation_rate": 0.109375,
+          "false_activation_wilson_95": [
+            0.054000447526830544,
+            0.20898863291938535
+          ],
+          "n": 128,
+          "recall": 0.6875
+        },
+        "regularized_logistic_csi_only": {
+          "accuracy": 0.8203125,
+          "accuracy_wilson_95": [
+            0.7447821997086049,
+            0.8771762716691697
+          ],
+          "brier_score": 0.19012173946896435,
+          "calibration_bins": [
+            {
+              "bin": [
+                0.2,
+                0.4
+              ],
+              "fraction_motion": 0.06666666666666667,
+              "mean_predicted_probability": 0.3219238743249638,
+              "n": 15
+            },
+            {
+              "bin": [
+                0.4,
+                0.6000000000000001
+              ],
+              "fraction_motion": 0.43529411764705883,
+              "mean_predicted_probability": 0.4637822301911384,
+              "n": 85
+            },
+            {
+              "bin": [
+                0.6000000000000001,
+                0.8
+              ],
+              "fraction_motion": 0.9285714285714286,
+              "mean_predicted_probability": 0.6707338869601628,
+              "n": 28
+            }
+          ],
+          "clustered_session_bootstrap_95": {
+            "accuracy": [
+              0.7890625,
+              0.8515625
+            ],
+            "false_activation_rate": [
+              0.03125,
+              0.15625
+            ],
+            "recall": [
+              0.703125,
+              0.75
+            ]
+          },
+          "false_activation_rate": 0.09375,
+          "false_activation_wilson_95": [
+            0.04367765783128784,
+            0.1898309858327767
+          ],
+          "n": 128,
+          "recall": 0.734375
+        },
+        "split": {
+          "leakage_control": "entire generated environment/session held out; no physical participants, no transfer claim",
+          "participant_count": 0,
+          "test_sessions": [
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55
+          ],
+          "train_sessions": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "validation_sessions": [
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ],
+          "windows_per_session": 8
+        }
+      },
+      "modelVersion": "gm-rf-session-logistic-v1",
+      "name": "RF gesture inference",
+      "outcome": "conditional-support-rssi-fusion-harms",
+      "physicalValidation": "pending",
+      "results": [
+        "science/rf/results/classifiers.json"
+      ],
+      "seed": null,
+      "status": "simulation-validated",
+      "validationLevels": [
+        "implemented",
+        "unit-tested",
+        "simulation-validated"
       ]
     },
     {
+      "evidenceCategory": "synthetic",
+      "hypothesis": "RF contributes independent useful information to calibrated acoustic/optical fusion.",
       "id": "GM-RF-007",
-      "name": "Cross-modal RF fusion",
-      "hypothesis": "Cross-modal RF fusion yields bounded, observable interaction features under explicit assumptions",
-      "status": "implementation-in-progress",
-      "validationLevels": [],
-      "evidenceCategory": null,
-      "physicalValidation": "pending",
-      "modelVersion": null,
-      "seed": null,
-      "results": [],
       "knownLimitations": [
-        "Synthetic results require later physical model validation"
+        "acoustic speaker/mic and camera origin colocated, camera extrinsic identity and focal.7 known",
+        "optical calibrated pinhole bearing proxy; no camera images or ML detections",
+        "RF reflection coefficient fixed; no physical phone/ESP measurements",
+        "RF corroboration does not repair acoustic clock/multipath bias.",
+        "Unrelated objects falsely pass all synthetic proxy gates; explicit intent remains required.",
+        "No physical synchronized datasets or cross-device validation."
+      ],
+      "lastUpdatedAt": "2026-10-12T11:31:54.616454+00:00",
+      "metrics": {
+        "acoustic_clock_bias": {
+          "acoustic_only_activation": 1.0,
+          "fused_MAE_bootstrap_95": [
+            0.17241319112131132,
+            0.17244706251273914
+          ],
+          "fused_position_MAE_m": 0.17242999160043465,
+          "hand_presence_truth": true,
+          "n": 40,
+          "naive_OR_activation": 1.0,
+          "optical_proxy_only_activation": 1.0,
+          "quality_gated_acoustic_optical_activation": 1.0,
+          "quality_gated_activation_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "rf_corroborated_fraction": 1.0,
+          "rf_only_activation": 1.0,
+          "rf_rejected_fraction": 0.0
+        },
+        "acoustic_multipath": {
+          "acoustic_only_activation": 1.0,
+          "fused_MAE_bootstrap_95": [
+            0.10080940188243288,
+            0.10082794218846797
+          ],
+          "fused_position_MAE_m": 0.10081869548070373,
+          "hand_presence_truth": true,
+          "n": 40,
+          "naive_OR_activation": 1.0,
+          "optical_proxy_only_activation": 1.0,
+          "quality_gated_acoustic_optical_activation": 1.0,
+          "quality_gated_activation_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "rf_corroborated_fraction": 1.0,
+          "rf_only_activation": 1.0,
+          "rf_rejected_fraction": 0.0
+        },
+        "no_hand_rf_drift": {
+          "acoustic_only_activation": 0.0,
+          "fused_MAE_bootstrap_95": null,
+          "fused_position_MAE_m": null,
+          "hand_presence_truth": false,
+          "n": 40,
+          "naive_OR_activation": 1.0,
+          "optical_proxy_only_activation": 0.0,
+          "quality_gated_acoustic_optical_activation": 0.0,
+          "quality_gated_activation_wilson_95": [
+            0.0,
+            0.08762453925039232
+          ],
+          "rf_corroborated_fraction": 0.0,
+          "rf_only_activation": 1.0,
+          "rf_rejected_fraction": 0.0
+        },
+        "nominal": {
+          "acoustic_only_activation": 1.0,
+          "fused_MAE_bootstrap_95": [
+            0.002352857936802653,
+            0.0025515532082762238
+          ],
+          "fused_position_MAE_m": 0.0024554636636658625,
+          "hand_presence_truth": true,
+          "n": 40,
+          "naive_OR_activation": 1.0,
+          "optical_proxy_only_activation": 1.0,
+          "quality_gated_acoustic_optical_activation": 1.0,
+          "quality_gated_activation_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "rf_corroborated_fraction": 1.0,
+          "rf_only_activation": 1.0,
+          "rf_rejected_fraction": 0.0
+        },
+        "optical_dropout": {
+          "acoustic_only_activation": 1.0,
+          "fused_MAE_bootstrap_95": null,
+          "fused_position_MAE_m": null,
+          "hand_presence_truth": true,
+          "n": 40,
+          "naive_OR_activation": 1.0,
+          "optical_proxy_only_activation": 0.0,
+          "quality_gated_acoustic_optical_activation": 0.0,
+          "quality_gated_activation_wilson_95": [
+            0.0,
+            0.08762453925039232
+          ],
+          "rf_corroborated_fraction": 0.0,
+          "rf_only_activation": 1.0,
+          "rf_rejected_fraction": 0.0
+        },
+        "unrelated_moving_object": {
+          "acoustic_only_activation": 1.0,
+          "fused_MAE_bootstrap_95": [
+            0.002352857936802653,
+            0.0025515532082762238
+          ],
+          "fused_position_MAE_m": 0.0024554636636658625,
+          "hand_presence_truth": false,
+          "n": 40,
+          "naive_OR_activation": 1.0,
+          "optical_proxy_only_activation": 1.0,
+          "quality_gated_acoustic_optical_activation": 1.0,
+          "quality_gated_activation_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "rf_corroborated_fraction": 1.0,
+          "rf_only_activation": 1.0,
+          "rf_rejected_fraction": 0.0
+        },
+        "weak_rf_motion": {
+          "acoustic_only_activation": 1.0,
+          "fused_MAE_bootstrap_95": [
+            0.002352857936802653,
+            0.0025515532082762238
+          ],
+          "fused_position_MAE_m": 0.0024554636636658625,
+          "hand_presence_truth": true,
+          "n": 40,
+          "naive_OR_activation": 1.0,
+          "optical_proxy_only_activation": 1.0,
+          "quality_gated_acoustic_optical_activation": 1.0,
+          "quality_gated_activation_wilson_95": [
+            0.9123754607496077,
+            1.0
+          ],
+          "rf_corroborated_fraction": 0.0,
+          "rf_only_activation": 0.0,
+          "rf_rejected_fraction": 0.0
+        }
+      },
+      "modelVersion": "gm-cross-modal-v1",
+      "name": "Cross-modal RF fusion",
+      "outcome": "conditional-corroboration-unqualified-fusion-rejected",
+      "physicalValidation": "pending",
+      "results": [
+        "science/rf/results/fusion.json"
+      ],
+      "seed": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "status": "simulation-validated",
+      "validationLevels": [
+        "implemented",
+        "unit-tested",
+        "simulation-validated"
       ]
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-12T11:31:54.616454+00:00"
 }

@@ -1,0 +1,32 @@
+
+> golden-motion@0.1.0 build:web
+> npm run build --workspace @golden-motion/web
+
+
+> @golden-motion/web@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.27
+   - Experiments (use with caution):
+     · cpus: 2
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.3s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/3) ...
+ ✓ Generating static pages (3/3)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (pages)                                Size  First Load JS
+┌ ○ / (309 ms)                            28.7 kB         112 kB
+├   /_app                                     0 B        83.1 kB
+└ ○ /404                                    180 B        83.2 kB
++ First Load JS shared by all             89.7 kB
+  ├ chunks/framework-73dc07baa9f9fb46.js  44.8 kB
+  ├ chunks/main-df1f6fd08c2489c0.js       36.3 kB
+  └ other shared chunks (total)           8.54 kB
+
+○  (Static)  prerendered as static content
+

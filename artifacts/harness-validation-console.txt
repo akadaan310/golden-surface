@@ -1,0 +1,24 @@
+{
+  "executed": [
+    "environment",
+    "harness-tests",
+    "isi-tests",
+    "rf-sdk-tests",
+    "rf-science-tests",
+    "science-tests",
+    "acoustic-experiments",
+    "rf-classifiers",
+    "rf-experiments",
+    "numeric-parity",
+    "rf-parity",
+    "dataset-validation"
+  ],
+  "stop_reason": "no_unblocked_tasks",
+  "elapsed_s": 70.79327360599996,
+  "counts": {
+    "passed": 11,
+    "failed": 1,
+    "pending": 1,
+    "blocked": 0
+  }
+}

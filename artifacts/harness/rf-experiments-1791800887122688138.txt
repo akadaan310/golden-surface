@@ -1,0 +1,323 @@
+{
+  "csi": {
+    "nominal_moving": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": 0.003886474956836189,
+      "error_bootstrap_mean_95": [
+        0.0038538830109212108,
+        0.003935362875708656
+      ],
+      "bin_resolution_coverage": 1.0,
+      "mean_heuristic_confidence": 0.8455608906362849,
+      "brier_score": 0.023934241994444584
+    },
+    "no_hand_static": {
+      "motion_truth": false,
+      "n": 40,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "false_positive_rate": 0.0,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": null,
+      "error_bootstrap_mean_95": null,
+      "bin_resolution_coverage": null,
+      "mean_heuristic_confidence": 0.9982181843147245,
+      "brier_score": 3.1922112585955197e-06
+    },
+    "no_reflector": {
+      "motion_truth": false,
+      "n": 40,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "false_positive_rate": 0.0,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": null,
+      "error_bootstrap_mean_95": null,
+      "bin_resolution_coverage": null,
+      "mean_heuristic_confidence": 0.9963071364209707,
+      "brier_score": 1.3716707080677092e-05
+    },
+    "strong_common_CFO": {
+      "motion_truth": false,
+      "n": 40,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "false_positive_rate": 0.0,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": null,
+      "error_bootstrap_mean_95": null,
+      "bin_resolution_coverage": null,
+      "mean_heuristic_confidence": 0.9982136414241293,
+      "brier_score": 3.2031438284543125e-06
+    },
+    "clock_drift_2000ppm": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": 0.0033724659791548343,
+      "error_bootstrap_mean_95": [
+        0.0033399385991207398,
+        0.0034212570492059766
+      ],
+      "bin_resolution_coverage": 1.0,
+      "mean_heuristic_confidence": 0.8455608906362831,
+      "brier_score": 0.023934241994445153
+    },
+    "noise_005": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": 0.003886474956836189,
+      "error_bootstrap_mean_95": [
+        0.0038538830109212108,
+        0.003935362875708656
+      ],
+      "bin_resolution_coverage": 1.0,
+      "mean_heuristic_confidence": 0.8281169159270885,
+      "brier_score": 0.02978489666813408
+    },
+    "noise_020": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": 0.003886474956836189,
+      "error_bootstrap_mean_95": [
+        0.0038538830109212108,
+        0.003935362875708656
+      ],
+      "bin_resolution_coverage": 1.0,
+      "mean_heuristic_confidence": 0.6288860561781606,
+      "brier_score": 0.14031688340238482
+    },
+    "loss_50percent": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": 0.00526919171946901,
+      "error_bootstrap_mean_95": [
+        0.004815880550044425,
+        0.005768862102080054
+      ],
+      "bin_resolution_coverage": 1.0,
+      "mean_heuristic_confidence": 0.4342855499284409,
+      "brier_score": 0.3210979854015313
+    },
+    "weak_reflector": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": null,
+      "error_bootstrap_mean_95": null,
+      "bin_resolution_coverage": null,
+      "mean_heuristic_confidence": 0.9130783603140014,
+      "brier_score": 0.8337158188686757
+    },
+    "iso_delay_movement": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": null,
+      "error_bootstrap_mean_95": null,
+      "bin_resolution_coverage": null,
+      "mean_heuristic_confidence": 0.9982181843147245,
+      "brier_score": 0.9964395608407075
+    },
+    "independent_antenna_drift_no_hand": {
+      "motion_truth": false,
+      "n": 40,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "false_positive_rate": 1.0,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": 0.17297632095274076,
+      "error_bootstrap_mean_95": [
+        0.17295459298879745,
+        0.17300891289865575
+      ],
+      "bin_resolution_coverage": 0.0,
+      "mean_heuristic_confidence": 1.0,
+      "brier_score": 1.0
+    },
+    "multiple_opposed_movers": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": 0.0826016855195342,
+      "error_bootstrap_mean_95": [
+        0.08256909357361922,
+        0.08262341348347751
+      ],
+      "bin_resolution_coverage": 0.0,
+      "mean_heuristic_confidence": 0.5018811394897676,
+      "brier_score": 0.24816524617292748
+    },
+    "one_antenna_unobservable": {
+      "motion_truth": true,
+      "n": 40,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "false_positive_rate": null,
+      "naive_raw_phase_detection_rate": 1.0,
+      "mean_detected_absolute_error_mps": null,
+      "error_bootstrap_mean_95": null,
+      "bin_resolution_coverage": null,
+      "mean_heuristic_confidence": 0.0,
+      "brier_score": 0.25
+    }
+  },
+  "rssi": {
+    "coarse_moving": {
+      "n": 40,
+      "motion_truth": true,
+      "cadence_hz": 1,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "link_distance_mae_m": 0.06629813281879861,
+      "distance_mae_bootstrap_95": [
+        0.05021083345965963,
+        0.08479427192049187
+      ],
+      "target_range_observable": false
+    },
+    "no_hand": {
+      "n": 40,
+      "motion_truth": false,
+      "cadence_hz": 1,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "link_distance_mae_m": 0.06629813281879811,
+      "distance_mae_bootstrap_95": [
+        0.05021083345965956,
+        0.0847942719204912
+      ],
+      "target_range_observable": false
+    },
+    "shadow_confounded_no_hand": {
+      "n": 40,
+      "motion_truth": false,
+      "cadence_hz": 1,
+      "detection_rate": 1.0,
+      "detection_rate_wilson_95": [
+        0.9123754607496077,
+        1.0
+      ],
+      "link_distance_mae_m": 0.5700234140593141,
+      "distance_mae_bootstrap_95": [
+        0.4055688259113606,
+        0.7788005357126135
+      ],
+      "target_range_observable": false
+    },
+    "very_coarse_moving": {
+      "n": 40,
+      "motion_truth": true,
+      "cadence_hz": 0.2,
+      "detection_rate": 0.0,
+      "detection_rate_wilson_95": [
+        0.0,
+        0.08762453925039232
+      ],
+      "link_distance_mae_m": 0.11334237887440764,
+      "distance_mae_bootstrap_95": [
+        0.08120660458031756,
+        0.15049693686020746
+      ],
+      "target_range_observable": false
+    }
+  },
+  "hypotheses": {
+    "GM-RF-001_complex_delay_model": {
+      "status": "supported_synthetic",
+      "test": "single-path analytical complex exponential parity"
+    },
+    "GM-RF-002_CSI_RSSI_equivalence": {
+      "status": "rejected",
+      "test": "RSSI coarse motion detection differs from CSI and cannot measure Doppler"
+    },
+    "GM-RF-006_scalar_localization": {
+      "status": "rejected",
+      "test": "one-link Fisher rank1; iso-delay motion remains invisible"
+    },
+    "GM-RF-007_unqualified_fusion_improves": {
+      "status": "rejected",
+      "test": "OR/AND of confounded sensors have false positives",
+      "or_false_positive_rate": 1.0,
+      "and_false_positive_rate": 1.0
+    },
+    "GM-RF-005_hardware": {
+      "status": "pending_hardware",
+      "physical_tested": false
+    }
+  }
+}

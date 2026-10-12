@@ -1,0 +1,67 @@
+{
+  "GM-001": {
+    "name": "Acoustic scalar range and rate comparison",
+    "matched_filter_range_rmse_m": 0.00044331173538802174,
+    "phase_anchored_range_rmse_m": 0.00039386978283694607,
+    "doppler_integrated_range_rmse_m": 0.0010695503388559514,
+    "kalman_range_rmse_m": 0.0006203969200791518,
+    "doppler_radial_velocity_rmse_m_s": 0.00019625124819485946,
+    "accepted_fraction": 1.0,
+    "scalar_only_position_rmse_m": null,
+    "phase_unambiguous_step_m": 0.004763888888888889,
+    "reasonNoSpatialScore": "Single half-path and radial rate leave angular directions unobserved."
+  },
+  "GM-004": {
+    "name": "Synthetic calibrated range and optical ray fusion",
+    "optical_bearing_rmse_rad": 0.006371809632785151,
+    "fused_position_rmse_m": 0.0021034402066633633,
+    "acoustic_anchored_bearing_prior_position_rmse_m": 0.07364093452262184,
+    "optical_anchored_prior_position_rmse_m": 0.04353863778961776,
+    "corrupt_optical_fused_position_rmse_m": 0.06697217788668042,
+    "fusionHelps": true,
+    "failure": "Unmodeled 0.15 image-coordinate bias makes fusion worse; no calibration claim.",
+    "opticalOnlyDepthObserved": false,
+    "rankRange": 1,
+    "rankOptical": 2,
+    "rankCombined": 3,
+    "combinedSingularValues": [
+      2.525381361380526,
+      2.4999999999999996,
+      1.0
+    ],
+    "combinedJacobian": [
+      [
+        0.0,
+        0.14142135623730948,
+        0.9899494936611665
+      ],
+      [
+        2.4999999999999996,
+        0.0,
+        -0.0
+      ],
+      [
+        0.0,
+        2.4999999999999996,
+        -0.35714285714285704
+      ]
+    ],
+    "localOnly": true
+  },
+  "GM-005": {
+    "name": "BLE scalar alternative requiring instrumented tag",
+    "rssi_range_rmse_m": 0.06964513657993333,
+    "body_attenuated_range_rmse_m": 0.36282177163279833,
+    "noise_std_db": 2.0,
+    "path_loss_exponent": 2.0,
+    "body_attenuation_db": 6,
+    "claim": "Log-distance model only; no bare-hand localization and no BLE hardware connected."
+  },
+  "costs": {
+    "measurement": "wall-clock per simulated frame incl estimator; does not measure hardware latency",
+    "echo_ms_mean": 1.0315475289256197,
+    "echo_ms_p95": 1.366122,
+    "tone_ms_mean": 0.9224715289256199,
+    "tone_ms_p95": 1.187462
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "source": "synthetic",
+  "environment": "same-host headless Chromium software rendering",
+  "physicalPhoneTested": false,
+  "latency": {
+    "samplesMs": [
+      106,
+      18,
+      62,
+      182,
+      27,
+      16,
+      927,
+      92,
+      595,
+      54
+    ],
+    "meanMs": 207.9,
+    "p95Ms": 927,
+    "measurement": "host publisher send to observable browser semantic action commit; synchronized same-host epoch"
+  },
+  "rendering": {
+    "samples": 119,
+    "meanFrameIntervalMs": 141.03082352941178,
+    "p95FrameIntervalMs": 383.39999999999964,
+    "observedRafFps": 7.090648519055492,
+    "measurement": "requestAnimationFrame cadence while scene visible; not hardware GPU FPS"
+  },
+  "limitations": [
+    "No Galaxy A16 FPS/power/network/camera performance measured.",
+    "Browser cadence and instrumentation include software-renderer/host load."
+  ]
+}

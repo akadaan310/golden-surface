@@ -1,0 +1,32 @@
+name: GOLDEN MOTION evidence and builds
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: python3 scripts/bootstrap.py
+      - run: npx playwright install --with-deps chromium
+      - run: .venv/bin/python scripts/verify.py --force
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-and-apk
+          path: |
+            artifacts/
+            science/results/
+            science/rf/results/
+            PROJECT_STATE.json
+            VALIDATION_REPORT.md

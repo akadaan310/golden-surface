@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "checks": [
+    "3D WebGL scene renders",
+    "acquisition events and intent-gated inference hover",
+    "measured scalar change creates shared-engine scroll event",
+    "dropout withholds estimate and releases action",
+    "stop releases intent and stops actions",
+    "bounded recorded replay preserves source labeling",
+    "modality changes and explicit camera depth limit",
+    "opt-in local MediaPipe camera inference starts and explicitly stops",
+    "shared RF simulation and inference-gated explicit scroll-direction policy",
+    "RF perturbation updates measured quality; RSSI has no directional gesture action",
+    "executed scientific fixture evidence is visible",
+    "no uncaught browser errors",
+    "390px mobile layout without horizontal overflow; touch-accessible controls"
+  ]
+}
+
+{
+  "passed": true,
+  "checks": [
+    "authenticated browser subscriber connection",
+    "fresh authenticated semantic event drives preview without local simulator bypass",
+    "low-confidence remote observation releases preview hover",
+    "protocol-valid stale event monitored but action withheld",
+    "browser stop prevents remote actions",
+    "browser reconnects to restarted authenticated loopback relay",
+    "disconnect releases relay and erases pairing token"
+  ]
+}
+
+page.evaluate: ReferenceError: __name is not defined
+    at eval (eval at evaluate (:290:30), <anonymous>:1:229)
+    at new Promise (<anonymous>)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:5)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at main (/workspace/golden-motion/scripts/browser_transport.ts:18:34)
+
+Browser check failed; preserved exact output

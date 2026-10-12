@@ -1,0 +1,36 @@
+
+> golden-motion@0.1.0 test
+> vitest run
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v2.1.9 /workspace/golden-motion
+
+ ✓ packages/isi/src/lifecycle.test.ts (7 tests) 26ms
+ ❯ packages/isi/src/engine.test.ts (39 tests | 1 failed) 81ms
+   × synthetic timestamp contract > uses a reproducible epoch origin by default and validates generation options 16ms
+     → expected 200 to be greater than 1000000000000
+ ✓ services/relay/test/relay.test.ts (16 tests) 203ms
+ ✓ services/relay/test/client.test.ts (5 tests) 256ms
+ ✓ services/relay/test/synthetic.test.ts (3 tests) 543ms
+   ✓ cleans up reconnect attempts when the command fails to pair with an unavailable relay 354ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  packages/isi/src/engine.test.ts > synthetic timestamp contract > uses a reproducible epoch origin by default and validates generation options
+AssertionError: expected 200 to be greater than 1000000000000
+ ❯ packages/isi/src/engine.test.ts:231:29
+    229|   it('uses a reproducible epoch origin by default and validates genera…
+    230|     const first = syntheticMeasurement(200);
+    231|     expect(first.timestamp).toBeGreaterThan(1_000_000_000_000);
+       |                             ^
+    232|     expect(first).toEqual(syntheticMeasurement(200));
+    233|     expect(() => syntheticMeasurement(200, { deviceId: '' })).toThrow(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 69 passed (70)
+   Start at  10:30:34
+   Duration  1.94s (transform 578ms, setup 0ms, collect 1.34s, tests 1.11s, environment 1ms, prepare 670ms)
+

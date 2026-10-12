@@ -1,0 +1,106 @@
+{
+  "provenance": "synthetic",
+  "physical_tested": false,
+  "tasks": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/test_rf.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.8948028360000535,
+      "stdout_last_500": "",
+      "stderr_last_500": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.297s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/test_acquisition.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.6704490010001791,
+      "stdout_last_500": "",
+      "stderr_last_500": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/test_tcp_budget.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.0993830749998779,
+      "stdout_last_500": "",
+      "stderr_last_500": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.885s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/test_classifiers.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.6774938170001406,
+      "stdout_last_500": "",
+      "stderr_last_500": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.088s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/experiments.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.3084625189999315,
+      "stdout_last_500": "etic\",\n      \"test\": \"fusion.json actual acoustic signal kernel + optical bearing proxy + RF; quality-gated alternative preserves bias/dropout/identity failures\"\n    },\n    \"hypothesis_unqualified_fusion_improves\": {\n      \"status\": \"rejected\",\n      \"test\": \"OR/AND of confounded sensors have false positives\",\n      \"or_false_positive_rate\": 1.0,\n      \"and_false_positive_rate\": 1.0\n    },\n    \"GM-RF-005_hardware\": {\n      \"status\": \"pending_hardware\",\n      \"physical_tested\": false\n    }\n  }\n}\n",
+      "stderr_last_500": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/classifiers.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.4884762370002136,
+      "stdout_last_500": "  0.0006323870589934606,\n      0.04700980115827264,\n      -1.5711028796370252,\n      -1.5862925091590976,\n      -0.21442449241729605\n    ]\n  },\n  \"limitation\": \"simulator features are not human gesture labels; identical nuisance/motion signals remain nonidentifiable. No deep network justified by 256 synthetic training windows.\",\n  \"interval_note\": \"Wilson intervals describe window counts with iid approximation; session-bootstrap intervals preserve within-session dependence and are preferred.\"\n}\n",
+      "stderr_last_500": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/fusion.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 13.082668670999738,
+      "stdout_last_500": "\"rf_only_activation\": 1.0,\n    \"acoustic_only_activation\": 1.0,\n    \"optical_proxy_only_activation\": 1.0,\n    \"naive_OR_activation\": 1.0,\n    \"quality_gated_acoustic_optical_activation\": 1.0,\n    \"quality_gated_activation_wilson_95\": [\n      0.9123754607496077,\n      1.0\n    ],\n    \"fused_position_MAE_m\": 0.0024554636636658625,\n    \"fused_MAE_bootstrap_95\": [\n      0.002352857936802653,\n      0.0025515532082762238\n    ],\n    \"rf_corroborated_fraction\": 1.0,\n    \"rf_rejected_fraction\": 0.0\n  }\n}\n",
+      "stderr_last_500": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/test_statistics.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.12113849099978324,
+      "stdout_last_500": "",
+      "stderr_last_500": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/parity_runner.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.72005557500006,
+      "stdout_last_500": "us\": \"passed\",\n    \"complex_values_compared\": 18,\n    \"maximum_absolute_complex_error\": 4.3898371421117684e-14,\n    \"rssi_inverse_distance_m\": 2.0000000000000004,\n    \"single_link_fisher_rank\": 1,\n    \"noise\": \"disabled for deterministic mathematical parity; not stochastic simulator equivalence\"\n  },\n  \"typescript\": {\n    \"status\": \"passed\",\n    \"complex_values_compared\": 18,\n    \"maximum_absolute_complex_error\": 4.410814219054482e-14,\n    \"stochastic_parity\": \"not asserted; PRNGs differ\"\n  }\n}\n",
+      "stderr_last_500": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/golden-motion/science/rf/test_parity_freshness.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.042151886999818,
+      "stdout_last_500": "",
+      "stderr_last_500": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.707s\n\nOK\n"
+    }
+  ]
+}

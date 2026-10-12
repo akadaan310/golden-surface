@@ -1,0 +1,936 @@
+--------- beginning of system
+10-12 10:47:43.175   650   704 D SystemServerTimingAsync: InitThreadPoolExec:StartNativeSensorService
+10-12 10:47:43.177   650   704 D SystemServerInitThreadPool: Started executing StartNativeSensorService
+10-12 10:47:43.177   650   704 D SystemServerTimingAsync: StartNativeSensorService
+--------- beginning of main
+10-12 10:47:43.194   650   704 D SensorService: nuSensorService starting...
+--------- beginning of kernel
+10-12 10:47:43.240     0     0 I servicemanager: Caller(pid=650,uid=1000,sid=u:r:system_server:s0) Found android.hardware.sensors.ISensors/default in device VINTF manifest.
+10-12 10:47:43.232   650   650 V SystemServerTiming: StartSensorService took to complete: 142ms
+10-12 10:47:43.241   650   650 V SystemServerTiming: startBootstrapServices took to complete: 799588ms
+10-12 10:47:43.242   650   650 D SystemServerTiming: startCoreServices
+10-12 10:47:43.243   650   650 D SystemServerTiming: StartSystemConfigService
+10-12 10:47:43.296   650   650 I SystemServiceManager: Starting com.android.server.SystemConfigService
+10-12 10:47:43.305   504   598 D EGL_emulation: app_time_stats: avg=196.35ms min=59.28ms max=478.00ms count=6
+10-12 10:47:43.369   650   650 V SystemServerTiming: StartSystemConfigService took to complete: 125ms
+10-12 10:47:43.369   650   650 D SystemServerTiming: StartBatteryService
+10-12 10:47:43.371   650   650 I SystemServiceManager: Starting com.android.server.BatteryService
+10-12 10:47:43.646   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:47:44.373   504   598 D EGL_emulation: app_time_stats: avg=111.51ms min=51.60ms max=198.44ms count=7
+10-12 10:47:44.567   411   411 D audioserver: main: AudioPolicy created
+10-12 10:47:44.613   411   411 D audioserver: main: Do not init aaudio service, status 0, policy info size 1
+10-12 10:47:44.614   411   411 I audioserver: main: initialization done in 934880.250 ms, joining thread pool
+10-12 10:47:44.655   650   704 W system_server: AIBinder_linkToDeath is being called with a non-null cookie and no onUnlink callback set. This might not be intended. AIBinder_DeathRecipient_setOnUnlinked should be called first.
+10-12 10:47:45.052     0     0 I servicemanager: Caller(pid=650,uid=1000,sid=u:r:system_server:s0) Found android.hardware.health.IHealth/default in device VINTF manifest.
+10-12 10:47:45.380   504   598 D EGL_emulation: app_time_stats: avg=157.89ms min=36.78ms max=260.64ms count=5
+10-12 10:47:45.759   650   704 W SensorService: Goldfish 3-axis Accelerometer's max range 39.299999237061 is not a multiple of the resolution 0.000248015887 - updated to 39.300102233887
+10-12 10:47:45.765   650   704 I SensorService: Goldfish Ambient Temperature sensor's reported power 0.000000 invalid, clamped to 0.001000
+10-12 10:47:45.766   650   704 W SensorService: Goldfish 3-axis Accelerometer Uncalibrated's max range 39.299999237061 is not a multiple of the resolution 0.000248015887 - updated to 39.300102233887
+10-12 10:47:46.419   504   598 D EGL_emulation: app_time_stats: avg=197.93ms min=86.49ms max=531.83ms count=5
+10-12 10:47:46.646     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=3000000 cc=10 chg=a
+10-12 10:47:47.426   504   598 D EGL_emulation: app_time_stats: avg=171.02ms min=18.57ms max=458.51ms count=4
+10-12 10:47:47.458   484   543 W AudioAnalytics: onAudioServerStart: (key=audio.policy) AudioPolicy ctor, loadTimeMs:923916.687500
+10-12 10:47:47.579   650   650 I HealthServiceWrapperAidl: health: HealthServiceWrapper listening to AIDL HAL
+10-12 10:47:47.738   650   650 I BatteryService: health: Waited 1ms and received the update.
+10-12 10:47:48.133   650   704 I SensorService: Generated new HMAC key.
+10-12 10:47:48.260   650   650 W SystemServiceManager: Service com.android.server.BatteryService took 4391 ms in onStart
+10-12 10:47:48.261   650   650 V SystemServerTiming: StartBatteryService took to complete: 4891ms
+10-12 10:47:48.261   650   650 D SystemServerTiming: StartUsageService
+10-12 10:47:48.500   650   650 I SystemServiceManager: Starting com.android.server.usage.UsageStatsService
+10-12 10:47:48.546     0     0 I init    : Sending signal 9 to service 'idmap2d' (pid 473) process group...
+10-12 10:47:48.570   504   598 D EGL_emulation: app_time_stats: avg=80.68ms min=33.33ms max=233.34ms count=10
+10-12 10:47:48.657   650   675 W OverlayManager: service 'idmap' died
+10-12 10:47:48.664     0     0 I libprocessgroup: Removed cgroup /sys/fs/cgroup/uid_1000/pid_473
+10-12 10:47:48.728     0     0 I init    : Control message: Processed ctl.stop for 'idmap2d' from pid: 650 (system_server)
+10-12 10:47:48.728     0     0 I init    : Service 'idmap2d' (pid 473) received signal 9
+10-12 10:47:48.728     0     0 I init    : Sending signal 9 to service 'idmap2d' (pid 473) process group...
+10-12 10:47:48.728     0     0 E libprocessgroup: Failed to write 1 to /sys/fs/cgroup/uid_1000/pid_473/cgroup.kill: No such file or directory
+10-12 10:47:48.728     0     0 E libprocessgroup: Failed to open /sys/fs/cgroup/uid_1000/pid_473/cgroup.procs: No such file or directory
+10-12 10:47:48.770   650   697 W Looper  : Slow dispatch took 374ms android.fg h=android.os.Handler c=com.android.server.om.IdmapDaemon$Connection$$ExternalSyntheticLambda0@9d846a4 m=0
+10-12 10:47:49.184   650  1622 D SensorService: new thread SensorEventAckReceiver
+10-12 10:47:49.192   650  1623 D SensorService: nuSensorService thread starting...
+10-12 10:47:49.638   504   598 D EGL_emulation: app_time_stats: avg=80.86ms min=48.09ms max=146.49ms count=10
+10-12 10:47:49.773   650   704 V SystemServerTimingAsync: StartNativeSensorService took to complete: 6595ms
+10-12 10:47:49.801   650   704 D SystemServerInitThreadPool: Finished executing StartNativeSensorService
+10-12 10:47:49.802   650   704 V SystemServerTimingAsync: InitThreadPoolExec:StartNativeSensorService took to complete: 6624ms
+10-12 10:47:50.595   504   598 D EGL_emulation: app_time_stats: avg=68.02ms min=9.24ms max=139.44ms count=11
+10-12 10:47:50.870   650   650 W SystemServiceManager: Service com.android.server.usage.UsageStatsService took 1962 ms in onStart
+10-12 10:47:50.872   650   650 V SystemServerTiming: StartUsageService took to complete: 2610ms
+10-12 10:47:50.874   650   650 D SystemServerTiming: StartWebViewUpdateService
+10-12 10:47:50.875   650   650 I SystemServiceManager: Starting com.android.server.webkit.WebViewUpdateService
+10-12 10:47:51.101   650   650 W SystemServiceManager: Service com.android.server.webkit.WebViewUpdateService took 61 ms in onStart
+10-12 10:47:51.115   650   650 V SystemServerTiming: StartWebViewUpdateService took to complete: 240ms
+10-12 10:47:51.165   650   650 D SystemServerTiming: StartCachedDeviceStateService
+10-12 10:47:51.194   650   650 I SystemServiceManager: Starting com.android.server.CachedDeviceStateService
+10-12 10:47:51.294   650   650 V SystemServerTiming: StartCachedDeviceStateService took to complete: 53ms
+10-12 10:47:51.296   650   650 D SystemServerTiming: StartBinderCallsStatsService
+10-12 10:47:51.314   650   650 I SystemServiceManager: Starting com.android.server.BinderCallsStatsService$LifeCycle
+10-12 10:47:51.463   650   650 W SystemServiceManager: Service com.android.server.BinderCallsStatsService$LifeCycle took 148 ms in onStart
+10-12 10:47:51.477   650   650 V SystemServerTiming: StartBinderCallsStatsService took to complete: 163ms
+10-12 10:47:51.494   650   650 D SystemServerTiming: StartLooperStatsService
+10-12 10:47:51.495   650   650 I SystemServiceManager: Starting com.android.server.LooperStatsService$Lifecycle
+10-12 10:47:51.666   504   598 D EGL_emulation: app_time_stats: avg=74.29ms min=9.24ms max=162.29ms count=13
+10-12 10:47:51.715   650   650 W SystemServiceManager: Service com.android.server.LooperStatsService$Lifecycle took 77 ms in onStart
+10-12 10:47:51.721   650   650 V SystemServerTiming: StartLooperStatsService took to complete: 226ms
+10-12 10:47:51.721   650   650 D SystemServerTiming: StartRollbackManagerService
+10-12 10:47:51.761   650   650 I SystemServiceManager: Starting com.android.server.rollback.RollbackManagerService
+10-12 10:47:52.709   650  1553 V SystemServerTimingAsync: AppDataPrepare took to complete: 49368ms
+10-12 10:47:52.710   650  1553 I PackageManager: Deferred reconcileAppsData finished 255 packages
+10-12 10:47:52.711   650  1553 D SystemServerInitThreadPool: Finished executing prepareAppData
+10-12 10:47:52.711   650  1553 V SystemServerTimingAsync: InitThreadPoolExec:prepareAppData took to complete: 49570ms
+10-12 10:47:52.739   504   598 D EGL_emulation: app_time_stats: avg=259.30ms min=33.35ms max=799.64ms count=4
+10-12 10:47:52.770   476   505 D installd: Found quota mount /dev/block/dm-46 at /data
+10-12 10:47:53.055   476   505 D installd: Found quota mount /dev/block/dm-46 at /data/user/0
+10-12 10:47:53.674   650   650 I PackageWatchdog: Syncing state, reason: added new observer
+10-12 10:47:53.711   650   650 I PackageWatchdog: Not pruning observers, elapsed time: 0ms
+10-12 10:47:53.735   650   718 I PackageWatchdog: Saving observer state to file
+10-12 10:47:53.754   504   598 D EGL_emulation: app_time_stats: avg=111.49ms min=33.05ms max=363.88ms count=7
+10-12 10:47:53.783   650   650 I PackageWatchdog: Cancelling state sync, nothing to sync
+10-12 10:47:54.865   504   598 D EGL_emulation: app_time_stats: avg=343.00ms min=49.26ms max=644.39ms count=3
+10-12 10:47:55.076     0     0 I init    : Untracked pid 1626 received signal 1
+10-12 10:47:55.078     0     0 I init    : Untracked pid 1626 did not have an associated service entry and will not be reaped
+10-12 10:47:55.933   504   598 D EGL_emulation: app_time_stats: avg=63.25ms min=27.82ms max=217.84ms count=13
+10-12 10:47:55.943   650   650 W SystemServiceManager: Service com.android.server.rollback.RollbackManagerService took 4180 ms in onStart
+10-12 10:47:55.946   650   650 V SystemServerTiming: StartRollbackManagerService took to complete: 4224ms
+10-12 10:47:55.948   650   650 D SystemServerTiming: StartNativeTombstoneManagerService
+10-12 10:47:55.951   650   650 I SystemServiceManager: Starting com.android.server.os.NativeTombstoneManagerService
+10-12 10:47:56.162   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:47:56.383   650   650 W SystemServiceManager: Service com.android.server.os.NativeTombstoneManagerService took 387 ms in onStart
+10-12 10:47:56.390   650   650 V SystemServerTiming: StartNativeTombstoneManagerService took to complete: 440ms
+10-12 10:47:56.390   650   650 D SystemServerTiming: StartBugreportManagerService
+10-12 10:47:56.415   650   650 I SystemServiceManager: Starting com.android.server.os.BugreportManagerService
+10-12 10:47:56.647   650   650 W SystemServiceManager: Service com.android.server.os.BugreportManagerService took 220 ms in onStart
+10-12 10:47:56.663   650   650 V SystemServerTiming: StartBugreportManagerService took to complete: 272ms
+10-12 10:47:56.668   650   650 D SystemServerTiming: GpuService
+10-12 10:47:56.669   650   650 I SystemServiceManager: Starting com.android.server.gpu.GpuService
+10-12 10:47:56.678   650   650 V SystemServerTiming: GpuService took to complete: 9ms
+10-12 10:47:56.679   650   650 D SystemServerTiming: StartRemoteProvisioningService
+10-12 10:47:56.842   650   650 I SystemServiceManager: Starting com.android.server.security.rkp.RemoteProvisioningService
+10-12 10:47:57.023   504   598 D EGL_emulation: app_time_stats: avg=206.15ms min=52.16ms max=623.61ms count=5
+10-12 10:47:57.334   650   650 V SystemServerTiming: StartRemoteProvisioningService took to complete: 655ms
+10-12 10:47:57.335   650   650 D SystemServerTiming: CpuMonitorService
+10-12 10:47:57.337   650   650 I SystemServiceManager: Starting com.android.server.cpu.CpuMonitorService
+10-12 10:47:58.030   504   598 D EGL_emulation: app_time_stats: avg=65.60ms min=14.72ms max=175.96ms count=10
+10-12 10:47:58.143   650   650 V SLog    : static_init took to complete: 1ms
+10-12 10:47:58.148   650   650 I CpuMonitorService: Starting debug monitoring
+10-12 10:47:58.161   650   650 W SystemServiceManager: Service com.android.server.cpu.CpuMonitorService took 713 ms in onStart
+10-12 10:47:58.162   650   650 V SystemServerTiming: CpuMonitorService took to complete: 827ms
+10-12 10:47:58.163   650   650 V SystemServerTiming: startCoreServices took to complete: 14920ms
+10-12 10:47:58.163   650   650 D SystemServerTiming: startOtherServices
+10-12 10:47:58.197     0     0 I init    : Untracked pid 1627 exited with status 0
+10-12 10:47:58.197     0     0 I init    : Untracked pid 1627 did not have an associated service entry and will not be reaped
+10-12 10:47:58.391   650   650 D SystemServerTiming: StartKeyAttestationApplicationIdProviderService
+10-12 10:47:58.442   650   704 D SystemServerTimingAsync: InitThreadPoolExec:SecondaryZygotePreload
+10-12 10:47:58.486   650   704 D SystemServerInitThreadPool: Started executing SecondaryZygotePreload
+10-12 10:47:58.487   650   704 I SystemServer: SecondaryZygotePreload
+10-12 10:47:58.488   650   704 D SystemServerTimingAsync: SecondaryZygotePreload
+10-12 10:47:58.499   650   704 V SystemServerTimingAsync: SecondaryZygotePreload took to complete: 1ms
+10-12 10:47:58.509   650   704 D SystemServerInitThreadPool: Finished executing SecondaryZygotePreload
+10-12 10:47:58.511   650   704 V SystemServerTimingAsync: InitThreadPoolExec:SecondaryZygotePreload took to complete: 51ms
+10-12 10:47:58.530   650   650 V SystemServerTiming: StartKeyAttestationApplicationIdProviderService took to complete: 137ms
+10-12 10:47:58.530   650   650 D SystemServerTiming: StartKeyChainSystemService
+10-12 10:47:58.621   650   650 I SystemServiceManager: Starting com.android.server.security.KeyChainSystemService
+10-12 10:47:58.638   650   650 V SystemServerTiming: StartKeyChainSystemService took to complete: 107ms
+10-12 10:47:58.639   650   650 D SystemServerTiming: StartBinaryTransparencyService
+10-12 10:47:58.663   650   650 I SystemServiceManager: Starting com.android.server.BinaryTransparencyService
+10-12 10:47:58.840   650   703 W ProcessCpuTracker: Failed to stat(/proc/473): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+10-12 10:47:58.847   650   703 W ProcessCpuTracker: Skipping unknown process pid 473
+10-12 10:47:59.033   650   650 I TransparencyService: Started BinaryTransparencyService
+10-12 10:47:59.034   650   650 V SystemServerTiming: StartBinaryTransparencyService took to complete: 395ms
+10-12 10:47:59.035   650   650 D SystemServerTiming: StartSchedulingPolicyService
+10-12 10:47:59.040   650   650 V SystemServerTiming: StartSchedulingPolicyService took to complete: 5ms
+10-12 10:47:59.041   650   650 D SystemServerTiming: StartTelecomLoaderService
+10-12 10:47:59.043   650   650 I SystemServiceManager: Starting com.android.server.telecom.TelecomLoaderService
+10-12 10:47:59.046   650   650 V SystemServerTiming: StartTelecomLoaderService took to complete: 4ms
+10-12 10:47:59.047   650   650 D SystemServerTiming: StartTelephonyRegistry
+10-12 10:47:59.058   650   650 V SystemServerTiming: StartTelephonyRegistry took to complete: 10ms
+10-12 10:47:59.059   650   650 D SystemServerTiming: StartEntropyMixer
+10-12 10:47:59.273   650  1553 D SystemServerTimingAsync: InitThreadPoolExec:SchedulingPolicyService.<init>
+10-12 10:47:59.274   650  1553 D SystemServerInitThreadPool: Started executing SchedulingPolicyService.<init>
+10-12 10:47:59.286   504   598 D EGL_emulation: app_time_stats: avg=57.01ms min=9.63ms max=185.45ms count=12
+10-12 10:47:59.671   650   650 I EntropyMixer: Created seed file
+10-12 10:47:59.741   650   650 V SystemServerTiming: StartEntropyMixer took to complete: 594ms
+10-12 10:47:59.742   650   650 D SystemServerTiming: StartAccountManagerService
+10-12 10:47:59.797   650   650 I SystemServiceManager: Starting com.android.server.accounts.AccountManagerService$Lifecycle
+10-12 10:48:00.238   650   703 W ProcessCpuTracker: Failed to stat(/proc/1603): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+10-12 10:48:00.258   650   703 W ProcessCpuTracker: Skipping unknown process pid 1603
+10-12 10:48:00.422   504   598 D EGL_emulation: app_time_stats: avg=95.35ms min=17.02ms max=202.32ms count=10
+10-12 10:48:00.437   650   650 W SystemServiceManager: Service com.android.server.accounts.AccountManagerService$Lifecycle took 637 ms in onStart
+10-12 10:48:00.450   650   650 V SystemServerTiming: StartAccountManagerService took to complete: 707ms
+10-12 10:48:00.457   650   650 D SystemServerTiming: StartContentService
+10-12 10:48:00.467   650   650 I SystemServiceManager: Starting com.android.server.content.ContentService$Lifecycle
+10-12 10:48:00.572   650  1553 I SchedulingPolicyService: Moving 494 back to group default
+10-12 10:48:00.633   650  1553 D SystemServerInitThreadPool: Finished executing SchedulingPolicyService.<init>
+10-12 10:48:00.635   650  1553 V SystemServerTimingAsync: InitThreadPoolExec:SchedulingPolicyService.<init> took to complete: 1362ms
+10-12 10:48:00.831   650   650 W SystemServiceManager: Service com.android.server.content.ContentService$Lifecycle took 323 ms in onStart
+10-12 10:48:00.831   650   650 V SystemServerTiming: StartContentService took to complete: 365ms
+10-12 10:48:00.842   650   650 D SystemServerTiming: InstallSystemProviders
+10-12 10:48:01.450   504   598 D EGL_emulation: app_time_stats: avg=32.94ms min=3.97ms max=150.99ms count=20
+10-12 10:48:01.535   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 650
+10-12 10:48:01.571   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 391
+10-12 10:48:01.579   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 429
+10-12 10:48:01.585   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 504
+10-12 10:48:01.586   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 16
+10-12 10:48:01.587   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 146
+10-12 10:48:01.587   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 58
+10-12 10:48:01.588   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1
+10-12 10:48:01.590   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 148
+10-12 10:48:01.591   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 38
+10-12 10:48:01.618   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 380
+10-12 10:48:01.618   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 205
+10-12 10:48:01.618   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 925
+10-12 10:48:01.619   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 463
+10-12 10:48:01.619   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 26
+10-12 10:48:01.619   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 15
+10-12 10:48:01.637   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 17
+10-12 10:48:01.638   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 218
+10-12 10:48:01.650   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 34
+10-12 10:48:01.682   650   650 D nativeloader: Configuring clns-shared-16 for other apk /system/priv-app/SettingsProvider/SettingsProvider.apk. target_sdk_version=35, uses_libraries=, library_path=/system/priv-app/SettingsProvider/lib/x86_64:/system/priv-app/SettingsProvider/SettingsProvider.apk!/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path=/data:/mnt/expand:/data/user_de/0/com.android.providers.settings:/system/priv-app/SettingsProvider:/system/lib64:/system_ext/lib64
+10-12 10:48:01.701   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1332
+10-12 10:48:01.701   650   703 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1611
+10-12 10:48:01.902   650   703 I ActivityManager: Dumping to /data/anr/anr_2026-10-12-10-48-01-702
+10-12 10:48:01.905   650   703 I ActivityManager: Collecting stacks for pid 650
+10-12 10:48:02.117   650   703 I system_server: libdebuggerd_client: started dumping process 650
+10-12 10:48:02.204   213   213 I tombstoned: registered intercept for pid 650 and type kDebuggerdJavaBacktrace
+10-12 10:48:02.221   650   666 I system_server: Thread[2,tid=666,WaitingInMainSignalCatcherLoop,Thread*=0x738922a6e2c0,peer=0x14002b88,"Signal Catcher"]: reacting to signal 3
+10-12 10:48:02.222   650   666 I system_server: 
+10-12 10:48:02.467   504   598 D EGL_emulation: app_time_stats: avg=31.43ms min=4.71ms max=59.45ms count=22
+10-12 10:48:02.921   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:48:03.516   504   598 D EGL_emulation: app_time_stats: avg=17.36ms min=3.03ms max=39.43ms count=31
+10-12 10:48:04.560   504   598 D EGL_emulation: app_time_stats: avg=24.09ms min=4.22ms max=54.88ms count=29
+10-12 10:48:05.606   504   598 D EGL_emulation: app_time_stats: avg=30.46ms min=4.25ms max=113.86ms count=24
+10-12 10:48:05.873   650   650 W SettingsProvider: Unable to add bookmark for shortcut b: missing package/class or category attributes
+10-12 10:48:05.918   650   650 W SettingsProvider: Unable to add bookmark for shortcut s: missing package/class or category attributes
+10-12 10:48:06.445   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:48:06.617   504   598 D EGL_emulation: app_time_stats: avg=22.42ms min=6.16ms max=50.89ms count=25
+10-12 10:48:06.646   213   213 I tombstoned: received crash request for pid 650
+10-12 10:48:06.653   213   213 I tombstoned: found intercept fd 512 for pid 650 and type kDebuggerdJavaBacktrace
+10-12 10:48:06.666   650   666 I system_server: Wrote stack traces to tombstoned
+10-12 10:48:06.671   213   213 W tombstoned: skipping tombstone file creation due to intercept
+10-12 10:48:06.805   650   703 I system_server: libdebuggerd_client: done dumping process 650
+10-12 10:48:06.873   650   703 I ActivityManager: dumpStackTraces nativepids=[451, 389, 391, 393, 396, 397, 400, 404, 148, 405, 469, 406, 410, 411, 158, 480, 484, 486, 363, 172, 364, 173, 429, 494, 373, 374, 375, 378, 379, 380]
+10-12 10:48:06.874   650   703 I ActivityManager: Collecting stacks for native pid 451
+10-12 10:48:06.882   650   650 W SettingsState: No settings state /data/system/users/0/settings_system.xml
+10-12 10:48:06.913   650   703 E android.os.Debug: Failed to get binder state info for pid: 451 status: -2: Interrupted system call
+10-12 10:48:07.009   650   703 I system_server: libdebuggerd_client: started dumping process 451
+10-12 10:48:07.054   213   213 I tombstoned: registered intercept for pid 451 and type kDebuggerdNativeBacktrace
+10-12 10:48:07.241   451   451 I libc    : Requested dump for pid 451 (drmserver)
+10-12 10:48:07.334   650   650 W SettingsState: No settings state /data/system/users/0/settings_secure.xml
+10-12 10:48:07.669   504   598 D EGL_emulation: app_time_stats: avg=49.80ms min=7.65ms max=153.78ms count=16
+10-12 10:48:07.818   650   650 D SettingsProvider: Generated and saved new ANDROID_ID [d3f816c04cfb12bc] for user 0
+10-12 10:48:07.898   650   650 W SettingsState: No settings state /data/system/users/0/settings_global.xml
+10-12 10:48:08.531   650   650 D SettingsProvider: Setting [com.google.android.gms/.autofill.service.AutofillService] as Autofill Service for user 0
+10-12 10:48:08.677   504   598 D EGL_emulation: app_time_stats: avg=51.83ms min=12.50ms max=226.83ms count=16
+10-12 10:48:09.225   650   703 E system_server: libdebuggerd_client: failed to read status response from tombstoned: Try again
+10-12 10:48:09.344   213   213 I tombstoned: intercept for pid 451 and type kDebuggerdNativeBacktrace terminated: due to input
+10-12 10:48:09.390   650   703 I ActivityManager: Collecting stacks for native pid 389
+10-12 10:48:09.429   650   703 E android.os.Debug: Failed to get binder state info for pid: 389 status: -2: Try again
+10-12 10:48:09.441   650   703 I system_server: libdebuggerd_client: started dumping process 389
+10-12 10:48:09.482   213   213 I tombstoned: registered intercept for pid 389 and type kDebuggerdNativeBacktrace
+10-12 10:48:09.475  1639  1639 E crash_dump64: failed to get the guest state header for thread 451: Bad address
+10-12 10:48:09.531  1639  1639 E crash_dump64: failed to get the guest state header for thread 477: Bad address
+10-12 10:48:09.539  1639  1639 E crash_dump64: failed to get the guest state header for thread 481: Bad address
+10-12 10:48:09.551  1639  1639 E crash_dump64: failed to get the guest state header for thread 762: Bad address
+10-12 10:48:09.780   504   598 D EGL_emulation: app_time_stats: avg=59.27ms min=7.97ms max=235.22ms count=11
+10-12 10:48:09.823   389   389 I libc    : Requested dump for pid 389 (android.hardwar)
+10-12 10:48:09.829  1639  1639 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+10-12 10:48:09.869   213   213 I tombstoned: received crash request for pid 451
+10-12 10:48:09.869   213   213 E tombstoned: failed to get crash output for type kDebuggerdNativeBacktrace
+10-12 10:48:09.878  1639  1639 E libc    : failed to read response to DumpRequest packet: No message of desired type
+10-12 10:48:09.879  1639  1639 I crash_dump64: performing dump of process 451 (target tid = 451)
+10-12 10:48:10.391   650   650 D SettingsProvider: Setting [com.google.android.gms/.auth.api.credentials.credman.service.PasswordAndPasskeyService] as CredMan Service for user 0
+10-12 10:48:10.662   650   650 D SettingsProvider: Setting [com.google.android.gms/.auth.api.credentials.credman.service.PasswordAndPasskeyService] as CredMan Service for user 0
+10-12 10:48:10.753     0     0 I init    : Untracked pid 1639 exited with status 0
+10-12 10:48:10.754     0     0 I init    : Untracked pid 1639 did not have an associated service entry and will not be reaped
+10-12 10:48:10.818     0     0 I init    : Untracked pid 1641 exited with status 0
+10-12 10:48:10.818     0     0 I init    : Untracked pid 1641 did not have an associated service entry and will not be reaped
+10-12 10:48:10.811   504   598 D EGL_emulation: app_time_stats: avg=46.61ms min=5.49ms max=164.63ms count=15
+10-12 10:48:11.478   650   703 E system_server: libdebuggerd_client: failed to read status response from tombstoned: Try again
+10-12 10:48:11.487   213   213 I tombstoned: intercept for pid 389 and type kDebuggerdNativeBacktrace terminated: due to input
+10-12 10:48:11.754   650   703 I ActivityManager: Collecting stacks for native pid 391
+10-12 10:48:11.791   650   703 E android.os.Debug: Failed to get binder state info for pid: 391 status: -2: Try again
+10-12 10:48:12.165   504   598 D EGL_emulation: app_time_stats: avg=46.29ms min=3.90ms max=228.51ms count=13
+10-12 10:48:12.201   650   703 I system_server: libdebuggerd_client: started dumping process 391
+10-12 10:48:12.278   213   213 I tombstoned: registered intercept for pid 391 and type kDebuggerdNativeBacktrace
+10-12 10:48:12.415   391   391 I libc    : Requested dump for pid 391 (binder:391_2)
+10-12 10:48:12.894   650   650 W SettingsProvider: Unable to add bookmark for shortcut b: missing package/class or category attributes
+10-12 10:48:13.031   650   650 W SettingsProvider: Unable to add bookmark for shortcut s: missing package/class or category attributes
+10-12 10:48:13.178   650   734 E BluetoothAdapter: Bluetooth service is null
+10-12 10:48:13.348   504   598 D EGL_emulation: app_time_stats: avg=107.12ms min=30.06ms max=232.03ms count=9
+10-12 10:48:13.752   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:48:14.353   650   703 E system_server: libdebuggerd_client: failed to read status response from tombstoned: Try again
+10-12 10:48:14.369   213   213 I tombstoned: intercept for pid 391 and type kDebuggerdNativeBacktrace terminated: due to input
+10-12 10:48:14.386   504   598 D EGL_emulation: app_time_stats: avg=44.26ms min=5.67ms max=110.25ms count=17
+10-12 10:48:14.406  1648  1648 E crash_dump64: failed to get the guest state header for thread 391: Bad address
+10-12 10:48:14.481   650   703 I ActivityManager: Collecting stacks for native pid 393
+10-12 10:48:14.501  1648  1648 E crash_dump64: failed to get the guest state header for thread 435: Bad address
+10-12 10:48:14.510   650   703 E android.os.Debug: Failed to get binder state info for pid: 393 status: -2: Try again
+10-12 10:48:14.522  1648  1648 E crash_dump64: failed to get the guest state header for thread 485: Bad address
+10-12 10:48:14.526  1648  1648 E crash_dump64: failed to get the guest state header for thread 491: Bad address
+10-12 10:48:14.589  1648  1648 E crash_dump64: failed to get the guest state header for thread 778: Bad address
+10-12 10:48:14.609  1648  1648 E crash_dump64: failed to get the guest state header for thread 793: Bad address
+10-12 10:48:14.631   650   703 I system_server: libdebuggerd_client: started dumping process 393
+10-12 10:48:14.687   213   213 I tombstoned: registered intercept for pid 393 and type kDebuggerdNativeBacktrace
+10-12 10:48:14.759  1648  1648 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+10-12 10:48:14.802   393   393 I libc    : Requested dump for pid 393 (android.hardwar)
+10-12 10:48:14.858   213   213 I tombstoned: received crash request for pid 391
+10-12 10:48:14.858   213   213 E tombstoned: failed to get crash output for type kDebuggerdNativeBacktrace
+10-12 10:48:14.862  1648  1648 E libc    : failed to read response to DumpRequest packet: No message of desired type
+10-12 10:48:14.870  1648  1648 I crash_dump64: performing dump of process 391 (target tid = 391)
+10-12 10:48:15.011   650   650 W SettingsState: No settings state /data/system/users/0/settings_config.xml
+10-12 10:48:15.487   504   598 D EGL_emulation: app_time_stats: avg=67.83ms min=20.97ms max=155.84ms count=12
+10-12 10:48:16.494  1654  1654 E crash_dump64: failed to get the guest state header for thread 389: Bad address
+10-12 10:48:16.579  1654  1654 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+10-12 10:48:16.578     0     0 I init    : Untracked pid 1648 exited with status 0
+10-12 10:48:16.578     0     0 I init    : Untracked pid 1648 did not have an associated service entry and will not be reaped
+10-12 10:48:16.578     0     0 I init    : Untracked pid 1650 exited with status 0
+10-12 10:48:16.578     0     0 I init    : Untracked pid 1650 did not have an associated service entry and will not be reaped
+10-12 10:48:16.598   213   213 I tombstoned: received crash request for pid 389
+10-12 10:48:16.599   213   213 E tombstoned: failed to get crash output for type kDebuggerdNativeBacktrace
+10-12 10:48:16.602  1654  1654 E libc    : failed to read response to DumpRequest packet: No message of desired type
+10-12 10:48:16.646   504   598 D EGL_emulation: app_time_stats: avg=99.47ms min=27.67ms max=278.22ms count=10
+10-12 10:48:16.604  1654  1654 I crash_dump64: performing dump of process 389 (target tid = 389)
+10-12 10:48:16.713   650   703 E system_server: libdebuggerd_client: failed to read status response from tombstoned: Try again
+10-12 10:48:16.721   213   213 I tombstoned: intercept for pid 393 and type kDebuggerdNativeBacktrace terminated: due to input
+10-12 10:48:17.339   650   703 I ActivityManager: Collecting stacks for native pid 396
+10-12 10:48:17.499   650   703 E android.os.Debug: Failed to get binder state info for pid: 396 status: -2: Try again
+10-12 10:48:17.505   650   703 I system_server: libdebuggerd_client: started dumping process 396
+10-12 10:48:17.511   213   213 I tombstoned: registered intercept for pid 396 and type kDebuggerdNativeBacktrace
+10-12 10:48:17.569   396   396 I libc    : Requested dump for pid 396 (android.hardwar)
+10-12 10:48:17.737   504   598 D EGL_emulation: app_time_stats: avg=122.48ms min=18.20ms max=220.10ms count=7
+10-12 10:48:18.883   504   598 D EGL_emulation: app_time_stats: avg=393.83ms min=95.03ms max=692.64ms count=2
+10-12 10:48:19.560   650   703 E system_server: libdebuggerd_client: failed to read status response from tombstoned: Try again
+10-12 10:48:20.073   504   598 D EGL_emulation: app_time_stats: avg=86.52ms min=4.88ms max=258.16ms count=6
+10-12 10:48:20.424  1659  1659 E crash_dump64: failed to get the guest state header for thread 393: Bad address
+10-12 10:48:20.525   213   213 I tombstoned: intercept for pid 396 and type kDebuggerdNativeBacktrace terminated: due to input
+10-12 10:48:20.493     0     0 I init    : Untracked pid 1654 exited with status 0
+10-12 10:48:20.493     0     0 I init    : Untracked pid 1654 did not have an associated service entry and will not be reaped
+10-12 10:48:20.574     0     0 I init    : Untracked pid 1656 exited with status 0
+10-12 10:48:20.575     0     0 I init    : Untracked pid 1656 did not have an associated service entry and will not be reaped
+10-12 10:48:21.190  1659  1659 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+10-12 10:48:21.202   504   598 D EGL_emulation: app_time_stats: avg=190.75ms min=16.06ms max=372.05ms count=4
+10-12 10:48:21.217   650   703 I ActivityManager: Collecting stacks for native pid 397
+10-12 10:48:21.504   213   213 I tombstoned: received crash request for pid 393
+10-12 10:48:21.505   213   213 E tombstoned: failed to get crash output for type kDebuggerdNativeBacktrace
+10-12 10:48:21.546   650   703 E android.os.Debug: Failed to get binder state info for pid: 397 status: -2: Try again
+10-12 10:48:21.550   650   703 I system_server: libdebuggerd_client: started dumping process 397
+10-12 10:48:21.564  1659  1659 E libc    : failed to read response to DumpRequest packet: No message of desired type
+10-12 10:48:21.566  1659  1659 I crash_dump64: performing dump of process 393 (target tid = 393)
+10-12 10:48:21.652   213   213 I tombstoned: registered intercept for pid 397 and type kDebuggerdNativeBacktrace
+10-12 10:48:21.762   397   397 I libc    : Requested dump for pid 397 (android.hardwar)
+10-12 10:48:22.577   504   598 D EGL_emulation: app_time_stats: avg=569.26ms min=319.03ms max=819.50ms count=2
+10-12 10:48:23.726   504   598 D EGL_emulation: app_time_stats: avg=136.73ms min=32.62ms max=331.83ms count=6
+10-12 10:48:24.182     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=3000000 cc=10 chg=a
+10-12 10:48:24.541     0     0 I init    : Untracked pid 1659 exited with status 0
+10-12 10:48:24.542     0     0 I init    : Untracked pid 1659 did not have an associated service entry and will not be reaped
+10-12 10:48:24.543     0     0 I init    : Untracked pid 1661 exited with status 0
+10-12 10:48:24.543     0     0 I init    : Untracked pid 1661 did not have an associated service entry and will not be reaped
+10-12 10:48:24.953   504   598 D EGL_emulation: app_time_stats: avg=398.88ms min=360.38ms max=421.04ms count=3
+10-12 10:48:25.225  1664  1664 E crash_dump64: failed to get the guest state header for thread 396: Bad address
+10-12 10:48:25.672  1664  1664 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+10-12 10:48:25.710   213   213 I tombstoned: received crash request for pid 396
+10-12 10:48:25.710   213   213 E tombstoned: failed to get crash output for type kDebuggerdNativeBacktrace
+10-12 10:48:25.715  1664  1664 E libc    : failed to read response to DumpRequest packet: No message of desired type
+10-12 10:48:25.742  1664  1664 I crash_dump64: performing dump of process 396 (target tid = 396)
+10-12 10:48:25.986   504   598 D EGL_emulation: app_time_stats: avg=59.29ms min=13.24ms max=114.77ms count=11
+10-12 10:48:26.822     0     0 I init    : Untracked pid 1664 exited with status 0
+10-12 10:48:26.822     0     0 I init    : Untracked pid 1664 did not have an associated service entry and will not be reaped
+10-12 10:48:26.875     0     0 I init    : Untracked pid 1666 exited with status 0
+10-12 10:48:26.875     0     0 I init    : Untracked pid 1666 did not have an associated service entry and will not be reaped
+10-12 10:48:27.058   504   598 D EGL_emulation: app_time_stats: avg=91.93ms min=31.70ms max=156.00ms count=10
+10-12 10:48:27.651  1669  1669 E crash_dump64: failed to get the guest state header for thread 397: Bad address
+10-12 10:48:27.835   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:48:27.876  1669  1669 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+10-12 10:48:27.898   213   213 I tombstoned: received crash request for pid 397
+10-12 10:48:27.918   213   213 I tombstoned: found intercept fd 512 for pid 397 and type kDebuggerdNativeBacktrace
+10-12 10:48:27.960  1669  1669 I crash_dump64: performing dump of process 397 (target tid = 397)
+10-12 10:48:28.098   504   598 D EGL_emulation: app_time_stats: avg=86.76ms min=30.34ms max=139.95ms count=10
+10-12 10:48:29.001   213   213 W tombstoned: skipping tombstone file creation due to intercept
+10-12 10:48:29.027   650   703 I system_server: libdebuggerd_client: done dumping process 397
+10-12 10:48:29.089     0     0 I init    : Untracked pid 1669 exited with status 0
+10-12 10:48:29.090     0     0 I init    : Untracked pid 1669 did not have an associated service entry and will not be reaped
+10-12 10:48:29.099   650   703 E ActivityManager: Aborting stack trace dump (current native pid=397); deadline exceeded.
+10-12 10:48:29.137     0     0 I init    : Untracked pid 1671 exited with status 0
+10-12 10:48:29.138     0     0 I init    : Untracked pid 1671 did not have an associated service entry and will not be reaped
+10-12 10:48:29.150   504   598 D EGL_emulation: app_time_stats: avg=78.26ms min=29.91ms max=140.06ms count=13
+10-12 10:48:29.262   650   650 W SettingsState: No settings state /data/system/users/0/settings_ssaid.xml
+10-12 10:48:30.236   504   598 D EGL_emulation: app_time_stats: avg=62.26ms min=17.45ms max=117.23ms count=12
+10-12 10:48:30.805   650  1633 W system_server: Long monitor contention with owner main (650) at void com.android.providers.settings.SettingsState.<init>(android.content.Context, java.lang.Object, java.io.File, int, int, android.os.Looper)(SettingsState.java:400) waiters=0 in void com.android.providers.settings.SettingsState.doWriteState() for 23.282s
+10-12 10:48:31.177   650   650 D nativeloader: Configuring clns-shared-17 for other apk /system/priv-app/Telecom/Telecom.apk. target_sdk_version=35, uses_libraries=, library_path=/system/priv-app/Telecom/lib/x86_64:/system/priv-app/Telecom/Telecom.apk!/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path=/data:/mnt/expand:/data/user_de/0/com.android.server.telecom:/system/priv-app/Telecom:/system/lib64:/system_ext/lib64
+10-12 10:48:31.286   650   650 I system_server: Waiting for a blocking GC ClassLinker
+10-12 10:48:31.256   504   598 D EGL_emulation: app_time_stats: avg=51.09ms min=13.60ms max=100.05ms count=16
+10-12 10:48:32.263   504   598 D EGL_emulation: app_time_stats: avg=40.06ms min=4.41ms max=86.75ms count=19
+10-12 10:48:33.298   504   598 D EGL_emulation: app_time_stats: avg=26.38ms min=4.53ms max=78.22ms count=24
+10-12 10:48:33.594   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:48:33.615   650   671 I system_server: Background concurrent mark compact GC freed 9140KB AllocSpace bytes, 28(1320KB) LOS objects, 49% free, 12MB/24MB, paused 11.974ms,16.176ms total 5.543s
+10-12 10:48:33.638   650   650 I system_server: WaitForGcToComplete blocked ClassLinker on Background for 2.351s
+10-12 10:48:34.030   650   650 D OomAdjuster: Not killing cached processes
+10-12 10:48:34.346   504   598 D EGL_emulation: app_time_stats: avg=57.21ms min=7.15ms max=212.10ms count=14
+10-12 10:48:35.375   504   598 D EGL_emulation: app_time_stats: avg=101.08ms min=11.60ms max=425.86ms count=9
+10-12 10:48:35.751   650   703 W ProcessCpuTracker: Failed to stat(/proc/1667): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+10-12 10:48:35.765   650   703 W ProcessCpuTracker: Skipping unknown process pid 1667
+10-12 10:48:35.770   650   703 W ProcessCpuTracker: Failed to stat(/proc/1675): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+10-12 10:48:35.772   650   703 W ProcessCpuTracker: Skipping unknown process pid 1675
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:36.246   650  1676 E SystemServiceRegistry: 	at com.android.server.Watchdog$1.run(Watchdog.java:1025)
+10-12 10:48:36.386   504   598 D EGL_emulation: app_time_stats: avg=30.73ms min=13.39ms max=59.31ms count=21
+10-12 10:48:36.434   650  1676 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:36.537   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:36.556   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:36.627   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:36.631   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:36.677   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:36.679   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:36.749   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:36.766   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:36.856   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:36.963   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:36.989   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.001   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.027   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.035   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.129   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.131   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.169   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.177   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.188   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.209   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.226   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.229   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.311   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.356   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.394   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.402   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.415   504   598 D EGL_emulation: app_time_stats: avg=45.21ms min=4.60ms max=103.67ms count=15
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.561   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.567   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.640   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.675   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.731   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.742   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:37.835   650   650 D ActivityManager: Checking cgroup freezer: /sys/fs/cgroup/uid_1000/pid_650/cgroup.freeze
+10-12 10:48:37.965   650   650 D ActivityManager: Checking binder freezer ioctl
+10-12 10:48:37.971   650   650 D ActivityManager: Checking freezer profiles
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:37.972   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:37.996   650   650 D ActivityManager: Freezer supported: true
+10-12 10:48:37.998   650   650 D ActivityManager: Freezer timeout set to 10000
+10-12 10:48:37.999   650   650 D ActivityManager: Freezer exemption set to false
+10-12 10:48:38.012   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:38.058   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:38.131   650   650 I SystemServiceManager: Starting com.android.server.deviceconfig.DeviceConfigInit$Lifecycle
+10-12 10:48:38.135   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:38.168   650   650 I DeviceConfig: Bootstrap values not found
+10-12 10:48:38.205   650   650 V SystemServerTiming: InstallSystemProviders took to complete: 37363ms
+10-12 10:48:38.212   650   650 D SystemServerTiming: StartDropBoxManager
+10-12 10:48:38.214   650   650 I SystemServiceManager: Starting com.android.server.DropBoxManagerService
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: No service published for: dropbox
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: dropbox
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:528)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$24.createService(SystemServiceRegistry.java:525)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.addErrorToDropBox(ActivityManagerService.java:9885)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService.handleApplicationWtfInner(ActivityManagerService.java:9685)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at com.android.server.am.ActivityManagerService$14.run(ActivityManagerService.java:9651)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+10-12 10:48:38.224   650   720 E SystemServiceRegistry: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+10-12 10:48:38.242   650   720 E SystemServiceRegistry: Manager wrapper not available: dropbox
+10-12 10:48:38.271   650   650 V SystemServerTiming: StartDropBoxManager took to complete: 58ms
+10-12 10:48:38.279   650   650 D SystemServerTiming: StartEnhancedConfirmationService
+10-12 10:48:38.317   650   650 I SystemServiceManager: Starting com.android.ecm.EnhancedConfirmationService
+10-12 10:48:38.419   650   650 W SystemServiceManager: Service com.android.ecm.EnhancedConfirmationService took 102 ms in onStart
+10-12 10:48:38.419   650   650 V SystemServerTiming: StartEnhancedConfirmationService took to complete: 119ms
+10-12 10:48:38.427   504   598 D EGL_emulation: app_time_stats: avg=45.39ms min=7.20ms max=205.80ms count=14
+10-12 10:48:38.420   650   650 D SystemServerTiming: StartHintManager
+10-12 10:48:38.439   650   650 I SystemServiceManager: Starting com.android.server.power.hint.HintManagerService
+10-12 10:48:38.442   650   720 D ActivityManager: Freezer enabled
+10-12 10:48:38.443   650   720 D ActivityManager: freezer override set to false
+10-12 10:48:38.677     0     0 I servicemanager: Caller(pid=650,uid=1000,sid=u:r:system_server:s0) Found android.hardware.power.IPower/default in device VINTF manifest.
+10-12 10:48:38.723   650   650 V SystemServerTiming: StartHintManager took to complete: 285ms
+10-12 10:48:38.723   650   650 D SystemServerTiming: StartRoleManagerService
+10-12 10:48:38.754   650   650 I SystemServiceManager: Starting com.android.role.RoleService
+10-12 10:48:38.857   650   650 V SystemServerTiming: StartRoleManagerService took to complete: 120ms
+10-12 10:48:38.858   650   650 D SystemServerTiming: StartVibratorManagerService
+10-12 10:48:38.859   650   650 I SystemServiceManager: Starting com.android.server.vibrator.VibratorManagerService$Lifecycle
+10-12 10:48:39.035   400   400 I android.hardware.vibrator-service.example: Vibrator manager reporting capabilities
+10-12 10:48:39.017     0     0 I servicemanager: Caller(pid=650,uid=1000,sid=u:r:system_server:s0) Found android.hardware.vibrator.IVibratorManager/default in device VINTF manifest.
+10-12 10:48:39.077   400   400 I android.hardware.vibrator-service.example: Vibrator manager getting vibrator ids
+10-12 10:48:39.097   400   400 I android.hardware.vibrator-service.example: Vibrator manager getting vibrator 1
+10-12 10:48:39.487   504   598 D EGL_emulation: app_time_stats: avg=32.84ms min=5.45ms max=68.89ms count=18
+10-12 10:48:39.502   400   400 I android.hardware.vibrator-service.example: Vibrator Manager cancel synced
+10-12 10:48:39.506   400   400 I android.hardware.vibrator-service.example: Vibrator manager getting vibrator 1
+10-12 10:48:39.599     0     0 I servicemanager: Caller(pid=650,uid=1000,sid=u:r:system_server:s0) Found android.frameworks.vibrator.IVibratorControlService/default in framework VINTF manifest.
+10-12 10:48:39.616     0     0 I servicemanager: Caller(pid=650,uid=1000,sid=u:r:system_server:s0) Found android.frameworks.vibrator.IVibratorControlService/default in framework VINTF manifest.
+10-12 10:48:39.605   650   650 W SystemServiceManager: Service com.android.server.vibrator.VibratorManagerService$Lifecycle took 746 ms in onStart
+10-12 10:48:39.606   650   650 V SystemServerTiming: StartVibratorManagerService took to complete: 748ms
+10-12 10:48:39.607   650   650 D SystemServerTiming: StartDynamicSystemService
+10-12 10:48:39.626   650   650 V SystemServerTiming: StartDynamicSystemService took to complete: 18ms
+10-12 10:48:39.627   650   650 D SystemServerTiming: StartAlarmManagerService
+10-12 10:48:39.643   650   650 I SystemServiceManager: Starting com.android.server.alarm.AlarmManagerService
+10-12 10:48:39.730   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:48:39.862   650   650 D nativeloader: Load /system/lib64/libalarm_jni.so using ns default for caller /system/framework/services.jar in same partition (is_bridged=0): ok
+10-12 10:48:40.282   650   650 W SystemServiceManager: Service com.android.server.alarm.AlarmManagerService took 534 ms in onStart
+10-12 10:48:40.288   650   650 V SystemServerTiming: StartAlarmManagerService took to complete: 656ms
+10-12 10:48:40.289   650   650 D SystemServerTiming: StartInputManagerService
+10-12 10:48:40.463   650   650 D inputflinger: Creating InputFlingerRust
+10-12 10:48:40.486   650   650 E system_server: Class descriptors 'com.android.server.inputflinger.IInputFlingerRust' match during associateClass, but they are different class objects (0x738a22a65110 vs 0x738a22a7a5f0). Class descriptor collision?
+10-12 10:48:40.546   504   598 D EGL_emulation: app_time_stats: avg=41.83ms min=5.31ms max=83.91ms count=20
+10-12 10:48:40.743   650   650 I InputTracer: InputTracer initialized for data source: android.input.inputevent
+10-12 10:48:41.004   363   368 I ServiceManagerCppClient: Waiting for service 'statscompanion' on '/dev/binder'...
+10-12 10:48:41.417   650   650 D inputflinger: Creating InputFilter
+10-12 10:48:41.420   650   650 E system_server: Class descriptors 'com.android.server.inputflinger.IInputFilter' match during associateClass, but they are different class objects (0x738a22a62a70 vs 0x738a22a7ed30). Class descriptor collision?
+10-12 10:48:41.737   504   598 D EGL_emulation: app_time_stats: avg=77.34ms min=5.93ms max=262.28ms count=13
+10-12 10:48:42.323   650   650 I InputManager: Initializing input manager, mUseDevInputEventForAudioJack=true
+10-12 10:48:42.455   650   650 V SystemServerTiming: StartInputManagerService took to complete: 2085ms
+10-12 10:48:42.586   650   650 D SystemServerTiming: DeviceStateManagerService
+10-12 10:48:42.601   650   650 I SystemServiceManager: Starting com.android.server.devicestate.DeviceStateManagerService
+10-12 10:48:42.773   650   650 W Sensors : Cannot get virtualdevice_native service
+10-12 10:48:42.804   504   598 D EGL_emulation: app_time_stats: avg=71.34ms min=25.25ms max=220.58ms count=10
+10-12 10:48:43.175   650   650 E DeviceStateManagerService: Cannot notify device state info change before the initial state has been committed.
+10-12 10:48:43.381   650   650 I DeviceStateManagerService: Cannot notify device state info change when pending state is present.
+10-12 10:48:43.479   650   650 V SystemServerTiming: DeviceStateManagerService took to complete: 885ms
+10-12 10:48:43.479   650   650 D SystemServerTiming: StartCameraServiceProxy
+10-12 10:48:43.759   650   650 I SystemServiceManager: Starting com.android.server.camera.CameraServiceProxy
+10-12 10:48:43.850   504   598 D EGL_emulation: app_time_stats: avg=153.47ms min=18.51ms max=333.06ms count=6
+10-12 10:48:44.110   650   650 V SystemServerTiming: StartCameraServiceProxy took to complete: 631ms
+10-12 10:48:44.111   650   650 D SystemServerTiming: StartWindowManagerService
+10-12 10:48:44.111   650   650 I SystemServiceManager: Starting phase 200
+10-12 10:48:44.153   650   650 D SystemServerTiming: OnBootPhase_200
+10-12 10:48:44.153   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.security.FileIntegrityService
+10-12 10:48:44.154   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.security.FileIntegrityService took to complete: 0ms
+10-12 10:48:44.154   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.pm.Installer
+10-12 10:48:44.154   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.pm.Installer took to complete: 0ms
+10-12 10:48:44.155   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.os.DeviceIdentifiersPolicyService
+10-12 10:48:44.155   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.os.DeviceIdentifiersPolicyService took to complete: 0ms
+10-12 10:48:44.155   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.flags.FeatureFlagsService
+10-12 10:48:44.155   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.flags.FeatureFlagsService took to complete: 0ms
+10-12 10:48:44.156   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.uri.UriGrantsManagerService$Lifecycle
+10-12 10:48:44.172   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.uri.UriGrantsManagerService$Lifecycle took to complete: 0ms
+10-12 10:48:44.173   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.powerstats.PowerStatsService
+10-12 10:48:44.174   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.powerstats.PowerStatsService took to complete: 0ms
+10-12 10:48:44.180   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.permission.access.AccessCheckingService
+10-12 10:48:44.181   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.permission.access.AccessCheckingService took to complete: 0ms
+10-12 10:48:44.181   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.wm.ActivityTaskManagerService$Lifecycle
+10-12 10:48:44.187   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.wm.ActivityTaskManagerService$Lifecycle took to complete: 0ms
+10-12 10:48:44.188   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.am.ActivityManagerService$Lifecycle
+10-12 10:48:44.197   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.am.ActivityManagerService$Lifecycle took to complete: 0ms
+10-12 10:48:44.197   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.pm.DataLoaderManagerService
+10-12 10:48:44.197   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.pm.DataLoaderManagerService took to complete: 0ms
+10-12 10:48:44.197   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.power.PowerManagerService
+10-12 10:48:44.198   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.power.PowerManagerService took to complete: 0ms
+10-12 10:48:44.198   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.power.ThermalManagerService
+10-12 10:48:44.198   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.power.ThermalManagerService took to complete: 0ms
+10-12 10:48:44.198   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.recoverysystem.RecoverySystemService$Lifecycle
+10-12 10:48:44.199   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.recoverysystem.RecoverySystemService$Lifecycle took to complete: 0ms
+10-12 10:48:44.199   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.lights.LightsService
+10-12 10:48:44.199   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.lights.LightsService took to complete: 0ms
+10-12 10:48:44.199   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.display.DisplayManagerService
+10-12 10:48:44.200   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.display.DisplayManagerService took to complete: 0ms
+10-12 10:48:44.228   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.pm.verify.domain.DomainVerificationService
+10-12 10:48:44.233   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.pm.verify.domain.DomainVerificationService took to complete: 0ms
+10-12 10:48:44.233   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.pm.PackageInstallerService$Lifecycle
+10-12 10:48:44.241   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.pm.PackageInstallerService$Lifecycle took to complete: 0ms
+10-12 10:48:44.241   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.pm.UserManagerService$LifeCycle
+10-12 10:48:44.241   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.pm.UserManagerService$LifeCycle took to complete: 0ms
+10-12 10:48:44.242   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.om.OverlayManagerService
+10-12 10:48:44.242   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.om.OverlayManagerService took to complete: 0ms
+10-12 10:48:44.242   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.resources.ResourcesManagerService
+10-12 10:48:44.242   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.resources.ResourcesManagerService took to complete: 0ms
+10-12 10:48:44.243   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.sensorprivacy.SensorPrivacyService
+10-12 10:48:44.243   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.sensorprivacy.SensorPrivacyService took to complete: 0ms
+10-12 10:48:44.243   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.sensors.SensorService
+10-12 10:48:44.244   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.sensors.SensorService took to complete: 0ms
+10-12 10:48:44.269   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.SystemConfigService
+10-12 10:48:44.270   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.SystemConfigService took to complete: 0ms
+10-12 10:48:44.270   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.BatteryService
+10-12 10:48:44.270   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.BatteryService took to complete: 0ms
+10-12 10:48:44.270   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.usage.UsageStatsService
+10-12 10:48:44.271   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.usage.UsageStatsService took to complete: 0ms
+10-12 10:48:44.271   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.webkit.WebViewUpdateService
+10-12 10:48:44.280   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.webkit.WebViewUpdateService took to complete: 9ms
+10-12 10:48:44.280   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.CachedDeviceStateService
+10-12 10:48:44.281   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.CachedDeviceStateService took to complete: 1ms
+10-12 10:48:44.281   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.BinderCallsStatsService$LifeCycle
+10-12 10:48:44.281   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.BinderCallsStatsService$LifeCycle took to complete: 0ms
+10-12 10:48:44.281   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.LooperStatsService$Lifecycle
+10-12 10:48:44.282   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.LooperStatsService$Lifecycle took to complete: 1ms
+10-12 10:48:44.282   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.rollback.RollbackManagerService
+10-12 10:48:44.282   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.rollback.RollbackManagerService took to complete: 0ms
+10-12 10:48:44.283   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.os.NativeTombstoneManagerService
+10-12 10:48:44.283   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.os.NativeTombstoneManagerService took to complete: 0ms
+10-12 10:48:44.283   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.os.BugreportManagerService
+10-12 10:48:44.283   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.os.BugreportManagerService took to complete: 0ms
+10-12 10:48:44.284   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.gpu.GpuService
+10-12 10:48:44.297   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.gpu.GpuService took to complete: 0ms
+10-12 10:48:44.298   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.security.rkp.RemoteProvisioningService
+10-12 10:48:44.299   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.security.rkp.RemoteProvisioningService took to complete: 0ms
+10-12 10:48:44.300   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.cpu.CpuMonitorService
+10-12 10:48:44.307   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.cpu.CpuMonitorService took to complete: 0ms
+10-12 10:48:44.308   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.security.KeyChainSystemService
+10-12 10:48:44.312   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.security.KeyChainSystemService took to complete: 0ms
+10-12 10:48:44.312   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.BinaryTransparencyService
+10-12 10:48:44.312   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.BinaryTransparencyService took to complete: 0ms
+10-12 10:48:44.313   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.telecom.TelecomLoaderService
+10-12 10:48:44.313   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.telecom.TelecomLoaderService took to complete: 0ms
+10-12 10:48:44.313   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.accounts.AccountManagerService$Lifecycle
+10-12 10:48:44.313   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.accounts.AccountManagerService$Lifecycle took to complete: 0ms
+10-12 10:48:44.314   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.content.ContentService$Lifecycle
+10-12 10:48:44.314   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.content.ContentService$Lifecycle took to complete: 0ms
+10-12 10:48:44.314   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.deviceconfig.DeviceConfigInit$Lifecycle
+10-12 10:48:44.316   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.deviceconfig.DeviceConfigInit$Lifecycle took to complete: 0ms
+10-12 10:48:44.316   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.DropBoxManagerService
+10-12 10:48:44.317   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.DropBoxManagerService took to complete: 0ms
+10-12 10:48:44.317   650   650 D SystemServerTiming: OnBootPhase_200_com.android.ecm.EnhancedConfirmationService
+10-12 10:48:44.493   650   650 V SystemServerTiming: OnBootPhase_200_com.android.ecm.EnhancedConfirmationService took to complete: 0ms
+10-12 10:48:44.495   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.power.hint.HintManagerService
+10-12 10:48:44.497   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.power.hint.HintManagerService took to complete: 0ms
+10-12 10:48:44.497   650   650 D SystemServerTiming: OnBootPhase_200_com.android.role.RoleService
+10-12 10:48:44.497   650   650 V SystemServerTiming: OnBootPhase_200_com.android.role.RoleService took to complete: 0ms
+10-12 10:48:44.498   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.vibrator.VibratorManagerService$Lifecycle
+10-12 10:48:44.498   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.vibrator.VibratorManagerService$Lifecycle took to complete: 0ms
+10-12 10:48:44.498   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.alarm.AlarmManagerService
+10-12 10:48:44.499   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.alarm.AlarmManagerService took to complete: 1ms
+10-12 10:48:44.499   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.devicestate.DeviceStateManagerService
+10-12 10:48:44.499   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.devicestate.DeviceStateManagerService took to complete: 0ms
+10-12 10:48:44.499   650   650 D SystemServerTiming: OnBootPhase_200_com.android.server.camera.CameraServiceProxy
+10-12 10:48:44.500   650   650 V SystemServerTiming: OnBootPhase_200_com.android.server.camera.CameraServiceProxy took to complete: 0ms
+10-12 10:48:44.517   650   650 V SystemServerTiming: OnBootPhase_200 took to complete: 363ms
+10-12 10:48:44.811   504   598 D EGL_emulation: app_time_stats: avg=75.72ms min=16.56ms max=195.82ms count=11
+10-12 10:48:45.054   650   650 I WindowManager: No existing display settings, starting empty
+10-12 10:48:45.855   504   598 D EGL_emulation: app_time_stats: avg=59.33ms min=13.45ms max=174.35ms count=14
+10-12 10:48:46.055   363   368 W ServiceManagerCppClient: Service statscompanion didn't start. Returning NULL
+10-12 10:48:46.076   363   368 E statsd  : Uid 1000 does not have the android.permission.REGISTER_STATS_PULL_ATOM permission when registering atom 10110 (-1)
+10-12 10:48:46.226   650   700 I WindowTracing: Setting window tracing log level to 1
+10-12 10:48:46.227   650   700 I WindowTracing: Setting window tracing buffer capacity to 10485760bytes
+10-12 10:48:46.739   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:48:46.867   504   598 D EGL_emulation: app_time_stats: avg=30.77ms min=7.11ms max=60.11ms count=24
+10-12 10:48:47.959   504   598 D EGL_emulation: app_time_stats: avg=65.90ms min=22.46ms max=151.10ms count=12
+10-12 10:48:48.043   650   650 V SystemServerTiming: StartWindowManagerService took to complete: 3931ms
+10-12 10:48:48.044   650   650 D SystemServerTiming: SetWindowManagerService
+10-12 10:48:48.750   650   650 D inputflinger_bootstrap: android_logger: android_logger: log::set_logger failed: attempted to set a logger after the logging system was already initialized
+10-12 10:48:48.989   504   598 D EGL_emulation: app_time_stats: avg=67.12ms min=15.90ms max=129.08ms count=11
+10-12 10:48:50.063   504   598 D EGL_emulation: app_time_stats: avg=70.75ms min=12.80ms max=330.41ms count=11
+10-12 10:48:51.101   504   598 D EGL_emulation: app_time_stats: avg=44.24ms min=5.65ms max=154.63ms count=18
+10-12 10:48:51.233   650   650 I CameraManagerGlobal: Connecting to camera service

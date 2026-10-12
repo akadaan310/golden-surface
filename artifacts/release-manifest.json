@@ -1,0 +1,54 @@
+{
+  "createdAt": "2026-10-12T11:33:36.696144+00:00",
+  "project": "GOLDEN MOTION",
+  "version": "0.1.0",
+  "directives": [
+    "GM-ROOT-001",
+    "GM-RF-001"
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/golden-motion-debug.apk",
+      "bytes": 65978909,
+      "sha256": "32eb3c09914a3f3c2fdc6d528c8ac2df4963be26c63e90d57f19f835da8b00c4"
+    },
+    {
+      "path": "artifacts/golden-motion-source.tar.gz",
+      "bytes": 18875935,
+      "sha256": "c40aebd8b961ac9b2a358245b478b00b9e6600a2acad0238a299d92ce0d76b69"
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "bytes": 9355,
+      "sha256": "20a51307dc1898315ca2da4fa8308ce23c9b503f1df18a334fe64aee8691436a"
+    },
+    {
+      "path": "PROJECT_STATE.json",
+      "bytes": 48370,
+      "sha256": "f269dc71ef1be11b88493d7c3b9917b704a3d9cc378ddf1ecb5bdae5aabc7836"
+    },
+    {
+      "path": "EXPERIMENT_REGISTRY.json",
+      "bytes": 31625,
+      "sha256": "83c175c72cdfb05d91b6a2cbda6cc9d191507590236f7790e6d32fc17d20225b"
+    },
+    {
+      "path": "CAPABILITY_MATRIX.json",
+      "bytes": 25670,
+      "sha256": "4faef69fbdd67280a896e58e29095eb3bedae6fa92eeb97a6bed382c295a70ee"
+    }
+  ],
+  "validation": {
+    "graphPassed": 21,
+    "graphFailed": 0,
+    "graphBlockedPhysical": 1,
+    "unitIntegrationScientificTests": 177,
+    "browserScenarios": 21,
+    "physicalTrials": 0,
+    "nativeInstalledRuntime": "unverified",
+    "activeSoftwareRenderedFramesPerSecond": 8.0
+  },
+  "sourceArchiveContainsApk": false,
+  "physicalValidation": "pending",
+  "sourceArchiveInspection": "No installed dependencies, .env files, raw recordings, symlinks or APK included."
+}

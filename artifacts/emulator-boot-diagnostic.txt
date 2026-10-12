@@ -1,0 +1,302 @@
+--------- beginning of kernel
+10-12 10:44:03.310     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:03.321     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+--------- beginning of main
+10-12 10:44:04.102   504   598 D EGL_emulation: app_time_stats: avg=17.58ms min=3.40ms max=49.56ms count=36
+10-12 10:44:04.268   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:04.299     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:04.352     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:04.329   148  1359 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:04.355     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:05.135   504   598 D EGL_emulation: app_time_stats: avg=18.27ms min=2.40ms max=48.04ms count=26
+10-12 10:44:05.296   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:05.337     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:05.369   148  1360 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:05.390     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:05.394     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:06.137   504   598 D EGL_emulation: app_time_stats: avg=25.39ms min=4.95ms max=69.91ms count=24
+10-12 10:44:06.326   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:06.381     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:06.402   148  1361 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:06.412     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:06.427     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:06.487   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:44:07.172   504   598 D EGL_emulation: app_time_stats: avg=24.60ms min=5.17ms max=107.27ms count=26
+10-12 10:44:07.405   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:07.435     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:07.553     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:07.538   148  1362 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:07.584     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:08.201   504   598 D EGL_emulation: app_time_stats: avg=32.31ms min=4.74ms max=86.84ms count=22
+10-12 10:44:08.509   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:08.535     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:08.713     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:08.775     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:08.725   148  1363 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:09.205   504   598 D EGL_emulation: app_time_stats: avg=28.27ms min=4.13ms max=75.51ms count=23
+10-12 10:44:09.529   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:09.555     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:09.580   148  1364 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:09.603     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:09.606     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:10.205   504   598 D EGL_emulation: app_time_stats: avg=20.16ms min=6.78ms max=44.30ms count=24
+10-12 10:44:10.499   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:44:10.619   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:10.666     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:10.753   148  1365 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:10.771     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:10.779     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:11.206   504   598 D EGL_emulation: app_time_stats: avg=29.09ms min=3.05ms max=99.76ms count=19
+10-12 10:44:11.700   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:11.782     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:11.882     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:11.906     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:11.863   148  1366 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:12.230   504   598 D EGL_emulation: app_time_stats: avg=28.65ms min=3.47ms max=72.30ms count=19
+10-12 10:44:12.827   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:12.887     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:12.919     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:12.971   148  1367 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:12.996     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:13.286   504   598 D EGL_emulation: app_time_stats: avg=34.06ms min=6.08ms max=90.60ms count=21
+10-12 10:44:13.877   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:13.903     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:13.971     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:13.975     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:13.949   148  1368 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:14.299   504   598 D EGL_emulation: app_time_stats: avg=21.64ms min=4.20ms max=43.83ms count=28
+10-12 10:44:14.548   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:44:14.902   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:14.928     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:14.951   148  1369 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:14.974     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:14.979     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:15.302   504   598 D EGL_emulation: app_time_stats: avg=18.04ms min=3.90ms max=47.81ms count=29
+10-12 10:44:16.031   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:16.174     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:16.179   148  1370 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:16.203     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:16.213     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:16.328   504   598 D EGL_emulation: app_time_stats: avg=28.77ms min=4.89ms max=91.11ms count=23
+10-12 10:44:17.248   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:17.274     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:17.263   148  1371 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:17.284     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:17.288     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:17.350   504   598 D EGL_emulation: app_time_stats: avg=25.76ms min=4.84ms max=80.66ms count=20
+10-12 10:44:18.251   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:44:18.256   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:18.283     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:18.391     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:18.446     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:18.399   148  1372 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:18.405   504   598 D EGL_emulation: app_time_stats: avg=26.50ms min=4.79ms max=79.67ms count=29
+10-12 10:44:19.533   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:19.578     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:19.624     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:19.619   504   598 D EGL_emulation: app_time_stats: avg=95.89ms min=19.52ms max=186.55ms count=7
+10-12 10:44:19.627   148  1373 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:19.658     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:20.834   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:20.869   504   598 D EGL_emulation: app_time_stats: avg=622.61ms min=416.18ms max=829.05ms count=2
+10-12 10:44:20.982     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:21.104   148  1376 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:21.127     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:21.159     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:22.063   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:22.100     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:22.177   148  1377 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:22.200     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:22.202     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:22.198   504   598 D EGL_emulation: app_time_stats: avg=74.74ms min=12.78ms max=284.85ms count=14
+10-12 10:44:23.168   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:23.203     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:23.227     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:23.209   148  1379 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:23.230   504   598 D EGL_emulation: app_time_stats: avg=45.92ms min=6.17ms max=115.92ms count=17
+10-12 10:44:23.250     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:24.214     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=3000000 cc=10 chg=a
+10-12 10:44:24.224   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:24.254     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:24.271     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:24.272     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:24.247   148  1381 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:24.283   504   598 D EGL_emulation: app_time_stats: avg=47.31ms min=5.25ms max=117.18ms count=17
+10-12 10:44:25.299   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:25.315   504   598 D EGL_emulation: app_time_stats: avg=44.50ms min=6.65ms max=128.74ms count=16
+10-12 10:44:25.344     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:25.367   148  1383 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:25.390     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:25.401     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:26.079   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:44:26.329   504   598 D EGL_emulation: app_time_stats: avg=27.92ms min=3.22ms max=60.33ms count=23
+10-12 10:44:26.337   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:26.382     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:26.409     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:26.412     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:26.387   148  1385 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:27.361   504   598 D EGL_emulation: app_time_stats: avg=23.07ms min=3.58ms max=63.11ms count=25
+10-12 10:44:27.379   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:27.414     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:27.435     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:27.422   148  1386 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:27.462     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:27.569  1384  1384 W service : type=1400 audit(0.0:6): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_authsecret_default:s0 tclass=binder permissive=0
+10-12 10:44:27.623     0     0 I binder  : 1384:1384 transaction credentials failed
+10-12 10:44:27.623     0     0 I binder  : 1384:1384 transaction call to 402:0 failed 118632/29201/-1, size 0-0 line 3363
+10-12 10:44:27.618  1384  1384 E IPCThreadState: Binder transaction failure. id: 118632, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.639  1384  1384 E IPCThreadState: Binder transaction failure. id: 118654, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.663     0     0 I binder  : 1384:1384 transaction credentials failed
+10-12 10:44:27.663     0     0 I binder  : 1384:1384 transaction call to 389:0 failed 118654/29201/-1, size 0-0 line 3363
+10-12 10:44:27.637  1384  1384 W service : type=1400 audit(0.0:7): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_bluetooth_default:s0 tclass=binder permissive=0
+10-12 10:44:27.700     0     0 I binder  : 1384:1384 transaction credentials failed
+10-12 10:44:27.700     0     0 I binder  : 1384:1384 transaction call to 373:0 failed 118665/29201/-1, size 0-0 line 3363
+10-12 10:44:27.669  1384  1384 W service : type=1400 audit(0.0:8): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_audio_default:s0 tclass=binder permissive=0
+10-12 10:44:27.686  1384  1384 E IPCThreadState: Binder transaction failure. id: 118665, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.697  1384  1384 W service : type=1400 audit(0.0:9): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_camera_default:s0 tclass=binder permissive=0
+10-12 10:44:27.728     0     0 I binder  : 1384:1384 transaction credentials failed
+10-12 10:44:27.728     0     0 I binder  : 1384:1384 transaction call to 375:0 failed 118678/29201/-1, size 0-0 line 3363
+10-12 10:44:27.706  1384  1384 E IPCThreadState: Binder transaction failure. id: 118678, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.737  1384  1384 W service : type=1400 audit(0.0:10): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_camera_default:s0 tclass=binder permissive=0
+10-12 10:44:27.743  1384  1384 E IPCThreadState: Binder transaction failure. id: 118693, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.767     0     0 I binder  : 1384:1384 transaction credentials failed
+10-12 10:44:27.767     0     0 I binder  : 1384:1384 transaction call to 374:0 failed 118693/29201/-1, size 0-0 line 3363
+10-12 10:44:27.781  1384  1384 W service : type=1400 audit(0.0:11): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_contexthub_default:s0 tclass=binder permissive=0
+10-12 10:44:27.787  1384  1384 E IPCThreadState: Binder transaction failure. id: 118712, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.850  1384  1384 E IPCThreadState: Binder transaction failure. id: 118736, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.854  1384  1384 E IPCThreadState: Binder transaction failure. id: 118744, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.837  1384  1384 W service : type=1400 audit(0.0:12): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_graphics_composer_default:s0 tclass=binder permissive=0
+10-12 10:44:27.849  1384  1384 W service : type=1400 audit(0.0:13): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_health_default:s0 tclass=binder permissive=0
+10-12 10:44:27.893  1384  1384 W service : type=1400 audit(0.0:14): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_identity_default:s0 tclass=binder permissive=0
+10-12 10:44:27.906  1384  1384 E IPCThreadState: Binder transaction failure. id: 118753, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.917  1384  1384 E IPCThreadState: Binder transaction failure. id: 118763, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:27.905  1384  1384 W service : type=1400 audit(0.0:15): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_light_default:s0 tclass=binder permissive=0
+10-12 10:44:28.035  1384  1384 E IPCThreadState: Binder transaction failure. id: 118806, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.047  1384  1384 E IPCThreadState: Binder transaction failure. id: 118814, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.063  1384  1384 E IPCThreadState: Binder transaction failure. id: 118822, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.066  1384  1384 E IPCThreadState: Binder transaction failure. id: 118826, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.017  1384  1384 W service : type=1400 audit(0.0:16): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_power_default:s0 tclass=binder permissive=0
+10-12 10:44:28.041  1384  1384 W service : type=1400 audit(0.0:17): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_power_stats_default:s0 tclass=binder permissive=0
+10-12 10:44:28.057  1384  1384 W service : type=1400 audit(0.0:18): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.061  1384  1384 W service : type=1400 audit(0.0:19): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.089  1384  1384 W service : type=1400 audit(0.0:20): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.137  1384  1384 E IPCThreadState: Binder transaction failure. id: 118834, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.143  1384  1384 E IPCThreadState: Binder transaction failure. id: 118850, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.137  1384  1384 W service : type=1400 audit(0.0:21): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.145  1384  1384 W service : type=1400 audit(0.0:22): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.158  1384  1384 E IPCThreadState: Binder transaction failure. id: 118854, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.167  1384  1384 E IPCThreadState: Binder transaction failure. id: 118860, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.161  1384  1384 W service : type=1400 audit(0.0:23): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.203  1384  1384 E IPCThreadState: Binder transaction failure. id: 118871, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.197  1384  1384 W service : type=1400 audit(0.0:24): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.224  1384  1384 E IPCThreadState: Binder transaction failure. id: 118881, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.217  1384  1384 W service : type=1400 audit(0.0:25): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.245  1384  1384 E IPCThreadState: Binder transaction failure. id: 118891, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.241  1384  1384 W service : type=1400 audit(0.0:26): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:rild:s0 tclass=binder permissive=0
+10-12 10:44:28.253  1384  1384 W service : type=1400 audit(0.0:27): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_rebootescrow_default:s0 tclass=binder permissive=0
+10-12 10:44:28.258  1384  1384 E IPCThreadState: Binder transaction failure. id: 118895, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.301     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=android.hardware.security.keymint.IKeyMintDevice/default scontext=u:r:shell:s0 tcontext=u:object_r:hal_keymint_service:s0 tclass=service_manager permissive=0
+10-12 10:44:28.363   504   598 D EGL_emulation: app_time_stats: avg=28.78ms min=7.76ms max=69.96ms count=24
+10-12 10:44:28.349     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=android.hardware.security.secureclock.ISecureClock/default scontext=u:r:shell:s0 tcontext=u:object_r:hal_secureclock_service:s0 tclass=service_manager permissive=0
+10-12 10:44:28.380     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=android.hardware.security.sharedsecret.ISharedSecret/default scontext=u:r:shell:s0 tcontext=u:object_r:hal_sharedsecret_service:s0 tclass=service_manager permissive=0
+10-12 10:44:28.386  1384  1384 E IPCThreadState: Binder transaction failure. id: 118942, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.391  1384  1384 E IPCThreadState: Binder transaction failure. id: 118946, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.381  1384  1384 W service : type=1400 audit(0.0:28): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_sensors_default:s0 tclass=binder permissive=0
+10-12 10:44:28.407  1384  1384 E IPCThreadState: Binder transaction failure. id: 118952, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.410  1384  1384 E IPCThreadState: Binder transaction failure. id: 118957, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.412   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:28.427  1384  1384 E IPCThreadState: Binder transaction failure. id: 118964, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.385  1384  1384 W service : type=1400 audit(0.0:29): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_usb_default:s0 tclass=binder permissive=0
+10-12 10:44:28.397  1384  1384 W service : type=1400 audit(0.0:30): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_vibrator_default:s0 tclass=binder permissive=0
+10-12 10:44:28.405  1384  1384 W service : type=1400 audit(0.0:31): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_vibrator_default:s0 tclass=binder permissive=0
+10-12 10:44:28.421  1384  1384 W service : type=1400 audit(0.0:32): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:hal_wifi_default:s0 tclass=binder permissive=0
+10-12 10:44:28.438   148  1387 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:28.443     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:28.461     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:28.463     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:28.606     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=android.service.gatekeeper.IGateKeeperService scontext=u:r:shell:s0 tcontext=u:object_r:gatekeeper_service:s0 tclass=service_manager permissive=0
+10-12 10:44:28.613  1384  1384 W service : type=1400 audit(0.0:33): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:netd:s0 tclass=binder permissive=0
+10-12 10:44:28.619  1384  1384 E IPCThreadState: Binder transaction failure. id: 119055, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.643  1384  1384 E IPCThreadState: Binder transaction failure. id: 119064, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:28.637  1384  1384 W service : type=1400 audit(0.0:34): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:system_suspend:s0 tclass=binder permissive=0
+10-12 10:44:28.684     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=apexservice scontext=u:r:shell:s0 tcontext=u:object_r:apex_service:s0 tclass=service_manager permissive=0
+10-12 10:44:28.822     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=dnsresolver scontext=u:r:shell:s0 tcontext=u:object_r:dnsresolver_service:s0 tclass=service_manager permissive=0
+10-12 10:44:29.218     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=incident scontext=u:r:shell:s0 tcontext=u:object_r:incident_service:s0 tclass=service_manager permissive=0
+10-12 10:44:29.263     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=installd scontext=u:r:shell:s0 tcontext=u:object_r:installd_service:s0 tclass=service_manager permissive=0
+10-12 10:44:29.398     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=mdns scontext=u:r:shell:s0 tcontext=u:object_r:mdns_service:s0 tclass=service_manager permissive=0
+10-12 10:44:29.405   504   598 D EGL_emulation: app_time_stats: avg=35.34ms min=7.24ms max=70.43ms count=21
+10-12 10:44:29.478   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:29.674     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:29.670   148  1388 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:29.693     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:29.695     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:29.841     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=netd scontext=u:r:shell:s0 tcontext=u:object_r:netd_service:s0 tclass=service_manager permissive=0
+10-12 10:44:30.119   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:44:30.229     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=suspend_control scontext=u:r:shell:s0 tcontext=u:object_r:system_suspend_control_service:s0 tclass=service_manager permissive=0
+10-12 10:44:30.241     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=suspend_control_internal scontext=u:r:shell:s0 tcontext=u:object_r:system_suspend_control_internal_service:s0 tclass=service_manager permissive=0
+10-12 10:44:30.488  1384  1384 E Parcel  : Reading a NULL string not supported here.
+10-12 10:44:30.663   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:30.592   504   598 D EGL_emulation: app_time_stats: avg=40.15ms min=6.48ms max=288.92ms count=19
+10-12 10:44:30.727     0     0 E SELinux : avc:  denied  { find } for pid=1384 uid=2000 name=vold scontext=u:r:shell:s0 tcontext=u:object_r:vold_service:s0 tclass=service_manager permissive=0
+10-12 10:44:30.707  1384  1384 E IPCThreadState: Binder transaction failure. id: 119596, BR_*: 29201, error: -1 (Operation not permitted)
+10-12 10:44:30.701  1384  1384 W service : type=1400 audit(0.0:35): avc:  denied  { call } for  scontext=u:r:shell:s0 tcontext=u:r:wificond:s0 tclass=binder permissive=0
+10-12 10:44:30.753     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:30.751   148  1390 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:30.774     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:30.775     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:31.634   504   598 D EGL_emulation: app_time_stats: avg=68.83ms min=10.24ms max=147.97ms count=12
+10-12 10:44:31.794   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:31.847     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:31.946     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:31.950   148  1393 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:32.004     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:32.665   504   598 D EGL_emulation: app_time_stats: avg=95.43ms min=36.38ms max=165.13ms count=10
+10-12 10:44:32.927     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:32.893   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:32.966     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:32.945   148  1394 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:32.970     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:33.694   504   598 D EGL_emulation: app_time_stats: avg=31.79ms min=2.49ms max=94.28ms count=24
+10-12 10:44:33.985   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:34.015     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:34.043     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:34.091     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:34.065   148  1395 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:34.715   504   598 D EGL_emulation: app_time_stats: avg=57.58ms min=6.23ms max=206.16ms count=12
+10-12 10:44:35.050   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:35.084     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:35.152     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:35.135   148  1396 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:35.171     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:35.698   504   598 D EGL_emulation: app_time_stats: avg=190.47ms min=33.55ms max=425.06ms count=5
+10-12 10:44:36.127   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:36.360     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:36.416     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:36.433     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:36.408   148  1397 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:36.754   504   598 D EGL_emulation: app_time_stats: avg=145.56ms min=8.38ms max=350.00ms count=4
+10-12 10:44:37.405   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:37.452     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:37.546     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:37.555   148  1398 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:37.602     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:37.771   504   598 D EGL_emulation: app_time_stats: avg=37.53ms min=6.39ms max=224.00ms count=15
+10-12 10:44:37.998   504   598 D BootAnimation: Playing files = /product/media/bootanimation.zip/part3, Requested repeat = 0, playUntilComplete = false
+10-12 10:44:38.549   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:38.599     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:38.647     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:38.627   148  1399 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:38.678     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:39.538   504   598 D EGL_emulation: app_time_stats: avg=64.09ms min=4.81ms max=731.21ms count=20
+10-12 10:44:39.652   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:39.899     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:40.410     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:40.411   148  1402 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:40.466     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:40.570   504   598 D EGL_emulation: app_time_stats: avg=66.70ms min=12.00ms max=139.01ms count=9
+10-12 10:44:41.229   411   411 W ServiceManagerCppClient: Waited one second for activity (is service started? Number of threads started in the threadpool: 16. Are binder threads started and available?)
+10-12 10:44:41.257     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Since 'activity' could not be found trying to start it as a lazy AIDL service. (if it's not configured to be a lazy service, it may be stuck starting or still starting).
+10-12 10:44:41.246   148  1403 W libc    : Unable to set property "ctl.interface_start" to "aidl/activity": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+10-12 10:44:41.270     0     0 E init    : Control message: Could not find 'aidl/activity' for ctl.interface_start from pid: 148 (/system/bin/servicemanager)
+10-12 10:44:41.272     0     0 I servicemanager: Caller(pid=411,uid=1041,sid=u:r:audioserver:s0) Tried to start aidl service activity as a lazy service, but was unable to. Usually this happens when a service is not installed, but if the service is intended to be used as a lazy service, then it may be configured incorrectly.
+10-12 10:44:41.605   504   598 D EGL_emulation: app_time_stats: avg=33.63ms min=6.23ms max=125.68ms count=22

@@ -1,0 +1,3 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {remoteEventFresh,remoteFrameAllowed} from '../lib/remote.ts';
+test('relay action clock rejects old future and nonfinite events',()=>{assert.equal(remoteEventFresh(10000,10500),true);for(const t of [8000,12000,NaN,Infinity])assert.equal(remoteEventFresh(t,10000),false);});
+test('scalar RSSI has no spatial or scrolling preview capability',()=>{assert.equal(remoteFrameAllowed('measurement-space','rssi'),false);assert.equal(remoteFrameAllowed('measurement-space','range'),true);assert.equal(remoteFrameAllowed('unknown-m'),false);});

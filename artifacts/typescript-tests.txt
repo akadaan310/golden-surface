@@ -1,0 +1,22 @@
+
+> golden-motion@0.1.0 test
+> vitest run
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v2.1.9 /workspace/golden-motion
+
+ ✓ packages/isi/src/engine.test.ts (32 tests) 33ms
+ ✓ packages/isi/src/lifecycle.test.ts (6 tests) 123ms
+ ✓ services/relay/test/client.test.ts (4 tests) 513ms
+ ✓ services/relay/test/relay.test.ts (16 tests) 1130ms
+   ✓ authenticated loopback transport > binds only IPv4 loopback and authenticates an explicit subscriber role 330ms
+ ✓ services/relay/test/synthetic.test.ts (3 tests) 1141ms
+   ✓ the native-shaped command publishes bounded synthetic evidence, never physical phone evidence 607ms
+   ✓ cleans up reconnect attempts when the command fails to pair with an unavailable relay 397ms
+
+ Test Files  5 passed (5)
+      Tests  61 passed (61)
+   Start at  10:26:10
+   Duration  5.96s (transform 1.23s, setup 0ms, collect 3.29s, tests 2.94s, environment 1ms, prepare 3.04s)
+

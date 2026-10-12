@@ -1,0 +1,153 @@
+--------- beginning of system
+10-12 10:58:45.081   556   556 I SystemServerTiming: OnBootPhase_100_com.android.server.power.ThermalManagerService
+10-12 10:58:45.082   556   556 D SystemServerTiming: OnBootPhase_100_com.android.server.power.ThermalManagerService took to complete: 0ms
+10-12 10:58:45.082   556   556 I SystemServerTiming: OnBootPhase_100_com.android.server.recoverysystem.RecoverySystemService$Lifecycle
+10-12 10:58:45.082   556   556 D SystemServerTiming: OnBootPhase_100_com.android.server.recoverysystem.RecoverySystemService$Lifecycle took to complete: 0ms
+10-12 10:58:45.091   556   556 I SystemServerTiming: OnBootPhase_100_com.android.server.lights.LightsService
+10-12 10:58:45.092   556   556 D SystemServerTiming: OnBootPhase_100_com.android.server.lights.LightsService took to complete: 0ms
+10-12 10:58:45.092   556   556 I SystemServerTiming: OnBootPhase_100_com.android.server.display.DisplayManagerService
+--------- beginning of main
+10-12 10:58:45.191   337   526 E HWComposer: getSupportedContentTypes: getSupportedContentTypes failed for display 8141241408256768: Unsupported (8)
+10-12 10:58:45.439   414   414 W iorapd  : Reconnect to package manager service: 19 times
+10-12 10:58:45.446   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:45.511   556   609 I DisplayManagerService: Display device added: DisplayDeviceInfo{"Built-in Screen": uniqueId="local:8141241408256768", 320 x 640, modeId 1, defaultModeId 1, supportedModes [{id=1, width=320, height=640, fps=60.000004}], colorMode 0, supportedColorModes [0], HdrCapabilities HdrCapabilities{mSupportedHdrTypes=[], mMaxLuminance=500.0, mMaxAverageLuminance=500.0, mMinLuminance=0.0}, allmSupported false, gameContentTypeSupported false, density 160, 160.0 x 160.0 dpi, appVsyncOff 1000000, presDeadline 16666666, touch INTERNAL, rotation 0, type INTERNAL, address {port=0, model=0x1cec6a7a2b7b}, deviceProductInfo DeviceProductInfo{name=EMU_display_0, manufacturerPnpId=GGL, productId=1, modelYear=null, manufactureDate=ManufactureDate{week=27, year=2006}, relativeAddress=null}, state UNKNOWN, FLAG_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}
+10-12 10:58:45.783   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 3 lines
+10-12 10:58:45.993   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:46.184   337   337 D SurfaceFlinger: Setting power mode 2 on display 8141241408256768
+10-12 10:58:46.192   556   556 W SystemServiceManager: Service com.android.server.display.DisplayManagerService took 1100 ms in onBootPhase
+10-12 10:58:46.193   556   556 D SystemServerTiming: OnBootPhase_100_com.android.server.display.DisplayManagerService took to complete: 1090ms
+10-12 10:58:46.193   556   556 D SystemServerTiming: OnBootPhase_100 took to complete: 1130ms
+10-12 10:58:46.195   556   556 D SystemServerTiming: WaitForDisplay took to complete: 1133ms
+10-12 10:58:46.216   556   556 I SystemServerTiming: StartPackageManagerService
+10-12 10:58:46.230   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:46.343   556   556 I Watchdog: Pausing HandlerChecker: main thread for reason: packagemanagermain. Pause count: 1
+10-12 10:58:46.394   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:46.537   556   609 W StrictMode: No activity manager; failed to Dropbox violation.
+10-12 10:58:46.546   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:46.560   556   609 W StrictMode: No activity manager; failed to Dropbox violation.
+10-12 10:58:46.646   556   556 I PackageManagerTiming: create package manager
+10-12 10:58:46.598   556   609 I chatty  : uid=1000(system) android.display identical 4 lines
+10-12 10:58:46.631   556   609 W StrictMode: No activity manager; failed to Dropbox violation.
+10-12 10:58:46.650   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:46.658   556   609 I DisplayManagerService: Display device changed state: "Built-in Screen", ON
+10-12 10:58:46.717   556   556 I PackageManagerTiming: createSubComponents
+10-12 10:58:47.563   556   556 W FileUtils: Failed to chmod(/data/system/packages.list): android.system.ErrnoException: chmod failed: ENOENT (No such file or directory)
+10-12 10:58:47.598   556   556 D PackageManagerTiming: createSubComponents took to complete: 881ms
+10-12 10:58:47.598   556   556 I PackageManagerTiming: addSharedUsers
+10-12 10:58:47.603   556   556 D PackageManagerTiming: addSharedUsers took to complete: 4ms
+10-12 10:58:47.629   556   556 I PackageManagerTiming: get system config
+10-12 10:58:47.638   556   556 D PackageManagerTiming: get system config took to complete: 4ms
+10-12 10:58:47.726   556   556 D PackageManager: Directories scanned as system partitions: [/system:0, /vendor:524288, /odm:4194304, /oem:262144, /product:1048576, /system_ext:2097152, /apex/com.android.neuralnetworks:8388608, /apex/com.android.extservices:8388608, /apex/com.android.resolv:8388608, /apex/com.android.mediaprovider:8388608, /apex/com.android.media:8388608, /apex/com.android.i18n:8388608, /apex/com.android.conscrypt:8388608, /apex/com.android.os.statsd:8388608, /apex/com.android.cellbroadcast:8388608, /apex/com.android.apex.cts.shim:8388608, /apex/com.android.tethering:8388608, /apex/com.android.art:8388608, /apex/com.android.runtime:8388608, /apex/com.android.ipsec:8388608, /apex/com.android.adbd:8388608, /apex/com.android.wifi:8388608, /apex/com.android.permission:8388608, /apex/com.android.vndk.v30:8388608, /apex/com.android.media.swcodec:8388608, /apex/com.android.sdkext:8388608, /apex/com.android.tzdata:8388608]
+10-12 10:58:47.767   556   556 D SELinuxMMAC: Using policy file /system/etc/selinux/plat_mac_permissions.xml
+10-12 10:58:47.819   556   556 D SELinuxMMAC: Using policy file /vendor/etc/selinux/vendor_mac_permissions.xml
+10-12 10:58:47.828   556   556 I PackageManagerTiming: loadFallbacks
+10-12 10:58:47.701   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 9 lines
+10-12 10:58:47.840   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:47.866   556   556 D FallbackCategoryProvider: Found 1 fallback categories
+10-12 10:58:47.867   556   556 D PackageManagerTiming: loadFallbacks took to complete: 39ms
+10-12 10:58:47.867   556   556 I PackageManagerTiming: read user settings
+10-12 10:58:47.882   556   556 I PackageManager: No settings file; creating initial state
+10-12 10:58:47.928   556   556 D PackageManagerTiming: read user settings took to complete: 59ms
+10-12 10:58:47.961   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+--------- beginning of kernel
+10-12 10:58:48.266     0     0 E apexd   : Can't open /system_ext/apex for reading : No such file or directory
+10-12 10:58:48.267     0     0 E apexd   : Can't open /product/apex for reading : No such file or directory
+10-12 10:58:48.267     0     0 E apexd   : Can't open /vendor/apex for reading : No such file or directory
+10-12 10:58:50.497   556   641 I PackageParser2: Parse times for '/system/apex/com.android.apex.cts.shim.apex': parse=1861ms, update_cache=335 ms
+10-12 10:58:50.339   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 18 lines
+10-12 10:58:50.444   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:50.585   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:58:50.586   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:58:51.594   414   414 W iorapd  : Reconnect to package manager service: 20 times
+10-12 10:58:51.607   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:52.011   556   643 I PackageParser2: Parse times for '/system/apex/com.android.cellbroadcast.apex': parse=3640ms, update_cache=43 ms
+10-12 10:58:53.848   556   640 I PackageParser2: Parse times for '/system/apex/com.android.adbd.apex': parse=5470ms, update_cache=69 ms
+10-12 10:58:53.946   556   641 I PackageParser2: Parse times for '/system/apex/com.android.conscrypt.apex': parse=3401ms, update_cache=10 ms
+10-12 10:58:54.579   556   643 I PackageParser2: Parse times for '/system/apex/com.android.extservices.apex': parse=2505ms, update_cache=44 ms
+10-12 10:58:54.695   556   641 I PackageParser2: Parse times for '/system/apex/com.android.ipsec.apex': parse=702ms, update_cache=24 ms
+10-12 10:58:56.472   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 39 lines
+10-12 10:58:56.593   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:56.719   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:58:56.720   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:58:57.764   414   414 W iorapd  : Reconnect to package manager service: 21 times
+10-12 10:58:57.881   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:58:58.643   556   643 I PackageParser2: Parse times for '/system/apex/com.android.media.apex': parse=4011ms, update_cache=33 ms
+10-12 10:59:01.642   556   643 I PackageParser2: Parse times for '/system/apex/com.android.mediaprovider.apex': parse=2901ms, update_cache=86 ms
+10-12 10:59:02.714   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 34 lines
+10-12 10:59:02.825   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:02.939   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:02.959   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:03.962   414   414 W iorapd  : Reconnect to package manager service: 22 times
+10-12 10:59:04.008   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:08.786   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 27 lines
+10-12 10:59:08.916   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:09.124   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:09.145   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:10.159   414   414 W iorapd  : Reconnect to package manager service: 23 times
+10-12 10:59:10.315   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:10.394   556   641 I PackageParser2: Parse times for '/system/apex/com.android.media.swcodec.apex': parse=15565ms, update_cache=127 ms
+10-12 10:59:11.025   556   643 I PackageParser2: Parse times for '/system/apex/com.android.neuralnetworks.apex': parse=9260ms, update_cache=114 ms
+10-12 10:59:11.812   556   640 I PackageParser2: Parse times for '/system/apex/com.android.i18n.apex': parse=17708ms, update_cache=233 ms
+10-12 10:59:12.408   556   641 I PackageParser2: Parse times for '/system/apex/com.android.os.statsd.apex': parse=1927ms, update_cache=79 ms
+10-12 10:59:15.071   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 31 lines
+10-12 10:59:15.306   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:15.467   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:15.473   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:15.725   556   640 I PackageParser2: Parse times for '/system/apex/com.android.resolv.apex': parse=3788ms, update_cache=48 ms
+10-12 10:59:16.480   414   414 W iorapd  : Reconnect to package manager service: 24 times
+10-12 10:59:16.552   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:17.555   556   640 I PackageParser2: Parse times for '/system/apex/com.android.sdkext.apex': parse=1628ms, update_cache=199 ms
+10-12 10:59:17.608   556   643 I PackageParser2: Parse times for '/system/apex/com.android.permission.apex': parse=6483ms, update_cache=99 ms
+10-12 10:59:18.887   556   641 I PackageParser2: Parse times for '/system/apex/com.android.runtime.apex': parse=6145ms, update_cache=324 ms
+10-12 10:59:18.799     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=300000 cc=10 chg=a
+10-12 10:59:19.141     0     0 W hrtimer : interrupt took 8260773 ns
+10-12 10:59:21.251   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 21 lines
+10-12 10:59:21.479   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:21.786   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:21.849   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:22.116   556   643 I PackageParser2: Parse times for '/system/apex/com.android.tzdata.apex': parse=4011ms, update_cache=459 ms
+10-12 10:59:22.913   414   414 W iorapd  : Reconnect to package manager service: 25 times
+10-12 10:59:23.089   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:24.129   556   640 I PackageParser2: Parse times for '/system/apex/com.android.tethering.apex': parse=6119ms, update_cache=399 ms
+10-12 10:59:26.313   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 13 lines
+10-12 10:59:26.550   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:26.993   534   534 E netmgr  : qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:network' service: Invalid argument
+10-12 10:59:26.994   534   534 E netmgr  : Failed to open QEMU pipe 'qemud:network': Invalid argument
+10-12 10:59:27.078   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:27.279   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 1 line
+10-12 10:59:27.706   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:28.010   536   536 E wifi_forwarder: qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:wififorward' service: Invalid argument
+10-12 10:59:28.013   536   536 E wifi_forwarder: RemoteConnection failed to initialize: RemoteConnection failed to open pipe
+10-12 10:59:28.044   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:28.058   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:29.054   454   454 E livelock: sample 23.368s
+10-12 10:59:29.061   414   414 W iorapd  : Reconnect to package manager service: 26 times
+10-12 10:59:29.101   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:29.379   556   643 I PackageParser2: Parse times for '/system/apex/com.android.wifi.apex': parse=7041ms, update_cache=20 ms
+10-12 10:59:31.623     0     0 I init    : Untracked pid 652 received signal 1
+10-12 10:59:33.980   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 28 lines
+10-12 10:59:34.093   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:34.418   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:34.419   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:35.461   414   414 W iorapd  : Reconnect to package manager service: 27 times
+10-12 10:59:35.485   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:40.279   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 21 lines
+10-12 10:59:40.445   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:40.632   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:40.674   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:41.678   414   414 W iorapd  : Reconnect to package manager service: 28 times
+10-12 10:59:41.927   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:46.737   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 17 lines
+10-12 10:59:46.877   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:47.075   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:47.076   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:48.124   414   414 W iorapd  : Reconnect to package manager service: 29 times
+10-12 10:59:48.138   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:48.955     0     0 I init    : Untracked pid 655 received signal 1
+10-12 10:59:53.711     0     0 I init    : Untracked pid 662 received signal 1
+10-12 10:59:52.428   414   414 I chatty  : uid=1071(iorapd) /system/bin/iorapd identical 24 lines
+10-12 10:59:52.820   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...
+10-12 10:59:53.170   414   414 W ServiceManager: Service package_native didn't start. Returning NULL
+10-12 10:59:53.171   414   414 E iorapd  : Cannot get package manager service!
+10-12 10:59:54.310   414   414 W iorapd  : Reconnect to package manager service: 30 times
+10-12 10:59:54.435   414   414 I ServiceManager: Waiting for service 'package_native' on '/dev/binder'...

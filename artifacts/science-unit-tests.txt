@@ -1,0 +1,17 @@
+test_ble_adapter_rejects_nonfinite_stale_and_out_of_range (test_experiments.ComparativeTests.test_ble_adapter_rejects_nonfinite_stale_and_out_of_range) ... ok
+test_common_fusion_beats_anchored_optical_prior (test_experiments.ComparativeTests.test_common_fusion_beats_anchored_optical_prior) ... ok
+test_optical_projection_preserves_scale_ambiguity (test_experiments.ComparativeTests.test_optical_projection_preserves_scale_ambiguity) ... ok
+test_range_state_filter_reduces_constant_velocity_noise (test_experiments.ComparativeTests.test_range_state_filter_reduces_constant_velocity_noise) ... ok
+test_doppler_sign_changes_when_motion_reverses (test_science.AcousticTests.test_doppler_sign_changes_when_motion_reverses) ... ok
+test_matched_filter_recovers_fractional_delay (test_science.AcousticTests.test_matched_filter_recovers_fractional_delay) ... ok
+test_noise_only_no_hand_is_rejected (test_science.AcousticTests.test_noise_only_no_hand_is_rejected) ... ok
+test_nonfinite_and_negative_noise_are_rejected (test_science.AcousticTests.test_nonfinite_and_negative_noise_are_rejected) ... ok
+test_phase_tracks_small_displacement_but_is_ambiguous (test_science.AcousticTests.test_phase_tracks_small_displacement_but_is_ambiguous) ... ok
+test_reflector_and_wrong_sound_speed_have_real_effect (test_science.AcousticTests.test_reflector_and_wrong_sound_speed_have_real_effect) ... ok
+test_scalar_range_cannot_observe_three_dimensions (test_science.AcousticTests.test_scalar_range_cannot_observe_three_dimensions) ... ok
+test_seeded_forward_model_is_repeatable (test_science.AcousticTests.test_seeded_forward_model_is_repeatable) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 15.541s
+
+OK
